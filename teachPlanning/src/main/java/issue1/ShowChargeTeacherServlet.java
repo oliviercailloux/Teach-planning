@@ -39,7 +39,7 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 					+"</html>");
 		} catch(NumberFormatException e) {
 			out.println("<"
-					+ "html>"
+					+ "<html>"
 					+ "	<body>"
 					+ "		<p>L'enseignant renseigné n'est pa : teacher = " + teacher + "</p>"
 					+ "	</body>"
