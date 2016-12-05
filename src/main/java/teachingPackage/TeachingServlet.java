@@ -48,17 +48,26 @@ public class TeachingServlet extends HttpServlet {
 		teachingList.add(newTeaching);
 		 
 		PrintWriter pw=resp.getWriter();
-		pw.println("Nouvelle matière ajoutée " + newTeaching.getName() + "<br/>");
+		/*pw.println("Nouvelle matière ajoutée " + newTeaching.getName() + "<br/>");
 		pw.println("Nb cours magistraux " + newTeaching.getNbCM() + "<br/>");
 		pw.println("Nb cours tp " + newTeaching.getNbTP() + "<br/>");
 		pw.println("Nb cours td " + newTeaching.getNbTD() + "<br/>");
 		pw.println("Nb cours cmtd " + newTeaching.getNbCMTD() + "<br/>");
-		pw.println("Nb groupes " + newTeaching.getNbGrp());
+		pw.println("Nb groupes " + newTeaching.getNbGrp());*/
 		
-		pw.println(teachingList.toString());
+		//pw.println(teachingList.toString());
 		
 		//doGet(req, resp);
 		
+		pw.println("<h2>Nouvelle matière ajoutée !</h2> <br/>");
+		pw.println(newTeaching.toString() + "<br/>");
+		pw.println("<a href=\"jsps/addTeaching.jsp\">Ajouter une nouvelle matière</a><br/>");
+		pw.println("<a href=\"jsps/listTeaching.jsp\">Liste des matières</a><br/>");
+		
+		pw.println("<h1>Liste des matières</h1><br/>");
+		for(Teaching t : teachingList) {
+			pw.println(t.toString() + "<br/>");
+		}	
 	}
 	
 }
