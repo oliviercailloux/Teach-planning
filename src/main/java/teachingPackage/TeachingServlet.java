@@ -3,6 +3,7 @@ package teachingPackage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-@WebServlet("/addNewTeaching")
+@WebServlet(name="TeachingServlet", urlPatterns={"/addNewTeaching"})
 public class TeachingServlet extends HttpServlet {
 	
 	/**
@@ -20,14 +21,15 @@ public class TeachingServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	/*
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//this.getServletContext().getRequestDispatcher("/WebContent/addTeaching.jsps").forward(req, resp);
-		PrintWriter pw=resp.getWriter();
-		pw.println("TEST " + req.getParameter("teachingName"));
-	}
-	*/
+	private ArrayList<Teaching> teachingList = new ArrayList<Teaching>();
+	
+	
+	//protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//this.getServletContext().getRequestDispatcher("/webapp/jsps/addTeaching.jsp").forward(req, resp);
+		//PrintWriter pw=resp.getWriter();
+		//pw.println("HELLO I M HERE");
+	//}
+	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,11 +45,20 @@ public class TeachingServlet extends HttpServlet {
 		int grp = Integer.parseInt(req.getParameter("Grp"));
 		
 		Teaching newTeaching = new Teaching(teachingName, cm, td, tp, cmtd, grp);
-		
-		//doGet(req, resp);
+		teachingList.add(newTeaching);
 		 
 		PrintWriter pw=resp.getWriter();
-		pw.println("Nouvelle matière ajoutée " + newTeaching.getName());
+		pw.println("Nouvelle matière ajoutée " + newTeaching.getName() + "<br/>");
+		pw.println("Nb cours magistraux " + newTeaching.getNbCM() + "<br/>");
+		pw.println("Nb cours tp " + newTeaching.getNbTP() + "<br/>");
+		pw.println("Nb cours td " + newTeaching.getNbTD() + "<br/>");
+		pw.println("Nb cours cmtd " + newTeaching.getNbCMTD() + "<br/>");
+		pw.println("Nb groupes " + newTeaching.getNbGrp());
+		
+		pw.println(teachingList.toString());
+		
+		//doGet(req, resp);
+		
 	}
 	
 }

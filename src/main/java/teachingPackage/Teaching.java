@@ -63,4 +63,9 @@ public class Teaching {
 		NbGrp = nbGrp;
 	}
 	
+	@Override
+	public String toString() {
+		return("hello");
+	}
+	
 }
