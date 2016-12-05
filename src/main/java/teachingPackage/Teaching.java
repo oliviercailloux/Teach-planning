@@ -3,7 +3,6 @@ package teachingPackage;
 public class Teaching {
 	
 	private String name;
-
 	private int NbCM, NbTD, NbTP, NbCMTD, NbGrp;
 	
 	public Teaching(String name,int NbCM,int NbTD,int NbTP,int NbCMTD,int NbGrp){
