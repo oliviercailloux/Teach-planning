@@ -14,9 +14,11 @@ import javax.ws.rs.core.MediaType;
 /**
  * Servlet implementation class ShowChargeTeacherServlet
  */
+
 public class ShowChargeTeacherServlet extends HttpServlet {
 	 
 	private static final long serialVersionUID = 1L;
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -26,17 +28,24 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 		response.setContentType(MediaType.TEXT_HTML);
 		response.setLocale(Locale.FRENCH);
 
+		//Logger logger = Logger.getLogger(getClass().getName());
 		Print print = new Print(response);
 		
-		String teacher = request.getParameter("teacher");
-		
-		Logger logger = Logger.getLogger(getClass().getName());
-		
-		if(teacher != null){
-			print.printCharge(teacher);
-		}else{
+		String teacherName = request.getParameter("nom");
+		String teacherSurname = request.getParameter("prenom");
+
+		if (teacherName != null && teacherSurname != null) {
+			String teacher = teacherName + " " + teacherSurname;			
+			if (print.findTeacher(teacher) != -1) {
+				print.printCharge(teacher, print.findTeacher(teacher));
+			} else {
+				print.printErrorNotFound(teacher); 
+			}
+		}  else {
+			String teacher = null; 
 			print.printErrorRecup(teacher);
-			logger.severe("L'enseignant n'est pas renseigné : "+teacher);
+			//logger.severe("L'enseignant n'est pas renseigné : "+teacher);
 		}
+
 	}
 }
