@@ -1,4 +1,4 @@
-package teachPlanning;
+package issue4;
 
 public class Teaching {
 	String name;
