@@ -8,11 +8,20 @@
     	<servlet-name>ResearchTeachingServlet</servlet-name>
     	<servlet-class>issue4.ResearchTeachingServlet</servlet-class>
 	</servlet>
+	<servlet>
+    	<servlet-name>ListAndResearchServlet</servlet-name>
+    	<servlet-class>issue4.ListAndResearchServlet</servlet-class>
+	</servlet>
+	
 
 	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
     	<url-pattern>/searchTeaching</url-pattern>
 	</servlet-mapping>   
+	<servlet-mapping>
+    	<servlet-name>ListAndResearchServlet</servlet-name>
+    	<url-pattern>/listandsearch</url-pattern>
+	</servlet-mapping>  
 </web-app>
 
 

@@ -28,12 +28,41 @@ public class ResearchTeaching {
 		list.add(b);
 		list.add(c);	
 	}
+	public void afficheform() throws IOException{
+
+		out.println("<body>");
+
+		out.println("<form method='GET' name='searchTeaching' action='searchTeaching'>");
+		out.println("<h1><span style='color: blue'>Teaching Research </span></h1></br>");
+		out.println("<p>Please indicate the teaching for which you wish to obtain information :</p>");
+		out.println("<table>");
+		out.println("<tr>");
+		out.println("<td><input type='text' id='Name' name='Name' /></td>");
+		out.println("<td><input type='submit' value='Search' /></td>");
+		out.println("</tr>");
+		out.println("</table>");
+		out.println("</form>");
+		out.println("<form method='GET' action='index.jsp'>");
+		out.println("<table>");
+		out.println("<tr>");
+		out.println("<td><input type='submit' value='Return to Homepage' /></td>");
+		out.println("</tr>");
+		out.println("</table>");
+		out.println("</form>");
+		out.println("<html><br><span style='color: blue'> In order to help you, please find below a list of the existing teaching </span></br>");
+		for(int i=0; i<list.size();i++){
+			out.println("<br>"+list.get(i).getName()+"</br>");
+		}
+		out.println("</body>");
+		out.println("<html>");
+	}
+	
 	public void search(String teaching)throws IOException{
 		boolean founded=false;
 		for(int i=0; i<list.size();i++){
 			if (list.get(i).getName().equals(teaching)){
 				founded=true;
-				out.println("<h1> Teaching : "+teaching+"</h1>");
+				out.println("<h1><span style='color: blue'> Teaching : "+teaching+"</span></h1>");
 				out.println(
 						"<html>"
 						+ "<body>"
@@ -42,6 +71,8 @@ public class ResearchTeaching {
 						+ "	<p> Number of TP : "+list.get(i).getTp()+"</p>"
 						+ "	<p> Number of CMTD : "+list.get(i).getCmtd()+"</p>"
 						+ "	<p> Number of Groups : "+list.get(i).getGrp()+"</p>"
+						+"<form method='GET'  action='index.jsp'><table><tr><td><input type='submit' value='Return to Homepage' /></td></tr></table></form>"
+
 						+ "</body>"
 						+"</html>");
 			}
@@ -51,6 +82,7 @@ public class ResearchTeaching {
 			"<html>"
 			+ "<body>"
 			+ "	<p> This teaching doesn't exist </p>"
+			+"<form method='GET'  action='index.jsp'><table><tr><td><input type='submit' value='Return to Homepage' /></td></tr></table></form>"
 			+"</body>"
 			+"</html>");
 		}
