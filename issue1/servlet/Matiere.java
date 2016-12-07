@@ -1,4 +1,4 @@
-package issue1;
+package servlet;
 
 public class Matiere {
 	

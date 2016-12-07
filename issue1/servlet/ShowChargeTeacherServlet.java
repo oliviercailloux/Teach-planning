@@ -1,4 +1,4 @@
-package issue1;
+package servlet;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
