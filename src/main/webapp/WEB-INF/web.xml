@@ -5,6 +5,16 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
    	<servlet>
+    	<servlet-name>TeachingServlet</servlet-name>
+    	<servlet-class>teachingPackage.TeachingServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+    	<servlet-name>TeachingServlet</servlet-name>
+    	<url-pattern>/addNewTeaching</url-pattern>
+	</servlet-mapping>  
+	
+	<servlet>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
     	<servlet-class>issue4.ResearchTeachingServlet</servlet-class>
 	</servlet>
@@ -21,9 +31,18 @@
 	<servlet-mapping>
     	<servlet-name>ListAndResearchServlet</servlet-name>
     	<url-pattern>/listandsearch</url-pattern>
-	</servlet-mapping>  
+	</servlet-mapping> 
+
+	<servlet>
+  	<servlet-name>ShowChargeTeacherServlet</servlet-name>
+  	<display-name>ShowChargeTeacherServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.ShowChargeTeacherServlet</servlet-class>
+
+  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ShowChargeTeacherServlet</servlet-name>
+  	<url-pattern>/ShowChargeTeacherServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
-
-
-
-  
