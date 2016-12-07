@@ -15,8 +15,6 @@
       <scope>test</scope>
     </dependency>
     
-    
-    
 <dependency>
    <groupId>javax.servlet</groupId>
    <artifactId>javax.servlet-api</artifactId>
@@ -36,12 +34,26 @@
 </dependency>
   </dependencies>
   
-  
-  
-  
-  
-  
   <build>
     <finalName>teachPlanning</finalName>
+     <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+        </configuration>
+    </plugin>    
+    </plugins>   
   </build>
 </project>
