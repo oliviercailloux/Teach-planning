@@ -29,7 +29,7 @@ public class ResearchTeaching {
 		list.add(c);	
 	}
 	public void afficheform() throws IOException{
-
+out.println("<html>");
 		out.println("<body>");
 
 		out.println("<form method='GET' name='searchTeaching' action='searchTeaching'>");
@@ -54,7 +54,7 @@ public class ResearchTeaching {
 			out.println("<br>"+list.get(i).getName()+"</br>");
 		}
 		out.println("</body>");
-		out.println("<html>");
+		out.println("</html>");
 	}
 	
 	public void search(String teaching)throws IOException{
@@ -62,11 +62,10 @@ public class ResearchTeaching {
 		for(int i=0; i<list.size();i++){
 			if (list.get(i).getName().equals(teaching)){
 				founded=true;
+				out.println("<html>");
+				out.println("<body>");
 				out.println("<h1><span style='color: blue'> Teaching : "+teaching+"</span></h1>");
-				out.println(
-						"<html>"
-						+ "<body>"
-						+ "	<p> Number of CM : "+list.get(i).getCm()+"</p>"
+				out.println("	<p> Number of CM : "+list.get(i).getCm()+"</p>"
 						+ "	<p> Number of TD : "+list.get(i).getTd()+"</p>"
 						+ "	<p> Number of TP : "+list.get(i).getTp()+"</p>"
 						+ "	<p> Number of CMTD : "+list.get(i).getCmtd()+"</p>"
