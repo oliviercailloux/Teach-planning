@@ -37,7 +37,7 @@
   	<servlet-name>ShowChargeTeacherServlet</servlet-name>
   	<display-name>ShowChargeTeacherServlet</display-name>
   	<description></description>
-  	<servlet-class>servlet.ShowChargeTeacherServlet</servlet-class>
+  	<servlet-class>issue1.ShowChargeTeacherServlet</servlet-class>
 
   	
   </servlet>
