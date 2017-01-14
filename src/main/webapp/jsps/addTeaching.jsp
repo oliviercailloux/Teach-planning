@@ -44,7 +44,7 @@
 					<td><input type="submit" value="Ajouter un enseignement" /></td>
 				</tr>
 			</table>
-	
+			<a href="../index.jsp"> Retour à l'accueil </a>
 		</form>
 
 	</body>

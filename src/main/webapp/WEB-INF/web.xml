@@ -40,7 +40,7 @@
 	
   	<servlet-mapping>
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
-  		<url-pattern>/ShowChargeTeacherServlet</url-pattern>
+  		<url-pattern>/chargeTeacher</url-pattern>
   	</servlet-mapping>  
 </web-app>
 

@@ -43,6 +43,12 @@ public class Print {
 				+ "	<body>"
 				+ "<h1> Charge totale de l'enseignant : "+ teacher +"</h1>"
 				+ "		<p>ERREUR : L'enseignant est inconnu. </p>"
+				+ "		<p> Essayer la liste suivante </p>"
+				+ "		<ul>"
+				+ "			<li>AFGOUSTIDIS Alexandre</li>"
+				+ "			<li>AIRIAU Stephane</li>"
+				+ "			<li>AISSI Hassan</li>"
+				+ "		</ul>"
 				+ "	</body>"
 				+ "</html>");		
 	}
@@ -73,6 +79,7 @@ public class Print {
 		}
 	
 		sb.append("</table>");
+		sb.append("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 		sb.append("</body>");
 		sb.append("</html>");
 		
@@ -85,8 +92,13 @@ public class Print {
 		out.println(
 				"<html>"
 				+ "	<body>"
-				+ "<h1> Charge totale de l'enseignant : </h1>"
-				+ "		<p>ERREUR : L'enseignant n'est pas renseigné (nom et prénom manquants). </p>"
+				+ "<h1> Pour visualiser la charge d'un enseignant cliquer sur son lien :</h1>"
+				+ "		<ul>"
+				+ "			<li><a href =\"chargeTeacher?nom=AFGOUSTIDIS&prenom=Alexandre\">AFGOUSTIDIS Alexandre</a></li>"
+				+ "			<li><a href =\"chargeTeacher?nom=AIRIAU&prenom=Stephane\">AIRIAU Stephane</a></li>"
+				+ "			<li><a href =\"chargeTeacher?nom=AISSI&prenom=Hassan\">AISSI Hassan</a></li>"
+				+ "		</ul>"
+				+ "		<a href=\"index.jsp\"> Retour à l'accueil </a>"
 				+ "	</body>"
 				+ "</html>");
 	}

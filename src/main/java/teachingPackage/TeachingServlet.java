@@ -68,6 +68,7 @@ public class TeachingServlet extends HttpServlet {
 		for(Teaching t : teachingList) {
 			pw.println(t.toString() + "<br/>");
 		}	
+		pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 	}
 	
 }

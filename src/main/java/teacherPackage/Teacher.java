@@ -20,6 +20,10 @@ public class Teacher {
 		return this.nom;
 	}
 	
+	public void setPref(Matiere teaching){
+		
+	}
+	
 	@Override
 	public String toString() {
 
