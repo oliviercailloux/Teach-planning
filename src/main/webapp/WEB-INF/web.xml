@@ -42,6 +42,20 @@
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
   		<url-pattern>/chargeTeacher</url-pattern>
   	</servlet-mapping>  
+  	
+  	
+  	
+  		
+	<servlet>
+    	<servlet-name>PreferenceServlet</servlet-name>
+    	<servlet-class>teachingPackage.PreferenceServlet</servlet-class>
+	</servlet>
+  	
+  	 <servlet-mapping>
+    	<servlet-name>PreferenceServlet</servlet-name>
+    	<url-pattern>/addPref</url-pattern>
+	</servlet-mapping>
+  	
 </web-app>
 
 

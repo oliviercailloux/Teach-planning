@@ -41,11 +41,11 @@
 						<td></td>
 						<td>12h</td>
 						<td>
-							<select name="choix">
-							  <option value="choix0"></option>
-							  <option value="choixA">Choix A</option>
-							  <option value="choixB">Choix B</option>
-							  <option value="choixC">Choix C</option>
+							<select id="RaN" name="choix">
+							  <option id="RaN0" value="choix0"></option>
+							  <option id="RaNA" value="choixA">Choix A</option>
+							  <option id="RaNB" value="choixB">Choix B</option>
+							  <option id="RaNC" value="choixC">Choix C</option>
 							</select>
 						</td>
 						<td>
@@ -57,8 +57,8 @@
 						<td>A3APP01</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
-							  <option value="choix0"></option>
+							<select id="Logique" name="choix">
+							  <option  value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
 							  <option value="choixC">Choix C</option>
