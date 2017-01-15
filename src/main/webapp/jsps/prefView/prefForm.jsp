@@ -41,11 +41,11 @@
 						<td></td>
 						<td>12h</td>
 						<td>
-							<select id="RaN" name="choix">
-							  <option id="RaN0" value="choix0"></option>
-							  <option id="RaNA" value="choixA">Choix A</option>
-							  <option id="RaNB" value="choixB">Choix B</option>
-							  <option id="RaNC" value="choixC">Choix C</option>
+							<select id="RaN" name="RaN">
+							  <option value="choix0"></option>
+							  <option value="choixA">Choix A</option>
+							  <option value="choixB">Choix B</option>
+							  <option value="choixC">Choix C</option>
 							</select>
 						</td>
 						<td>
@@ -57,8 +57,8 @@
 						<td>A3APP01</td>
 						<td>30h</td>
 						<td>
-							<select id="Logique" name="choix">
-							  <option  value="choix0"></option>
+							<select id="Logique" name="Logique">
+							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
 							  <option value="choixC">Choix C</option>
@@ -73,7 +73,7 @@
 						<td>A3APP02</td>
 						<td>48h</td>
 						<td>
-							<select name="choix">
+							<select name="Graphes">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -89,7 +89,7 @@
 						<td>A3APP03</td>
 						<td>51h</td>
 						<td>
-							<select name="choix">
+							<select name="BDR">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -105,7 +105,7 @@
 						<td>A3APP14</td>
 						<td>36h</td>
 						<td>
-							<select name="choix">
+							<select name="Proba">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -121,7 +121,7 @@
 						<td>A3APP05</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="ExprCom">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -137,7 +137,7 @@
 						<td>A3APP06</td>
 						<td>42h</td>
 						<td>
-							<select name="choix">
+							<select name="AnaData">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -153,7 +153,7 @@
 						<td>A3APP07</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="Finance">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -169,7 +169,7 @@
 						<td>A3APP09</td>
 						<td>20h</td>
 						<td>
-							<select name="choix">
+							<select name="Ang5">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -185,7 +185,7 @@
 						<td>A3APP08</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="ISI1">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -212,7 +212,7 @@
 						<td>A3APP10</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="ISI2">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -228,7 +228,7 @@
 						<td>A3APP11</td>
 						<td>36h</td>
 						<td>
-							<select name="choix">
+							<select name="Reseaux">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -244,7 +244,7 @@
 						<td>A3APP12</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="Compta">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -260,7 +260,7 @@
 						<td>A3APP13</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="Socio">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -276,7 +276,7 @@
 						<td>A3APP04</td>
 						<td>45h</td>
 						<td>
-							<select name="choix">
+							<select name="ProgLin">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -292,7 +292,7 @@
 						<td>A3APP17</td>
 						<td>36h</td>
 						<td>
-							<select name="choix">
+							<select name="Unix">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -308,7 +308,7 @@
 						<td>A3APP18</td>
 						<td>18h</td>
 						<td>
-							<select name="choix">
+							<select name="Ang6">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -324,7 +324,7 @@
 						<td>A3APP15</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="JavaObj">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -340,7 +340,7 @@
 						<td>A3APP16</td>
 						<td>20h</td>
 						<td>
-							<select name="choix">
+							<select name="ProjetJava">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -371,7 +371,7 @@
 						<td>A4APP06</td>
 						<td>36h</td>
 						<td>
-							<select name="choix">
+							<select name="JavaAv">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -387,7 +387,7 @@
 						<td>A4APP01</td>
 						<td>39h</td>
 						<td>
-							<select name="choix">
+							<select name="IA">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -403,7 +403,7 @@
 						<td>A4APP02</td>
 						<td>36h</td>
 						<td>
-							<select name="choix">
+							<select name="SAR">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -419,7 +419,7 @@
 						<td>A4APP04</td>
 						<td>39h</td>
 						<td>
-							<select name="choix">
+							<select name="SGBD">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -435,7 +435,7 @@
 						<td>A4APP08</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="AnaFi">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -451,7 +451,7 @@
 						<td>A4APP07</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="SIA1">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -468,7 +468,7 @@
 						<td>A4APP03</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="OrgCom">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -484,7 +484,7 @@
 						<td>A4APP09</td>
 						<td>39h</td>
 						<td>
-							<select name="choix">
+							<select name="Ang">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -500,7 +500,7 @@
 						<td></td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="LV2">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -528,7 +528,7 @@
 						<td>A4APP10</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="FouilleData">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -544,7 +544,7 @@
 						<td>A4APP11</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="SIA2">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -560,7 +560,7 @@
 						<td>A4APP13</td>
 						<td>30h</td>
 						<td>
-							<select name="choix">
+							<select name="AppliReseau">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -576,7 +576,7 @@
 						<td>A4APP12</td>
 						<td>36h</td>
 						<td>
-							<select name="choix">
+							<select name="Eapp">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -592,7 +592,7 @@
 						<td>A4APP14</td>
 						<td>39h</td>
 						<td>
-							<select name="choix">
+							<select name="Market">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -609,7 +609,7 @@
 						<td>A4APP19</td>
 						<td>24h</td>
 						<td>
-							<select name="choix">
+							<select name="MarcheFi">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -625,7 +625,7 @@
 						<td>A4APP15</td>
 						<td>24h</td>
 						<td>
-							<select name="choix">
+							<select name="C++">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -641,7 +641,7 @@
 						<td></td>
 						<td>24h</td>
 						<td>
-							<select name="choix">
+							<select name="DeciAnaMulti">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -657,7 +657,7 @@
 						<td></td>
 						<td>24h</td>
 						<td>
-							<select name="choix">
+							<select name="GestProdOrdo">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
@@ -673,7 +673,7 @@
 						<td></td>
 						<td>24h</td>
 						<td>
-							<select name="choix">
+							<select name="OptiComb">
 							  <option value="choix0"></option>
 							  <option value="choixA">Choix A</option>
 							  <option value="choixB">Choix B</option>
