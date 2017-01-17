@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import teachingPackage.Teaching;
+
 public class Print {
 	
 	HttpServletResponse response;
@@ -21,11 +23,11 @@ public class Print {
 		lesProfs.add(new Teacher("AIRIAU Stephane"));
 		lesProfs.add(new Teacher("AISSI Hassan"));
 		
-		lesProfs.get(0).addMatiere(new Matiere("Algebre lineaire 2", "CM", "D.E.1", 19.5 ,29.25 ));
-		lesProfs.get(1).addMatiere(new Matiere("JAVA OBJET", "CM","L3 INFO", 18,27));
-		lesProfs.get(1).addMatiere(new Matiere("INTELLIGENCE ARTIFICIELLE et raisonnement", "CM","M1 INFO", 18,27));
-		lesProfs.get(1).addMatiere(new Matiere("PROJET JAVA", "CM","L3 INFO", 1.50,2.25));
-		lesProfs.get(2).addMatiere(new Matiere("Décision ET analyse multicritère","CM","M1 INFO",18,27));
+		lesProfs.get(0).addMatiere(new Teaching("Algebre lineaire 2", "CM", "D.E.1", 19.5 ,29.25 ));
+		lesProfs.get(1).addMatiere(new Teaching("JAVA OBJET", "CM","L3 INFO", 18,27));
+		lesProfs.get(1).addMatiere(new Teaching("INTELLIGENCE ARTIFICIELLE et raisonnement", "CM","M1 INFO", 18,27));
+		lesProfs.get(1).addMatiere(new Teaching("PROJET JAVA", "CM","L3 INFO", 1.50,2.25));
+		lesProfs.get(2).addMatiere(new Teaching("Décision ET analyse multicritère","CM","M1 INFO",18,27));
 	}
 	
 	int findTeacher(String teacher) {
@@ -74,8 +76,8 @@ public class Print {
 
 		StringBuilder sb = new StringBuilder(toDisplay);
 
-		for(int k=0;k<lesProfs.get(indT).lesMatieres.size();k++) {
-			sb.append(lesProfs.get(indT).lesMatieres.get(k).toString());
+		for(int k=0;k<lesProfs.get(indT).getTeachings().size();k++) {
+			sb.append(lesProfs.get(indT).getTeachings().get(k).detailTeaching());
 		}
 	
 		sb.append("</table>");

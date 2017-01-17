@@ -24,7 +24,7 @@
 		</style>
 	</head>
 	<body>
-		<form action="#">
+		<form action="../../addPref" method="post">
 			<h1>L3 Mention informatique des Oganisations</h1>
 			<table>
 				<h2>Semestre 5</h2>

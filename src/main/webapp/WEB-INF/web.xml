@@ -14,7 +14,8 @@
     	<servlet-name>ListAndResearchServlet</servlet-name>
     	<servlet-class>teachingPackage.ListAndResearchServlet</servlet-class>
 	</servlet>
-	  	<servlet>
+	
+	<servlet>
     	<servlet-name>TeachingServlet</servlet-name>
     	<servlet-class>teachingPackage.TeachingServlet</servlet-class>
 	</servlet>
@@ -23,11 +24,17 @@
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
   		<servlet-class>teacherPackage.ShowChargeTeacherServlet</servlet-class>
   	</servlet>
-  	
+
+  	<servlet>
+    	<servlet-name>PreferenceServlet</servlet-name>
+    	<servlet-class>teacherPackage.PreferenceServlet</servlet-class>
+	</servlet>
+
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
     	<url-pattern>/searchTeaching</url-pattern>
-	</servlet-mapping>   
+	</servlet-mapping> 
+  
 	<servlet-mapping>
     	<servlet-name>ListAndResearchServlet</servlet-name>
     	<url-pattern>/listandsearch</url-pattern>
@@ -42,14 +49,6 @@
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
   		<url-pattern>/chargeTeacher</url-pattern>
   	</servlet-mapping>  
-  	
-  	
-  	
-  		
-	<servlet>
-    	<servlet-name>PreferenceServlet</servlet-name>
-    	<servlet-class>teachingPackage.PreferenceServlet</servlet-class>
-	</servlet>
   	
   	 <servlet-mapping>
     	<servlet-name>PreferenceServlet</servlet-name>
