@@ -95,9 +95,12 @@ public class Teacher {
 	
 	@Override
 	public String toString() {
-		// CODE CATHY MATHILDE A VERIF SI FONCTIONNEL AVEC CODE AMELIE ABDOULAYE
-		//return(this.getFirstname() + " " + this.getLastname() + " <i>"+this.getEmail()+"</i>");
-
+		return(this.getFirstname() + " " + this.getLastname() 
+			+ " <i>"+this.getEmail()+"</i>");
+	}
+	
+	// CODE QUI VIENT DE DIEU SEUL SAIT
+	/*public String getDetailTeaching() {
 		String mat = "";
 		StringBuilder sb = new StringBuilder(mat);
 		
@@ -105,6 +108,6 @@ public class Teacher {
 			sb.append(teachings.get(i).detailTeaching());
 		}
 		return sb.toString();
-	}
+	}*/
 
 }
