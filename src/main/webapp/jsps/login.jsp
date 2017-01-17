@@ -11,6 +11,15 @@
 		<h1>Teach Planning app</h1>
 		
 		<%
+			if(session.getAttribute("errorLogin") != null) {
+		%>
+			<p style="color:red"><%= session.getAttribute("errorLogin") %></p>
+		<%
+			session.setAttribute("errorLogin", null);
+			}
+		%>
+		
+		<%
 			if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("admin")) {
 		%>
 		
