@@ -29,8 +29,7 @@ public class TeachingServlet extends HttpServlet {
 		//this.getServletContext().getRequestDispatcher("/webapp/jsps/addTeaching.jsp").forward(req, resp);
 		//req.setAttribute("teachingName", "CM");
 		//req.getRequestDispatcher("listTeaching.jsp").forward(req, resp);
-		PrintWriter pw=resp.getWriter();
-		pw.println("<a href=\"jsps/addTeaching.jsp\">Ajouter un nouvel enseignement</a><br/>");
+		resp.sendRedirect("jsps/addTeaching.jsp");
 	}
 	
 	

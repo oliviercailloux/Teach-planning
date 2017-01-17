@@ -1,7 +1,6 @@
 package loginPackage;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -38,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// vider à chaque fois qu'on rappel le post
+		// Clean the admin list when new call is done (avoid duplicate)
 		loginAdmin = new ArrayList<Login>();
 		loginAdmin.add(new Login("cathy.marques@test.com", "root"));
 		loginAdmin.add(new Login("mathilde.masson@test.com", "root"));
@@ -53,31 +52,24 @@ public class LoginServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String logout = req.getParameter("logout");
 		 
-		PrintWriter pw=resp.getWriter();
 		HttpSession session = req.getSession();
 		
 		if(logout != null) {
 			 session.setAttribute("typeSession", null);
-			 resp.sendRedirect("jsps/login.jsp");
 		} else {
 		
-		if(isExistTeacherAccount(login, password)) {
-			// Si teacher
-			pw.println("<h2>Vous êtes connecté !</h2>");
-			pw.println("<a href=\"index.jsp\">Rendez-vous à l'index!</a><br/>");
-	        session.setAttribute("typeSession", "teacher");
-		} else if(isExistAdminAccount(login, password)) {
-			// Si admin
-			pw.println("<h2>Vous êtes connecté en tant qu'administrateur!</h2>");
-			pw.println("<a href=\"jsps/addTeacher.jsp\">Ajouter un nouvel enseignant</a><br/>");
-			pw.println("<a href=\"jsps/addTeaching.jsp\">Ajouter un nouvel enseignement</a><br/>");
-	        session.setAttribute("typeSession", "admin");
-		} else {
-			// Si non redirection sur la page de connection
-			session.setAttribute("errorLogin", "Ce login n'existe pas ou votre mot de passe est incorrect !");
-			resp.sendRedirect("jsps/login.jsp");
+			if(isExistTeacherAccount(login, password)) {
+				// If teacher
+		        session.setAttribute("typeSession", "teacher");
+			} else if(isExistAdminAccount(login, password)) {
+				// If admin
+		        session.setAttribute("typeSession", "admin");
+			} else {
+				// If not exists
+				session.setAttribute("errorLogin", "Ce login n'existe pas ou votre mot de passe est incorrect !");
+			}
 		}
-		}
+		resp.sendRedirect("jsps/login.jsp");
 	}
 	
 	private boolean isExistAdminAccount(String login, String password) {

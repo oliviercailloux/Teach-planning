@@ -13,6 +13,7 @@
 		<%
 			if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("admin")) {
 		%>
+		
 			<h2>Vous êtes déjà connecté en tant qu'administrateur !</h2>
 			
 			<a href="addTeacher.jsp">Ajouter un nouvel enseignant</a><br/>

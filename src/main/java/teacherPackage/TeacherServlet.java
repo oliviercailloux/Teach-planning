@@ -29,8 +29,7 @@ public class TeacherServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PrintWriter pw=resp.getWriter();
-		pw.println("<a href=\"jsps/addTeacher.jsp\">Ajouter un nouvel enseignant</a><br/>");
+		resp.sendRedirect("jsps/addTeacher.jsp");
 	}
 	
 	
