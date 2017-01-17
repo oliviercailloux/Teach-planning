@@ -59,7 +59,15 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	private boolean isExistAccount(String login, String password) {
-		return true;
+		for(Login l : loginList) {
+			if(l.getLogin().equals(login)) {
+				if(l.getPassword().equals(password)) {
+					return true;
+				}
+				return false;
+			}
+		}
+		return false;
 	}
 	
 }
