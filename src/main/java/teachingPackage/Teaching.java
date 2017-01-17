@@ -24,6 +24,11 @@ public class Teaching {
 		this.NbTD = f; 
 	}
 	
+	public Teaching(String nom, int nbH){
+		this.name = nom;
+		this.NbCMTD = nbH;
+	}
+	
 	public String getName() {
 		return name;
 	}
