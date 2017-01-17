@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
-import javax.enterprise.context.*;
 
 import teachingPackage.Teaching;
 
@@ -15,11 +14,19 @@ public class Teacher {
 	private String email;
 	private  ArrayList<Teaching> teachingList;  
 	
+	private String nom;
+	
 	public Teacher(String firstname, String lastname, String email) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.teachingList = new ArrayList<Teaching>();
+	}
+	
+	public Teacher(String n) {
+		this.nom = n;
+		this.teachings = new ArrayList<Teaching>();
+		this.preferences = new HashMap<String, Teaching>();
 	}
 
 	public String getFirstname() {
@@ -49,12 +56,6 @@ public class Teacher {
 	private ArrayList<Teaching> teachings;  
 	private HashMap<String,Teaching> preferences;
 	
-	public Teacher(String n) {
-		this.nom = n;
-		this.teachings = new ArrayList<Teaching>();
-		this.preferences = new HashMap<String, Teaching>();
-	}
-	
 	public void addMatiere(Teaching m) {
 		this.teachings.add(m);
 	}
@@ -69,6 +70,10 @@ public class Teacher {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	
+	public String getNom() {
+		return nom;
 	}
 	
 	public void printPreferences (PrintWriter pw){
@@ -101,17 +106,5 @@ public class Teacher {
 		}
 		return sb.toString();
 	}
-	
-	// OBSOLETE MAIS SI JE GARDE PAS ERREUR DANS CLASSE PRINT
-	private String nom;
-	ArrayList<Matiere> lesMatieres; 
-	public Teacher(String n) {
-		this.nom = n;
-	}
-	public String getNom() {
-		return this.nom;
-	}
-	public void addMatiere(Matiere m) {
-		this.lesMatieres.add(m);	
-	}
+
 }
