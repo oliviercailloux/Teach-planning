@@ -14,7 +14,8 @@
     	<servlet-name>ListAndResearchServlet</servlet-name>
     	<servlet-class>teachingPackage.ListAndResearchServlet</servlet-class>
 	</servlet>
-	  	<servlet>
+	
+	<servlet>
     	<servlet-name>TeachingServlet</servlet-name>
     	<servlet-class>teachingPackage.TeachingServlet</servlet-class>
 	</servlet>
@@ -24,10 +25,21 @@
   		<servlet-class>teacherPackage.ShowChargeTeacherServlet</servlet-class>
   	</servlet>
   	
+  	<servlet>
+    	<servlet-name>TeacherServlet</servlet-name>
+    	<servlet-class>teacherPackage.TeacherServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+    	<servlet-name>LoginServlet</servlet-name>
+    	<servlet-class>loginPackage.LoginServlet</servlet-class>
+	</servlet>
+  	
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
     	<url-pattern>/searchTeaching</url-pattern>
-	</servlet-mapping>   
+	</servlet-mapping>  
+	 
 	<servlet-mapping>
     	<servlet-name>ListAndResearchServlet</servlet-name>
     	<url-pattern>/listandsearch</url-pattern>
@@ -42,6 +54,16 @@
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
   		<url-pattern>/ShowChargeTeacherServlet</url-pattern>
   	</servlet-mapping>  
+  	
+  	<servlet-mapping>
+  		<servlet-name>TeacherServlet</servlet-name>
+  		<url-pattern>/addNewTeacher</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+  		<servlet-name>LoginServlet</servlet-name>
+  		<url-pattern>/connect</url-pattern>
+  	</servlet-mapping>
 </web-app>
 
 
