@@ -3,7 +3,9 @@ package teachingPackage;
 public class Teaching {
 	
 	private String name;
-	private int NbCM, NbTD, NbTP, NbCMTD, NbGrp;
+	public String typeMatiere;
+	public String diplome;
+	private double NbCM, NbTD, NbTP, NbCMTD, NbGrp;
 	
 	public Teaching(String name,int NbCM,int NbTD,int NbTP,int NbCMTD,int NbGrp){
 		this.name = name;
@@ -13,28 +15,36 @@ public class Teaching {
 		this.NbCMTD = NbCMTD;
 		this.NbGrp = NbGrp;
 	}
+
+	public Teaching(String n, String t, String d, double e, double f) {
+		this.name = n;
+		this.typeMatiere = t;
+		this.diplome = d;
+		this.NbCM = e;
+		this.NbTD = f; 
+	}
 	
 	public String getName() {
 		return name;
 	}
 	
-	public int getNbCM() {
+	public double getNbCM() {
 		return NbCM;
 	}
 	
-	public int getNbTD() {
+	public double getNbTD() {
 		return NbTD;
 	}
 	
-	public int getNbTP() {
+	public double getNbTP() {
 		return NbTP;
 	}
 	
-	public int getNbCMTD() {
+	public double getNbCMTD() {
 		return NbCMTD;
 	}
 	
-	public int getNbGrp() {
+	public double getNbGrp() {
 		return NbGrp;
 	}
 	
@@ -60,6 +70,12 @@ public class Teaching {
 	
 	public void setNbGrp(int nbGrp) {
 		NbGrp = nbGrp;
+	}
+	
+	public String detailTeaching() {
+		String mat = "<tr><td>" + this.name + "</td><td>" + 
+	this.typeMatiere + "</td><td>" + this.diplome + "</td><td>" + this.NbCM + "</td><td>" + this.NbTD + "</td></tr>";
+		return mat;
 	}
 	
 	@Override

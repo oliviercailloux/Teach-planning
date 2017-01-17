@@ -34,12 +34,17 @@
     	<servlet-name>LoginServlet</servlet-name>
     	<servlet-class>loginPackage.LoginServlet</servlet-class>
 	</servlet>
-  	
+	
+	<servlet>
+    	<servlet-name>PreferenceServlet</servlet-name>
+    	<servlet-class>teacherPackage.PreferenceServlet</servlet-class>
+	</servlet> 
+
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
     	<url-pattern>/searchTeaching</url-pattern>
-	</servlet-mapping>  
-	 
+	</servlet-mapping> 
+  
 	<servlet-mapping>
     	<servlet-name>ListAndResearchServlet</servlet-name>
     	<url-pattern>/listandsearch</url-pattern>
@@ -52,7 +57,7 @@
 	
   	<servlet-mapping>
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
-  		<url-pattern>/ShowChargeTeacherServlet</url-pattern>
+  		<url-pattern>/chargeTeacher</url-pattern>
   	</servlet-mapping>  
   	
   	<servlet-mapping>
@@ -68,6 +73,12 @@
   		<servlet-name>LoginServlet</servlet-name>
   		<url-pattern>/disconnect</url-pattern>
   	</servlet-mapping>
+
+  	<servlet-mapping>
+    	<servlet-name>PreferenceServlet</servlet-name>
+    	<url-pattern>/addPref</url-pattern>
+	</servlet-mapping>
+  	
 </web-app>
 
 
