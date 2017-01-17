@@ -13,8 +13,9 @@ public class Teacher {
 	private String lastname; 
 	private String email;
 	private  ArrayList<Teaching> teachingList;  
-	
 	private String nom;
+	private ArrayList<Teaching> teachings;  
+	private HashMap<String,Teaching> preferences;
 	
 	public Teacher(String firstname, String lastname, String email) {
 		this.firstname = firstname;
@@ -53,9 +54,6 @@ public class Teacher {
 		this.email = email;
 	}
 	
-	private ArrayList<Teaching> teachings;  
-	private HashMap<String,Teaching> preferences;
-	
 	public void addMatiere(Teaching m) {
 		this.teachings.add(m);
 	}
@@ -77,12 +75,13 @@ public class Teacher {
 	}
 	
 	public void printPreferences (PrintWriter pw){
-		pw.println("La liste de mes préferences :");
+		pw.println("La liste de mes préferences :<br/>");
 		for(Entry<String, Teaching> entry : preferences.entrySet()) {
 		    String key = entry.getKey();
 		    Teaching value = entry.getValue();
-		    pw.println("La matière "+value+" est le "+key+"<br />");
+		    pw.println("La matière "+value.getName()+" est le "+key+"<br />");
 		}
+	    pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 	}
 	
 	public HashMap<String, Teaching> getPreferences() {
