@@ -9,8 +9,7 @@ import javax.enterprise.context.*;
 
 import teachingPackage.Teaching;
 
-@RequestScoped
-public class Teacher implements TeacherInterface{
+public class Teacher{
 	
 	private String nom; 
 	private ArrayList<Teaching> teachings;  
@@ -19,6 +18,7 @@ public class Teacher implements TeacherInterface{
 	public Teacher(String n) {
 		this.nom = n;
 		this.teachings = new ArrayList<Teaching>();
+		this.preferences = new HashMap<String, Teaching>();
 	}
 	
 	public void addMatiere(Teaching m) {

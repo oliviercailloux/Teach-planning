@@ -20,8 +20,7 @@ public class PreferenceServlet extends HttpServlet {
 
 private static final long serialVersionUID = 1L;
 	@Inject
-	private TeacherInterface teacher;
-	//private ArrayList<Teaching> teachingList = new ArrayList<Teaching>();
+	private PrintChoiceInterface print;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -41,12 +40,13 @@ private static final long serialVersionUID = 1L;
 		resp.setContentType(MediaType.TEXT_HTML);
 		resp.setLocale(Locale.FRENCH);
 		
+		Teacher teacher = new Teacher("Toto");
 		String choix = req.getParameter("RaN");
 		Teaching teaching = new Teaching("RaN", "CM", "M1 INFO", 18.0, 27.0);
 		teacher.addPreference(choix, teaching);
 		
 		PrintWriter pw=resp.getWriter();
 		
-		teacher.printPreferences(pw);
+		print.printPreferences(pw, teacher);
 	}
 }
