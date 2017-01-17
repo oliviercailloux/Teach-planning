@@ -29,7 +29,7 @@ private static final long serialVersionUID = 1L;
 		resp.setLocale(Locale.FRENCH);
 		PrintWriter pw=resp.getWriter();
 		
-		pw.println("<a href=\"prefView/prefForm.jsp\">Ajouter une préference</a><br/>");
+		pw.println("<a href=\"jsps/prefView/prefForm.jsp\">Ajouter une préference</a><br/>");
 	}
 	
 	
@@ -41,11 +41,34 @@ private static final long serialVersionUID = 1L;
 		resp.setLocale(Locale.FRENCH);
 		
 		Teacher teacher = new Teacher("Toto");
-		String choix = req.getParameter("RaN");
-		Teaching teaching = new Teaching("RaN", "CM", "M1 INFO", 18.0, 27.0);
-		teacher.addPreference(choix, teaching);
+		
+		String matiere = "M";
+		String choix = "choix";
+		String heure = "H";
+		
+		for(int i = 1; i<39; i++){
+			//String verif;
+			choix= choix+i;
+			
+			if(!req.getParameter(choix).equals("choix0")){
+				matiere = matiere+i;
+				heure = heure+i;
+				int h = Integer.parseInt(req.getParameter(heure));
+				
+				Teaching teaching = new Teaching(req.getParameter(matiere), h);
+				teacher.addPreference(req.getParameter(choix), teaching);
+			}
+			choix = "choix";
+			heure = "H";
+			matiere = "M";
+		}
+		
+		//String choix = req.getParameter("choix1");
+		//Teaching teaching = new Teaching("RaN", "CM", "M1 INFO", 18.0, 27.0);
+		//teacher.addPreference(choix, teaching);
 		
 		PrintWriter pw=resp.getWriter();
+		//pw.println(choix);
 		
 		print.printPreferences(pw, teacher);
 	}

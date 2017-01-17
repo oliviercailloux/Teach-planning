@@ -42,7 +42,7 @@ public class Teacher{
 		for(Entry<String, Teaching> entry : preferences.entrySet()) {
 		    String key = entry.getKey();
 		    Teaching value = entry.getValue();
-		    pw.println("La matière "+value+" est le "+key);
+		    pw.println("La matière "+value+" est le "+key+"<br />");
 		}
 	}
 	
