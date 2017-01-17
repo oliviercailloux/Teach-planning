@@ -23,6 +23,11 @@
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
   		<servlet-class>teacherPackage.ShowChargeTeacherServlet</servlet-class>
   	</servlet>
+
+	<servlet>
+  		<servlet-name>ServiceFileServlet</servlet-name>
+  		<servlet-class>teachingPackage.ServiceFileServlet</servlet-class>
+  	</servlet>
   	
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
@@ -41,7 +46,12 @@
   	<servlet-mapping>
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
   		<url-pattern>/ShowChargeTeacherServlet</url-pattern>
-  	</servlet-mapping>  
+  	</servlet-mapping>
+  	 
+  	<servlet-mapping>
+  		<servlet-name>ServiceFileServlet</servlet-name>
+  		<url-pattern>/serviceFile</url-pattern>
+  	</servlet-mapping>  	 
 </web-app>
 
 
