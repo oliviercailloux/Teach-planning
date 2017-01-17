@@ -1,6 +1,7 @@
 package loginPackage;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -27,6 +28,7 @@ public class LoginServlet extends HttpServlet {
 	// static to be called on teacher because no db ...
 	public static ArrayList<Login> loginList = new ArrayList<Login>();
 	
+	@administrator
 	private ArrayList<Login> loginAdmin = new ArrayList<Login>();
 	
 	@Override
@@ -39,8 +41,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Clean the admin list when new call is done (avoid duplicate)
 		loginAdmin = new ArrayList<Login>();
-		loginAdmin.add(new Login("cathy.marques@test.com", "root"));
-		loginAdmin.add(new Login("mathilde.masson@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("cathy.marques@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("mathilde.masson@test.com", "root"));
 		
 		// Settings
 		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
@@ -69,6 +71,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("errorLogin", "Ce login n'existe pas ou votre mot de passe est incorrect !");
 			}
 		}
+		
 		resp.sendRedirect("jsps/login.jsp");
 	}
 	

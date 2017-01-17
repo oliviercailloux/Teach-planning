@@ -23,7 +23,7 @@
 			if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("admin")) {
 		%>
 		
-			<h2>Vous êtes déjà connecté en tant qu'administrateur !</h2>
+			<h2>Vous êtes connecté en tant qu'administrateur !</h2>
 			
 			<a href="addTeacher.jsp">Ajouter un nouvel enseignant</a><br/>
 			<a href="addTeaching.jsp">Ajouter un nouvel enseignement</a>
@@ -44,7 +44,7 @@
 		<%
 			} else if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("teacher")) {
 		%>
-			<h2>Vous êtes déjà connecté en tant que professeur !</h2>
+			<h2>Vous êtes connecté en tant que professeur !</h2>
 			
 			<a href="../index.jsp">Rendez-vous à l'index!</a>
 			
