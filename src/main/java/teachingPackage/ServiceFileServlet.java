@@ -22,9 +22,7 @@ public class ServiceFileServlet extends HttpServlet {
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@Inject 
-	Teacher teacher;
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
