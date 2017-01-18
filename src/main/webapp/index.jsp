@@ -1,8 +1,8 @@
 <html>
 	<body>
-		<h2>
+		<h1>
 			<span style='color: blue'>Bienvenue sur Teach Planning app !</span>
-		</h2>
+		</h1>
 		
 		<%
 			if(session.getAttribute("typeSession") != null) {
