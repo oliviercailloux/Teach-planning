@@ -42,6 +42,10 @@ public class LoginServlet extends HttpServlet {
 		loginAdmin = new ArrayList<Login>();
 		loginAdmin.add(new LoginAdmin("cathy.marques@test.com", "root"));
 		loginAdmin.add(new LoginAdmin("mathilde.masson@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("alessandro.quaresima@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("amelie.quach@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("abdoulaye.diarra@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("sandratra.razafiniaina@test.com", "root"));
 		
 		// Settings
 		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());

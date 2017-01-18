@@ -61,6 +61,7 @@ public class TeachingServlet extends HttpServlet {
 		
 		// Proposition to add new teaching
 		pw.println("<a href=\"jsps/addTeaching.jsp\">Ajouter un nouvel enseignement</a><br/>");
+		pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 		//pw.println("<a href=\"jsps/listTeaching.jsp\">Liste des matières</a><br/>");
 		
 		// Recapitulation of all teaching stocked on the teaching list
@@ -68,7 +69,6 @@ public class TeachingServlet extends HttpServlet {
 		for(Teaching t : teachingList) {
 			pw.println(t.toString() + "<br/>");
 		}	
-		pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 	}
 	
 }
