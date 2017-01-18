@@ -1,4 +1,4 @@
-package loginPackage;
+package teach_planning.login;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
-
-import loginPackage.Login;
 
 @WebServlet(name="LoginServlet", urlPatterns={"/connect", "/disconnect"})
 public class LoginServlet extends HttpServlet {

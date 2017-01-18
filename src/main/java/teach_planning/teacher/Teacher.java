@@ -1,11 +1,11 @@
-package teacherPackage;
+package teach_planning.teacher;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import teachingPackage.Teaching;
+import teach_planning.teaching.Teaching;
 
 public class Teacher {
 	

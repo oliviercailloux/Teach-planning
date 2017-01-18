@@ -1,4 +1,4 @@
-package loginPackage;
+package teach_planning.login;
 
 public class Login {
 	private String login;

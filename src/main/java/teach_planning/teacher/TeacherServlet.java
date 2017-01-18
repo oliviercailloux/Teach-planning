@@ -1,4 +1,4 @@
-package teacherPackage;
+package teach_planning.teacher;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import loginPackage.Login;
-import loginPackage.LoginServlet;
+import teach_planning.login.Login;
+import teach_planning.login.LoginServlet;
 
 @WebServlet(name="TeacherServlet", urlPatterns={"/addNewTeacher"})
 public class TeacherServlet extends HttpServlet {

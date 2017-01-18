@@ -1,4 +1,4 @@
-package teachingPackage;
+package teach_planning.teaching;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

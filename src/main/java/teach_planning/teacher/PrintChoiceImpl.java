@@ -1,4 +1,4 @@
-package teacherPackage;
+package teach_planning.teacher;
 
 import java.io.PrintWriter;
 

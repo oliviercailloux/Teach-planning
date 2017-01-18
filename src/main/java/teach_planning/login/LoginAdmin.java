@@ -1,4 +1,4 @@
-package loginPackage;
+package teach_planning.login;
 
 @administrator
 public class LoginAdmin extends Login{
