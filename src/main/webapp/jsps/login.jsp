@@ -31,7 +31,7 @@
 			<a href="serviceFile.jsp">Imprimer la fiche de service d'un enseignant</a><br/>
 			<a href="../chargeTeacher">Rechercher les informations sur un enseignant</a><br/>
 			<a href="../listandsearch">Rechercher les informations sur un enseignement</a><br/>
-			<a href="../teacherHours">enseigner les heures d'un enseignant</a>
+			<a href="../teacherHours">Renseigner les heures d'un enseignant</a>
 			
 			<form method="POST" name="logoutForm" action="../disconnect">
 	

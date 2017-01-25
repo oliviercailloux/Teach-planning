@@ -1,6 +1,7 @@
 package teach_planning.teacher;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
@@ -19,10 +20,16 @@ import javax.ws.rs.core.MediaType;
 @WebServlet(name="TeacherHoursServlet", urlPatterns={"/teacherHours"})
 public class TeacherHoursServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+		resp.setContentType(MediaType.TEXT_HTML);
+		resp.setLocale(Locale.FRENCH);
+		
+		resp.sendRedirect("jsps/nbHours.jsp");
+	}
+	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		HttpSession session = req.getSession();
