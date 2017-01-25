@@ -44,6 +44,10 @@
   		<servlet-name>ServiceFileServlet</servlet-name>
   		<servlet-class>teach_planning.teaching.ServiceFileServlet</servlet-class>
   	</servlet>
+	<servlet>
+		<servlet-name>TeacherHoursServlet</servlet-name>
+		<servlet-class>teach_planning.teacher.TeacherHoursServlet</servlet-class>
+	</servlet>
 
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
@@ -87,6 +91,11 @@
   	<servlet-mapping>
   		<servlet-name>ServiceFileServlet</servlet-name>
   		<url-pattern>/serviceFile</url-pattern>
+  	</servlet-mapping>
+
+  	<servlet-mapping>
+  		<servlet-name>TeacherHoursServlet</servlet-name>
+  		<url-pattern>/teacherHours</url-pattern>
   	</servlet-mapping>  	 
 
 </web-app>
