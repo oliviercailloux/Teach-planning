@@ -44,6 +44,11 @@
   		<servlet-name>ServiceFileServlet</servlet-name>
   		<servlet-class>teach_planning.teaching.ServiceFileServlet</servlet-class>
   	</servlet>
+  	
+  	<servlet>
+  		<servlet-name>AssignmentServlet</servlet-name>
+  		<servlet-class>teach_planning.teaching.AssignmentServlet</servlet-class>
+  	</servlet>
 
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
@@ -74,6 +79,7 @@
   		<servlet-name>LoginServlet</servlet-name>
   		<url-pattern>/connect</url-pattern>
   	</servlet-mapping>
+  	
   	<servlet-mapping>
   		<servlet-name>LoginServlet</servlet-name>
   		<url-pattern>/disconnect</url-pattern>
@@ -87,6 +93,11 @@
   	<servlet-mapping>
   		<servlet-name>ServiceFileServlet</servlet-name>
   		<url-pattern>/serviceFile</url-pattern>
+  	</servlet-mapping>  	
+  	
+  	<servlet-mapping>
+  		<servlet-name>AssignmentServlet</servlet-name>
+  		<url-pattern>/assignment</url-pattern>
   	</servlet-mapping>  	 
 
 </web-app>

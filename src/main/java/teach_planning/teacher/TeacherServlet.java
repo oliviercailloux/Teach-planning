@@ -25,7 +25,7 @@ public class TeacherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	// public because no DB
-	public ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
+	public static ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,12 +56,12 @@ public class TeacherServlet extends HttpServlet {
 		PrintWriter pw=resp.getWriter();
 		
 		// Recapitulation of the new teacher added
-		pw.println("<h2>Nouvel enseignant ajouté !</h2>");
+		pw.println("<h2>Nouvel enseignant ajoutï¿½ !</h2>");
 		pw.println(newTeacher.toString() + "<br/><br/>");
 		
 		// Proposition to add new teacher
 		pw.println("<a href=\"jsps/addTeacher.jsp\">Ajouter un nouvel enseignant</a><br/>");
-		pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
+		pw.println("<a href=\"index.jsp\"> Retour ï¿½ l'accueil </a>");
 		
 		// Recapitulation of all teachers stocked on the teaching list
 		pw.println("<h1>Liste des enseignants</h1>");
