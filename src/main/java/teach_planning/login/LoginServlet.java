@@ -25,8 +25,9 @@ public class LoginServlet extends HttpServlet {
 	// static to be called on teacher because no db ...
 	public static ArrayList<Login> loginList = new ArrayList<Login>();
 	
+	// public static because no DB
 	@administrator
-	private ArrayList<Login> loginAdmin = new ArrayList<Login>();
+	public static ArrayList<Login> loginAdmin = new ArrayList<Login>();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,15 +37,6 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// Clean the admin list when new call is done (avoid duplicate)
-		loginAdmin = new ArrayList<Login>();
-		loginAdmin.add(new LoginAdmin("cathy.marques@test.com", "root"));
-		loginAdmin.add(new LoginAdmin("mathilde.masson@test.com", "root"));
-		loginAdmin.add(new LoginAdmin("alessandro.quaresima@test.com", "root"));
-		loginAdmin.add(new LoginAdmin("amelie.quach@test.com", "root"));
-		loginAdmin.add(new LoginAdmin("abdoulaye.diarra@test.com", "root"));
-		loginAdmin.add(new LoginAdmin("sandratra.razafiniaina@test.com", "root"));
-		
 		// Settings
 		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
 		resp.setContentType(MediaType.TEXT_HTML);

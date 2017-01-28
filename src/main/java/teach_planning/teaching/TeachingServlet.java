@@ -56,12 +56,12 @@ public class TeachingServlet extends HttpServlet {
 		PrintWriter pw=resp.getWriter();
 		
 		// Recapitulation of the new teaching added
-		pw.println("<h2>Nouvel enseignement ajout� !</h2>");
+		pw.println("<h2>Nouvel enseignement ajouté !</h2>");
 		pw.println(newTeaching.toString() + "<br/>");
 		
 		// Proposition to add new teaching
 		pw.println("<a href=\"jsps/addTeaching.jsp\">Ajouter un nouvel enseignement</a><br/>");
-		pw.println("<a href=\"index.jsp\"> Retour � l'accueil </a>");
+		pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 		//pw.println("<a href=\"jsps/listTeaching.jsp\">Liste des mati�res</a><br/>");
 		
 		// Recapitulation of all teaching stocked on the teaching list

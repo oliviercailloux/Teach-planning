@@ -24,7 +24,7 @@ public class ServiceFileServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter pw=resp.getWriter();
-		pw.println("<a href=\"jsps/serviceFile.jsp\">Générer une fiche de service pour un enseignant</a><br/>");
+		pw.println("<a href=\"jsps/serviceFile.jsp\">GÃ©nÃ©rer une fiche de service pour un enseignant</a><br/>");
 	}
 	
 	

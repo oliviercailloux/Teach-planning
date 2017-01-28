@@ -12,22 +12,14 @@ public class Teacher {
 	private String firstname; 
 	private String lastname; 
 	private String email;
-	private  ArrayList<Teaching> teachingList;  
-	private String nom;
 	private ArrayList<Teaching> teachings;  
-	private HashMap<String,Teaching> preferences;
+	// pour le show charge teacher ... Ã  refaire quand ce ne sera plus du code en dur
+	private HashMap<String, Teaching> preferences = new HashMap<String, Teaching>();
 	
 	public Teacher(String firstname, String lastname, String email) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-		this.teachingList = new ArrayList<Teaching>();
-	}
-	
-	public Teacher(String n) {
-		this.nom = n;
-		this.teachings = new ArrayList<Teaching>();
-		this.preferences = new HashMap<String, Teaching>();
 	}
 
 	public String getFirstname() {
@@ -54,34 +46,28 @@ public class Teacher {
 		this.email = email;
 	}
 	
-	public void addMatiere(Teaching m) {
-		this.teachings.add(m);
+	public void addTeaching(Teaching t) {
+		this.teachings.add(t);
 	}
 	
 	public ArrayList<Teaching> getTeachings(){
 		return teachings;
 	}
 	
-	public void addTeaching(Teaching t) {
-		this.teachingList.add(t);
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	
-	public String getNom() {
-		return nom;
+	@Override
+	public String toString() {
+		return(this.getFirstname() + " " + this.getLastname() 
+			+ " <i>"+this.getEmail()+"</i>");
 	}
 	
 	public void printPreferences (PrintWriter pw){
-		pw.println("La liste de mes préferences :<br/>");
+		pw.println("La liste de mes prÃ©ferences :<br/>");
 		for(Entry<String, Teaching> entry : preferences.entrySet()) {
 		    String key = entry.getKey();
 		    Teaching value = entry.getValue();
-		    pw.println("La matière "+value.getName()+" est le "+key+"<br />");
+		    pw.println("La matiÃ¨re "+value.getName()+" est le "+key+"<br />");
 		}
-	    pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
+	    pw.println("<a href=\"index.jsp\"> Retour Ã  l'accueil </a>");
 	}
 	
 	public HashMap<String, Teaching> getPreferences() {
@@ -90,12 +76,6 @@ public class Teacher {
 
 	public void addPreference(String choix, Teaching preference) {
 		this.preferences.put(choix, preference);
-	}
-	
-	@Override
-	public String toString() {
-		return(this.getFirstname() + " " + this.getLastname() 
-			+ " <i>"+this.getEmail()+"</i>");
 	}
 	
 	// CODE QUI VIENT DE DIEU SEUL SAIT

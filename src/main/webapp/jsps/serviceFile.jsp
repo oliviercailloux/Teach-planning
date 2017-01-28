@@ -65,6 +65,11 @@
 		
 			</form>
 			
+			<form method="POST" name="logoutForm" action="../disconnect" style="position:absolute;top:0px;right:0px;">
+				<input type="hidden" id="logout" name="logout" value="logout" />
+				<input type="submit" value="Se déconnecter" />
+			</form>
+			
 		<%		
 			} else {
 		%>

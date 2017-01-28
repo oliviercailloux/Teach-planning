@@ -49,6 +49,12 @@
   		<servlet-name>AssignmentServlet</servlet-name>
   		<servlet-class>teach_planning.teaching.AssignmentServlet</servlet-class>
   	</servlet>
+  	
+  	<servlet>
+  		<servlet-name>InitServlet</servlet-name>
+  		<servlet-class>teach_planning.InitServlet</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
 
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
