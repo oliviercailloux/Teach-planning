@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
 	// public because no DB
 	// static to be called on teacher because no db ...
 	public static ArrayList<Login> loginList = new ArrayList<Login>();
+
 	
 	@administrator
 	private ArrayList<Login> loginAdmin = new ArrayList<Login>();
@@ -37,6 +38,8 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Clean the admin list when new call is done (avoid duplicate)
+		loginList = new ArrayList<Login>();
+		loginList.add(new Login("mbezou@test.com","mb"));
 		loginAdmin = new ArrayList<Login>();
 		loginAdmin.add(new LoginAdmin("cathy.marques@test.com", "root"));
 		loginAdmin.add(new LoginAdmin("mathilde.masson@test.com", "root"));

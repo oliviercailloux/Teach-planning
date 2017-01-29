@@ -26,7 +26,12 @@
 			<h2>Vous êtes connecté en tant qu'administrateur !</h2>
 			
 			<a href="addTeacher.jsp">Ajouter un nouvel enseignant</a><br/>
-			<a href="addTeaching.jsp">Ajouter un nouvel enseignement</a>
+			<a href="addTeaching.jsp">Ajouter un nouvel enseignement</a><br/>
+			<a href="prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
+			<a href="serviceFile.jsp">Imprimer la fiche de service d'un enseignant</a><br/>
+			<a href="../chargeTeacher">Rechercher les informations sur un enseignant</a><br/>
+			<a href="../listandsearch">Rechercher les informations sur un enseignement</a><br/>
+			<a href="../teacherHours">Renseigner les heures d'un enseignant</a>
 			
 			<form method="POST" name="logoutForm" action="../disconnect">
 	
