@@ -27,6 +27,14 @@
 				</tr>
 			</table>
 		</form>
+
+		<form method="GET" name="genServiceFile" action="jsps/EmptyServiceFile.jsp">
+			<table>
+				<tr>
+					<td><input type="submit" value="Generate empty service file" /></td>
+				</tr>
+			</table>
+		</form>
 		
 		<a href="jsps/prefView/prefForm.jsp">Add preference for teacher</a>
 	
