@@ -7,42 +7,42 @@
   	
    	<servlet>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
-    	<servlet-class>teachingPackage.ResearchTeachingServlet</servlet-class>
+    	<servlet-class>teach_planning.teaching.ResearchTeachingServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
     	<servlet-name>ListAndResearchServlet</servlet-name>
-    	<servlet-class>teachingPackage.ListAndResearchServlet</servlet-class>
+    	<servlet-class>teach_planning.teaching.ListAndResearchServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
     	<servlet-name>TeachingServlet</servlet-name>
-    	<servlet-class>teachingPackage.TeachingServlet</servlet-class>
+    	<servlet-class>teach_planning.teaching.TeachingServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
   		<servlet-name>ShowChargeTeacherServlet</servlet-name>
-  		<servlet-class>teacherPackage.ShowChargeTeacherServlet</servlet-class>
+  		<servlet-class>teach_planning.teacher.ShowChargeTeacherServlet</servlet-class>
   	</servlet>
   	
   	<servlet>
     	<servlet-name>TeacherServlet</servlet-name>
-    	<servlet-class>teacherPackage.TeacherServlet</servlet-class>
+    	<servlet-class>teach_planning.teacher.TeacherServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
     	<servlet-name>LoginServlet</servlet-name>
-    	<servlet-class>loginPackage.LoginServlet</servlet-class>
+    	<servlet-class>teach_planning.login.LoginServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
     	<servlet-name>PreferenceServlet</servlet-name>
-    	<servlet-class>teacherPackage.PreferenceServlet</servlet-class>
+    	<servlet-class>teach_planning.teacher.PreferenceServlet</servlet-class>
 	</servlet> 
 	
 	<servlet>
   		<servlet-name>ServiceFileServlet</servlet-name>
-  		<servlet-class>teachingPackage.ServiceFileServlet</servlet-class>
+  		<servlet-class>teach_planning.teaching.ServiceFileServlet</servlet-class>
   	</servlet>
 
   	<servlet-mapping>
@@ -90,7 +90,3 @@
   	</servlet-mapping>  	 
 
 </web-app>
-
-
-
-  

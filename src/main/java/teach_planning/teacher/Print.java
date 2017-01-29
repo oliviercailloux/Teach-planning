@@ -1,4 +1,4 @@
-package teacherPackage;
+package teach_planning.teacher;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
-import teachingPackage.Teaching;
+import teach_planning.teaching.Teaching;
 
 public class Print {
 	

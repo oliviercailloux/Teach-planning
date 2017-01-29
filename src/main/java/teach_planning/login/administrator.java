@@ -1,4 +1,4 @@
-package loginPackage;
+package teach_planning.login;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -26,9 +26,8 @@
 	<body>
 		<form action="../../addPref" method="post">
 			<h1>L3 Mention informatique des Oganisations</h1>
+			<h2>Semestre 5</h2>
 			<table>
-				<h2>Semestre 5</h2>
-				<table>
 					<tr id='sem5'>
 						<th>Matiere</th>
 						<th>Code apogée</th>
@@ -352,10 +351,8 @@
 						</td>
 					</tr>
 				</table>		
-			</table>	
 			
 			<h1>M1 Mention informatique des Oganisations</h1>
-			<table>
 				<h2>Semestre 7</h2>
 				<table>
 					<tr id='sem7'>
@@ -684,9 +681,7 @@
 							<input type="number" name="nbA38" min="0" max="60">
 						</td>
 					</tr>
-
-				</table>		
-			</table>
+				</table>	
 			<p> Commentaires </p>
 			<textarea name="commentaires" rows="10" cols="60"></textarea>
 			<br/><br/>

@@ -1,4 +1,4 @@
-package teachingPackage;
+package teach_planning.teaching;
 
 
 import java.util.ArrayList;

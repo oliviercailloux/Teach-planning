@@ -1,4 +1,4 @@
-package loginPackage;
+package teach_planning.login;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
-
-import loginPackage.Login;
 
 @WebServlet(name="LoginServlet", urlPatterns={"/connect", "/disconnect"})
 public class LoginServlet extends HttpServlet {
@@ -42,6 +40,10 @@ public class LoginServlet extends HttpServlet {
 		loginAdmin = new ArrayList<Login>();
 		loginAdmin.add(new LoginAdmin("cathy.marques@test.com", "root"));
 		loginAdmin.add(new LoginAdmin("mathilde.masson@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("alessandro.quaresima@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("amelie.quach@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("abdoulaye.diarra@test.com", "root"));
+		loginAdmin.add(new LoginAdmin("sandratra.razafiniaina@test.com", "root"));
 		
 		// Settings
 		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
