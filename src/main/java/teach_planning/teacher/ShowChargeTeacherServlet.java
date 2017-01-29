@@ -36,16 +36,15 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 		String teacherSurname = request.getParameter("prenom");
 
 		if (teacherName != null && teacherSurname != null) {
-			String teacher = teacherName + " " + teacherSurname;			
-			if (print.findTeacher(teacher) != -1) {
-				print.printCharge(teacher, print.findTeacher(teacher));
+			if (print.findTeacher(teacherSurname, teacherName) != -1) {
+				print.printCharge(teacherName, print.findTeacher(teacherSurname, teacherName));
 			} else {
-				print.printErrorNotFound(teacher); 
+				print.printErrorNotFound(teacherName); 
 			}
 		}  else {
 			String teacher = null; 
 			print.printErrorRecup(teacher);
-			//logger.severe("L'enseignant n'est pas renseigné : "+teacher);
+			//logger.severe("L'enseignant n'est pas renseignï¿½ : "+teacher);
 		}
 
 	}

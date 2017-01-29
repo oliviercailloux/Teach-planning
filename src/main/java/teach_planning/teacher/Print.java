@@ -19,20 +19,20 @@ public class Print {
 		this.response = response;
 		out = response.getOutputStream();
 
-		lesProfs.add(new Teacher("AFGOUSTIDIS Alexandre"));
-		lesProfs.add(new Teacher("AIRIAU Stephane"));
-		lesProfs.add(new Teacher("AISSI Hassan"));
+		lesProfs.add(new Teacher("Alexandre","AFGOUSTIDIS","AFGOUSTIDIS@Alexandre.com"));
+		lesProfs.add(new Teacher("Stephane","AIRIAU","AIRIAU@Stephane.com"));
+		lesProfs.add(new Teacher("Hassan","AISSI","AISSI@Hassan.com"));
 		
-		lesProfs.get(0).addMatiere(new Teaching("Algebre lineaire 2", "CM", "D.E.1", 19.5 ,29.25 ));
-		lesProfs.get(1).addMatiere(new Teaching("JAVA OBJET", "CM","L3 INFO", 18,27));
-		lesProfs.get(1).addMatiere(new Teaching("INTELLIGENCE ARTIFICIELLE et raisonnement", "CM","M1 INFO", 18,27));
-		lesProfs.get(1).addMatiere(new Teaching("PROJET JAVA", "CM","L3 INFO", 1.50,2.25));
-		lesProfs.get(2).addMatiere(new Teaching("Décision ET analyse multicritère","CM","M1 INFO",18,27));
+		lesProfs.get(0).addTeaching(new Teaching("Algebre lineaire 2", "CM", "D.E.1", 19.5 ,29.25 ));
+		lesProfs.get(1).addTeaching(new Teaching("JAVA OBJET", "CM","L3 INFO", 18,27));
+		lesProfs.get(1).addTeaching(new Teaching("INTELLIGENCE ARTIFICIELLE et raisonnement", "CM","M1 INFO", 18,27));
+		lesProfs.get(1).addTeaching(new Teaching("PROJET JAVA", "CM","L3 INFO", 1.50,2.25));
+		lesProfs.get(2).addTeaching(new Teaching("Dï¿½cision ET analyse multicritï¿½re","CM","M1 INFO",18,27));
 	}
 	
-	int findTeacher(String teacher) {
+	int findTeacher(String teacherFirstName, String teacherLastName) {
 		for(int j=0;j<lesProfs.size();j++) {
-			if (lesProfs.get(j).getNom().equals(teacher)) {
+			if (lesProfs.get(j).getFirstname().equals(teacherFirstName) && lesProfs.get(j).getLastname().equals(teacherLastName)) {
 				return j; 
 			}
 		}
@@ -81,7 +81,7 @@ public class Print {
 		}
 	
 		sb.append("</table>");
-		sb.append("<a href=\"index.jsp\"> Retour à l'accueil </a>");
+		sb.append("<a href=\"index.jsp\"> Retour ï¿½ l'accueil </a>");
 		sb.append("</body>");
 		sb.append("</html>");
 		
@@ -100,7 +100,7 @@ public class Print {
 				+ "			<li><a href =\"chargeTeacher?nom=AIRIAU&prenom=Stephane\">AIRIAU Stephane</a></li>"
 				+ "			<li><a href =\"chargeTeacher?nom=AISSI&prenom=Hassan\">AISSI Hassan</a></li>"
 				+ "		</ul>"
-				+ "		<a href=\"index.jsp\"> Retour à l'accueil </a>"
+				+ "		<a href=\"index.jsp\"> Retour ï¿½ l'accueil </a>"
 				+ "	</body>"
 				+ "</html>");
 	}

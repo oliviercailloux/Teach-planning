@@ -7,15 +7,24 @@
 		<%
 			if(session.getAttribute("typeSession") != null) {
 		%>
-			<ul>
-				<li><a href="jsps/addTeacher.jsp">Ajouter un nouvel enseignant</a></li>
-				<li><a href="jsps/addTeaching.jsp">Ajouter un nouvel enseignement</a></li>
-				<li><a href="jsps/prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a></li>
-				<li><a href="jsps/serviceFile.jsp">Imprimer la fiche de service d'un enseignant</a></li>
-				<li><a href="chargeTeacher">Rechercher les informations sur un enseignant</a></li>
-				<li><a href="listandsearch">Rechercher les informations sur un enseignement</a></li>
-				<li><a href="teacherHours">Renseigner les heures d'un enseignant</a></li>
-			</ul>
+		
+			<% if(session.getAttribute("typeSession").equals("admin")) { %>
+				<a href="jsps/addTeacher.jsp">Ajouter un enseignant</a><br/>
+				<a href="jsps/addTeaching.jsp">Ajouter un enseignement</a><br/>
+				<a href="jsps/assignment.jsp">Affecter un enseignant à une matière</a><br/>
+			<% } %>
+			
+			<a href="jsps/prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
+			<a href="jsps/serviceFile.jsp">Imprimer la fiche de service d'un enseignant</a><br/>
+			<a href="jsps/summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
+			<a href="jsps/researchTeaching.jsp">Rechercher les informations sur un enseignement</a><br/>
+			<a href="teacherHours">Renseigner les heures d'un enseignant</a><br/>
+			
+			<form method="POST" name="logoutForm" action="disconnect" style="position:absolute;top:0px;right:0px;">
+				<input type="hidden" id="logout" name="logout" value="logout" />
+				<input type="submit" value="Se déconnecter" />
+			</form>
+			
 		<%		
 			} else {
 		%>

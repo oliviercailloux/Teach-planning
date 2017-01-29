@@ -29,7 +29,7 @@ private static final long serialVersionUID = 1L;
 		resp.setLocale(Locale.FRENCH);
 		PrintWriter pw=resp.getWriter();
 		
-		pw.println("<a href=\"jsps/prefView/prefForm.jsp\">Ajouter une préference</a><br/>");
+		pw.println("<a href=\"jsps/prefView/prefForm.jsp\">Ajouter une prÃ©ference</a><br/>");
 	}
 	
 	
@@ -40,7 +40,7 @@ private static final long serialVersionUID = 1L;
 		resp.setContentType(MediaType.TEXT_HTML);
 		resp.setLocale(Locale.FRENCH);
 		
-		Teacher teacher = new Teacher("Toto");
+		Teacher teacher = new Teacher("Toto", "Titi", "Tata");
 		
 		String matiere = "M";
 		String choix = "choix";

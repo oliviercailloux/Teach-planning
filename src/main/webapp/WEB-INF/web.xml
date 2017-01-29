@@ -4,6 +4,12 @@
 
 <web-app>
   	<display-name>Archetype Created Web Application</display-name>
+	
+	<servlet>
+  		<servlet-name>InitServlet</servlet-name>
+  		<servlet-class>teach_planning.InitServlet</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
   	
    	<servlet>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
@@ -44,10 +50,16 @@
   		<servlet-name>ServiceFileServlet</servlet-name>
   		<servlet-class>teach_planning.teaching.ServiceFileServlet</servlet-class>
   	</servlet>
+
 	<servlet>
 		<servlet-name>TeacherHoursServlet</servlet-name>
 		<servlet-class>teach_planning.teacher.TeacherHoursServlet</servlet-class>
 	</servlet>
+  	
+  	<servlet>
+  		<servlet-name>AssignmentServlet</servlet-name>
+  		<servlet-class>teach_planning.teaching.AssignmentServlet</servlet-class>
+  	</servlet>
 
   	<servlet-mapping>
     	<servlet-name>ResearchTeachingServlet</servlet-name>
@@ -78,6 +90,7 @@
   		<servlet-name>LoginServlet</servlet-name>
   		<url-pattern>/connect</url-pattern>
   	</servlet-mapping>
+  	
   	<servlet-mapping>
   		<servlet-name>LoginServlet</servlet-name>
   		<url-pattern>/disconnect</url-pattern>
@@ -96,6 +109,11 @@
   	<servlet-mapping>
   		<servlet-name>TeacherHoursServlet</servlet-name>
   		<url-pattern>/teacherHours</url-pattern>
+  	</servlet-mapping>  	
+  	
+  	<servlet-mapping>
+  		<servlet-name>AssignmentServlet</servlet-name>
+  		<url-pattern>/assignment</url-pattern>
   	</servlet-mapping>  	 
 
 </web-app>

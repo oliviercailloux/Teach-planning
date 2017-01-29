@@ -25,47 +25,38 @@
 		
 			<h2>Vous êtes connecté en tant qu'administrateur !</h2>
 			
+			<a href="../index.jsp">Rendez-vous à l'index!</a><br/><br/>
 			<a href="addTeacher.jsp">Ajouter un nouvel enseignant</a><br/>
 			<a href="addTeaching.jsp">Ajouter un nouvel enseignement</a><br/>
 			<a href="prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
-			<a href="serviceFile.jsp">Imprimer la fiche de service d'un enseignant</a><br/>
-			<a href="../chargeTeacher">Rechercher les informations sur un enseignant</a><br/>
-			<a href="../listandsearch">Rechercher les informations sur un enseignement</a><br/>
-			<a href="../teacherHours">Renseigner les heures d'un enseignant</a>
+			<a href="../teacherHours">Renseigner les heures d'un enseignant</a><br/>
+			<a href="assignment.jsp">Affecter un enseignant à une matière</a><br/>
+			<a href="summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
+			<a href="researchTeaching.jsp">Rechercher les informations sur une matière</a><br/>
+			<a href="serviceFile.jsp">Imprimer une fiche de service</a><br/>
 			
-			<form method="POST" name="logoutForm" action="../disconnect">
-	
-				<table>
-					<tr>
-						<td><input type="hidden" id="logout" name="logout" value="logout" /></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><input type="submit" value="Se déconnecter" /></td>
-					</tr>
-				</table>
-		
+			<form method="POST" name="logoutForm" action="../disconnect" style="position:absolute;top:0px;right:0px;">
+				<input type="hidden" id="logout" name="logout" value="logout" />
+				<input type="submit" value="Se déconnecter" />
 			</form>
+			
 		<%
 			} else if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("teacher")) {
 		%>
 			<h2>Vous êtes connecté en tant que professeur !</h2>
 			
-			<a href="../index.jsp">Rendez-vous à l'index!</a>
+			<a href="../index.jsp">Rendez-vous à l'index!</a><br/>
+			<a href="summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
+			<a href="researchTeaching.jsp">Rechercher les informations sur une matière</a><br/>
+			<a href="serviceFile.jsp">Imprimer une fiche de service</a><br/>
+			<a href="prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
+			<a href="../teacherHours">Renseigner les heures d'un enseignant</a><br/>
 			
-			<form method="POST" name="logoutForm" action="../disconnect">
-	
-				<table>
-					<tr>
-						<td><input type="hidden" id="logout" name="logout" value="logout" /></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><input type="submit" value="Se déconnecter" /></td>
-					</tr>
-				</table>
-		
+			<form method="POST" name="logoutForm" action="../disconnect" style="position:absolute;top:0px;right:0px;">
+				<input type="hidden" id="logout" name="logout" value="logout" />
+				<input type="submit" value="Se déconnecter" />
 			</form>
+			
 		<%
 			} else {
 		%>

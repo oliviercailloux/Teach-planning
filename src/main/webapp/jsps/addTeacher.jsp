@@ -41,11 +41,23 @@
 				</table>
 		
 			</form>
+			
+			<form method="POST" name="logoutForm" action="../disconnect" style="position:absolute;top:0px;right:0px;">
+				<input type="hidden" id="logout" name="logout" value="logout" />
+				<input type="submit" value="Se déconnecter" />
+			</form>
+			
 		<%
 			} else if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("teacher")) {
 		%>
 			<h2>En tant que professeur vous n'êtes pas autorisé à accéder à cette page !</h2>
+			
 			<a href="../index.jsp">Rendez-vous à l'index!</a>
+			
+			<form method="POST" name="logoutForm" action="../disconnect" style="position:absolute;top:0px;right:0px;">
+				<input type="hidden" id="logout" name="logout" value="logout" />
+				<input type="submit" value="Se déconnecter" />
+			</form>
 		<%		
 			} else {
 		%>

@@ -85,9 +85,9 @@ public class Teaching {
 	
 	@Override
 	public String toString() {
-		return(this.getName() + " est composée de " + getNbGrp() + " groupes et est décomposée comme suit : <br />" + 
+		return(this.getName() + " est composÃ©e de " + getNbGrp() + " groupes et est dÃ©composÃ©e comme suit : <br />" + 
 				getNbCM() + " heures de cours magistraux <br />" +
-				getNbTD() + " heures de cours de travaux dirigés <br />" +
+				getNbTD() + " heures de cours de travaux dirigÃ©s <br />" +
 				getNbTP() + " heures de cours de travaux pratiques <br />" +
 				getNbCMTD() + " heures de cours mix CM/TD <br />");
 	}
