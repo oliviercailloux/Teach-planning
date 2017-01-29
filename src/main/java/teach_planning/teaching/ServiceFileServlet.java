@@ -4,11 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
-<<<<<<< HEAD:src/main/java/teachingPackage/ServiceFileServlet.java
-import javax.inject.Inject;
-=======
-
->>>>>>> origin:src/main/java/teach_planning/teaching/ServiceFileServlet.java
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
