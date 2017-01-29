@@ -1,47 +1,3 @@
-<<<<<<< HEAD
-<html>
-	<body>
-		<h2>
-			<span style='color: blue'>Welcome on the teach planning App !</span>
-		</h2>
-		<br>
-		<form method="GET" name="listandsearch" action="listandsearch">
-			<table>
-				<tr>
-					<td><input type="submit" value="Search Information about a teaching" /></td>
-				</tr>
-			</table>
-		</form>
-		
-		<form method="GET" name="listandsearch" action="chargeTeacher">
-			<table>
-				<tr>
-					<td><input type="submit" value="Search Information about a teacher" /></td>
-				</tr>
-			</table>
-		</form>
-		
-		<form method="GET" name="listandsearch" action="jsps/addTeaching.jsp">
-			<table>
-				<tr>
-					<td><input type="submit" value="Add a new teaching" /></td>
-				</tr>
-			</table>
-		</form>
-
-		<form method="GET" name="genServiceFile" action="jsps/EmptyServiceFile.jsp">
-			<table>
-				<tr>
-					<td><input type="submit" value="Generate empty service file" /></td>
-				</tr>
-			</table>
-		</form>
-		
-		<a href="jsps/prefView/prefForm.jsp">Add preference for teacher</a>
-	
-	</body>
-</html>
-=======
 <html>
 	<body>
 		<h1>
@@ -69,9 +25,15 @@
 			</form>
 			
 			<a href="jsps/prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
-			
-			<a href="jsps/serviceFile.jsp">Imprimer la fiche de service d'un enseignant</a>
-	
+
+			<form method="GET" name="genServiceFile" action="jsps/">
+				<table>
+					<tr>
+						<td><input type="submit" value="Imprimer la fiche de service" /></td>
+					</tr>
+				</table>
+			</form>
+
 		<%		
 			} else {
 		%>
@@ -82,4 +44,3 @@
 	
 	</body>
 </html>
->>>>>>> origin
