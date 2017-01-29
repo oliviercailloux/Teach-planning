@@ -7,8 +7,9 @@
 		<title>Number hours for teacher</title>
 	</head>
 	<body>
+	<b> Déclaration du nombre d'heures de cours :</b></br></br>
 		<% if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("admin")) { %>
-		<form method="POST" name="addTeacherForm" action="../addNewTeacher">
+		<form method="POST" name="addTeacherForm" action="../teacherHours">
 	
 			<table>
 				<tr>
@@ -32,7 +33,7 @@
 		<%
 			} else if(session.getAttribute("typeSession") != null && session.getAttribute("typeSession").equals("teacher")) {
 		%>
-		<form method="POST" name="addTeacherForm" action="../addNewTeacher">
+		<form method="POST" name="addTeacherForm" action="../teacherHours">
 	
 			<table>
 				<tr>
