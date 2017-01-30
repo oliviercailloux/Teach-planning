@@ -9,15 +9,15 @@
 
 4.<strike>Un enseignant peut indiquer ses préférences et le nombre d’années qu’il a enseigné chaque matière (cf. Voeux/AA - Saisie des voeux 2016-2017.xls, page « Apprentissage »).</strike>
 
-5.Un enseignant peut indiquer combien d’heures il souhaite enseigner.
+5.<strike>Un enseignant peut indiquer combien d’heures il souhaite enseigner.</strike>
 
 6.L’adminstration peut consulter une agrégation des préférences indiquées par les enseignants (cf. Voeux/Fichier Agrégé.pdf).
 
 7.<strike>Un utilisateur peut générer une fiche de service (imprimable) pour l’enseignant de son choix (cf. Voeux/Fiche de service.png). Les coordonnées ne sont pas affichées. Les matières ne sont pas renseignées, seules des cases vides, comme sur l’illustration.</strike>
 
-8.L’administration peut générer une fiche de service pour l’enseignant de son choix. Les coordonnées sont affichées.
+8.<strike>L’administration peut générer une fiche de service pour l’enseignant de son choix. Les coordonnées sont affichées.</strike>
 
-9.L’administration peut affecter les enseignants aux matières.
+9.<strike>L’administration peut affecter les enseignants aux matières.</strike>
 
 10.L’administration peut indiquer quand les informations d’affectation pour l’année en cours deviennent publiques. Il n’est pas possible de revenir en arrière sur ce choix.
 
