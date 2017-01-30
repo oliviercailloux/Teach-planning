@@ -33,7 +33,7 @@
 			<a href="assignment.jsp">Affecter un enseignant à une matière</a><br/>
 			<a href="summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
 			<a href="researchTeaching.jsp">Rechercher les informations sur une matière</a><br/>
-			<a href="serviceFile.jsp">Imprimer une fiche de service</a><br/>
+			<a href="serviceFile.jsp">Imprimer une fiche de service pour un enseignant</a><br/>
 			
 			<form method="POST" name="logoutForm" action="../disconnect" style="position:absolute;top:0px;right:0px;">
 				<input type="hidden" id="logout" name="logout" value="logout" />
@@ -48,7 +48,6 @@
 			<a href="../index.jsp">Rendez-vous à l'index!</a><br/>
 			<a href="summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
 			<a href="researchTeaching.jsp">Rechercher les informations sur une matière</a><br/>
-			<a href="serviceFile.jsp">Imprimer une fiche de service</a><br/>
 			<a href="prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
 			<a href="../teacherHours">Renseigner les heures d'un enseignant</a><br/>
 			
