@@ -5,12 +5,11 @@ import java.io.PrintWriter;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class PrintChoiceImpl implements PrintChoiceInterface
-	{
+public class PrintChoiceImpl implements PrintChoiceInterface {
 
-	public void printPreferences(PrintWriter pw, Teacher teacher/*, Teaching teaching*/) {
+	@Override
+	public void printPreferences(PrintWriter pw, Teacher teacher) {
 		teacher.printPreferences(pw);
-		
 	}
-
+	
 }

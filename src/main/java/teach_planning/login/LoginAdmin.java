@@ -1,6 +1,5 @@
 package teach_planning.login;
 
-@administrator
 public class LoginAdmin extends Login{
 
 	public LoginAdmin(String login, String password) {

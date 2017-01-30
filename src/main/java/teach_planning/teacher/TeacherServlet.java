@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,13 +27,7 @@ public class TeacherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	// public because no DB
-	public static ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.sendRedirect("jsps/addTeacher.jsp");
-	}
-	
+	public static List<Teacher> teacherList = new ArrayList<>();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,21 +49,25 @@ public class TeacherServlet extends HttpServlet {
 		Login newLogin = new Login(teacherEmail, "default");
 		LoginServlet.loginList.add(newLogin);
 		 
-		PrintWriter pw=resp.getWriter();
-		
-		// Recapitulation of the new teacher added
-		pw.println("<h2>Nouvel enseignant ajouté !</h2>");
-		pw.println(newTeacher.toString() + "<br/><br/>");
-		
-		// Proposition to add new teacher
-		pw.println("<a href=\"jsps/addTeacher.jsp\">Ajouter un nouvel enseignant</a><br/>");
-		pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
-		
-		// Recapitulation of all teachers stocked on the teaching list
-		pw.println("<h1>Liste des enseignants</h1>");
-		for(Teacher t : teacherList) {
-			pw.println(t.toString() + "<br/>");
-		}	
+		try(PrintWriter pw=resp.getWriter()) {
+			// Recapitulation of the new teacher added
+			pw.println("<h2>Nouvel enseignant ajouté !</h2>");
+			pw.println(newTeacher.toString() + "<br/><br/>");
+			
+			// Proposition to add new teacher
+			pw.println("<a href=\"jsps/addTeacher.jsp\">Ajouter un nouvel enseignant</a><br/>");
+			pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
+			
+			// Recapitulation of all teachers stocked on the teaching list
+			pw.println("<h1>Liste des enseignants</h1>");
+			for(Teacher t : teacherList) {
+				pw.println(t.toString() + "<br/>");
+			}	
+		} catch(Exception e) {
+			Logger logger = Logger.getLogger(getClass().getName());
+			logger.severe("Impossible to get writer from response in TeacherServlet \n "
+					+ "The error is : " + e);
+		}
 	}
 	
 }

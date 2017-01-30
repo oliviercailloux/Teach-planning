@@ -2,6 +2,7 @@ package teach_planning.teacher;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,7 @@ public class Print {
 	HttpServletResponse response;
 	final ServletOutputStream out;
 	
-	ArrayList<Teacher> lesProfs = new ArrayList<Teacher>();
+	List<Teacher> lesProfs = new ArrayList<>();
 	
 	public Print(HttpServletResponse response) throws IOException {
 		this.response = response;
@@ -90,7 +91,7 @@ public class Print {
 		out.println(finaltoDisplay);	
 	}
 	
-	void printErrorRecup(String teacher) throws IOException{
+	void printErrorRecup() throws IOException{
 		out.println(
 				"<html>"
 				+ "	<body>"
@@ -104,4 +105,5 @@ public class Print {
 				+ "	</body>"
 				+ "</html>");
 	}
+	
 }

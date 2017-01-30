@@ -14,7 +14,7 @@ public class Teacher {
 	private String email;
 	private ArrayList<Teaching> teachings;  
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
-	private HashMap<String, Teaching> preferences = new HashMap<String, Teaching>();
+	private HashMap<String, Teaching> preferences = new HashMap<>();
 	
 	public Teacher(String firstname, String lastname, String email) {
 		this.firstname = firstname;
@@ -78,15 +78,4 @@ public class Teacher {
 		this.preferences.put(choix, preference);
 	}
 	
-	// CODE QUI VIENT DE DIEU SEUL SAIT
-	/*public String getDetailTeaching() {
-		String mat = "";
-		StringBuilder sb = new StringBuilder(mat);
-		
-		for(int i=0;i<this.teachings.size(); i++) {
-			sb.append(teachings.get(i).detailTeaching());
-		}
-		return sb.toString();
-	}*/
-
 }

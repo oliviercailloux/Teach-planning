@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,16 +24,7 @@ public class TeachingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	// public because no DB
-	public static ArrayList<Teaching> teachingList = new ArrayList<Teaching>();
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//this.getServletContext().getRequestDispatcher("/webapp/jsps/addTeaching.jsp").forward(req, resp);
-		//req.setAttribute("teachingName", "CM");
-		//req.getRequestDispatcher("listTeaching.jsp").forward(req, resp);
-		resp.sendRedirect("jsps/addTeaching.jsp");
-	}
-	
+	public static List<Teaching> teachingList = new ArrayList<>();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,22 +46,26 @@ public class TeachingServlet extends HttpServlet {
 		Teaching newTeaching = new Teaching(teachingName, cm, td, tp, cmtd, grp);
 		teachingList.add(newTeaching);
 		 
-		PrintWriter pw=resp.getWriter();
+		try(PrintWriter pw=resp.getWriter()) {
 		
-		// Recapitulation of the new teaching added
-		pw.println("<h2>Nouvel enseignement ajouté !</h2>");
-		pw.println(newTeaching.toString() + "<br/>");
-		
-		// Proposition to add new teaching
-		pw.println("<a href=\"jsps/addTeaching.jsp\">Ajouter un nouvel enseignement</a><br/>");
-		pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
-		//pw.println("<a href=\"jsps/listTeaching.jsp\">Liste des mati�res</a><br/>");
-		
-		// Recapitulation of all teaching stocked on the teaching list
-		pw.println("<h1>Liste des enseignements</h1>");
-		for(Teaching t : teachingList) {
-			pw.println(t.toString() + "<br/>");
-		}	
+			// Recapitulation of the new teaching added
+			pw.println("<h2>Nouvel enseignement ajouté !</h2>");
+			pw.println(newTeaching.toString() + "<br/>");
+			
+			// Proposition to add new teaching
+			pw.println("<a href=\"jsps/addTeaching.jsp\">Ajouter un nouvel enseignement</a><br/>");
+			pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
+			
+			// Recapitulation of all teaching stocked on the teaching list
+			pw.println("<h1>Liste des enseignements</h1>");
+			for(Teaching t : teachingList) {
+				pw.println(t.toString() + "<br/>");
+			}	
+		} catch(Exception e) {
+			Logger logger = Logger.getLogger(getClass().getName());
+			logger.severe("Impossible to get writer from response in TeachingServlet \n "
+					+ "The error is : " + e);
+		}
 	}
 	
 }

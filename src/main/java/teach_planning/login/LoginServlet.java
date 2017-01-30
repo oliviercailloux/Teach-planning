@@ -3,6 +3,7 @@ package teach_planning.login;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.ServletException;
@@ -21,20 +22,11 @@ public class LoginServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	// public because no DB
-	// static to be called on teacher because no db ...
-	public static ArrayList<Login> loginList = new ArrayList<Login>();
-
+	// public static because no DB
+	public static List<Login> loginList = new ArrayList<>();
 	
 	// public static because no DB
-	@administrator
-	public static ArrayList<Login> loginAdmin = new ArrayList<Login>();
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.sendRedirect("index.jsp");
-	}
-	
+	public static List<Login> loginAdmin = new ArrayList<>();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -80,7 +72,6 @@ public class LoginServlet extends HttpServlet {
 		}
 		return false;
 	}
-
 
 	private boolean isExistTeacherAccount(String login, String password) {
 		for(Login l : loginList) {

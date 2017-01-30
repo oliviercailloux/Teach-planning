@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -23,17 +24,6 @@ private static final long serialVersionUID = 1L;
 	private PrintChoiceInterface print;
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-		resp.setContentType(MediaType.TEXT_HTML);
-		resp.setLocale(Locale.FRENCH);
-		PrintWriter pw=resp.getWriter();
-		
-		pw.println("<a href=\"jsps/prefView/prefForm.jsp\">Ajouter une préference</a><br/>");
-	}
-	
-	
-	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
@@ -47,7 +37,6 @@ private static final long serialVersionUID = 1L;
 		String heure = "H";
 		
 		for(int i = 1; i<39; i++){
-			//String verif;
 			choix= choix+i;
 			
 			if(!req.getParameter(choix).equals("choix0")){
@@ -63,13 +52,13 @@ private static final long serialVersionUID = 1L;
 			matiere = "M";
 		}
 		
-		//String choix = req.getParameter("choix1");
-		//Teaching teaching = new Teaching("RaN", "CM", "M1 INFO", 18.0, 27.0);
-		//teacher.addPreference(choix, teaching);
-		
-		PrintWriter pw=resp.getWriter();
-		//pw.println(choix);
-		
-		print.printPreferences(pw, teacher);
+		try(PrintWriter pw=resp.getWriter()) {
+			print.printPreferences(pw, teacher);
+		} catch(Exception e) {
+			Logger logger = Logger.getLogger(getClass().getName());
+			logger.severe("Impossible to get writer from response in PreferenceServlet \n "
+					+ "The error is : " + e);
+		}
 	}
+	
 }

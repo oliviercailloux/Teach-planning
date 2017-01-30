@@ -3,6 +3,7 @@ package teach_planning.teaching;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.ServletException;
@@ -24,13 +25,7 @@ public class AssignmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	// public static because no DB
-	public static ArrayList<Assignment> listAssignation = new ArrayList<Assignment>();
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// Redirects to the assignment jsp page if servlet is directly called on URL
-		resp.sendRedirect("jsps/assignment.jsp");
-	}
+	public static List<Assignment> listAssignation = new ArrayList<>();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

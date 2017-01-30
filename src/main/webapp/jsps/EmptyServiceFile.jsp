@@ -12,9 +12,9 @@
 				<td>PRENOM</td>
 			</tr>
 			<tr>
-				<td><div style="border: 3px solid black; padding: 3px 5px 3px 5px; margin-right:30%;">&nbsp;</div></td>
-				<td><div width="800" style="border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;">&nbsp;</div></td>
-				<td><div width="800" style="border:3px solid black;  padding: 3px 200px 3px 5px;">&nbsp;</div></td>
+				<td><div style="border: 3px solid black; padding: 3px 50px 3px 5px; margin-right:30%;">&nbsp;</div></td>
+				<td><div style="width:20px; border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;">&nbsp;</div></td>
+				<td><div style="width:20px; border:3px solid black;  padding: 3px 200px 3px 5px;">&nbsp;</div></td>
 			</tr>
 			<tr height='20' >
 				<td></td>
@@ -28,8 +28,8 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><div width="800" style="border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;">&nbsp;</div></td>
-				<td><div width="800" style="border:3px solid black;  padding: 3px 200px 3px 5px;">&nbsp;</div></td>
+				<td><div style="width:20px; border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;">&nbsp;</div></td>
+				<td><div style="width:20px; border:3px solid black;  padding: 3px 200px 3px 5px;">&nbsp;</div></td>
 			</tr>			
 			<tr height='20'>
 				<td></td>
@@ -38,7 +38,7 @@
 			</tr>
 			<tr>
 				<td>EMAIL</td>
-				<td><div width="800" style="border:3px solid black;  padding: 3px 200px 3px 5px;">&nbsp;</div></td>		 
+				<td><div style="width:120px; border:3px solid black;  padding: 3px 200px 3px 5px;">&nbsp;</div></td>		 
 				<td></td>
 			</tr>
 			<tr height='20'>
@@ -47,22 +47,25 @@
 				<td></td>
 			</tr>
 			<tr>
+				<td></td>
 				<td>PORTABLE</td>
 				<td>FIXE</td>
 				<td>POSTE</td>
 			</tr>
 			<tr>
-				<td><div width='800' height='80' style='border:3px solid black; padding: 3px 5px 3px 5px;'>&nbsp;</div></td>
-				<td><div width='800' style='color:white; border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;'>&nbsp;</div></td>
-				<td><div width='800' height='80' style='border:3px solid black;  padding: 3px 5px 3px 5px;'>&nbsp;</div></td>
+				<td></td>
+				<td><div style='width:20px; border:3px solid black; padding: 3px 200px 3px 5px;'>&nbsp;</div></td>
+				<td><div style='width:20px; color:white; border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;'>&nbsp;</div></td>
+				<td><div style='width:20px; border:3px solid black;  padding: 3px 50px 3px 5px;'>&nbsp;</div></td>
 			</tr>	
 			<tr height='30'>
 				<td></td>
 				<td></td>
 				<td></td>
+				<td></td>
 			</tr>
 		</table>
-		<table width='900' style='border-collapse:collapse; border: 1px solid black; margin-left:8%;margin-bottom:50px;'>
+		<table style='width:40px; border-collapse:collapse; border: 1px solid black; margin-left:8%;margin-bottom:50px;'>
 			<tr>
 				<th  style='border: 1px solid black;text-align:center;padding: 3px 3px 3px 5px;' height='50' >ANNEE</th>
 				<th style='border: 1px solid black;text-align:center;padding: 3px 3px 3px 5px;'  height='50'>ENSEIGNEMENTS</th>
@@ -113,6 +116,6 @@
 			</tr>
 		</table>
 		<div style='margin-left:55%;color:blue;'>TOTAL <span style='border:3px solid black; padding: 3px 200px 3px 20px;'>&nbsp;</span></div>																		
-		<a href='javascript:window.print()'><h2>Imprimer la fiche service</h2></a>
+		<h2><a href='javascript:window.print()'>Imprimer la fiche service</a></h2>
 	</body>
 </html>
