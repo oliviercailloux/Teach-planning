@@ -15,7 +15,7 @@
 			<% } %>
 			
 			<a href="jsps/prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
-			<a href="jsps/serviceFile.jsp">Imprimer la fiche de service d'un enseignant</a><br/>
+			<a href="jsps/EmptyServiceFile.jsp">Imprimer la fiche de service d'un enseignant</a><br/>
 			<a href="jsps/summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
 			<a href="jsps/researchTeaching.jsp">Rechercher les informations sur un enseignement</a><br/>
 			<a href="teacherHours">Renseigner les heures d'un enseignant</a><br/>
