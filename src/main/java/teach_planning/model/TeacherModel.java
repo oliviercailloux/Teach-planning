@@ -13,11 +13,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-@NamedQueries({
-@NamedQuery(name="TeacherModel.getAll",
-    query="SELECT * FROM Teacher")}
-)
-
 @Entity
 public class TeacherModel {
 
