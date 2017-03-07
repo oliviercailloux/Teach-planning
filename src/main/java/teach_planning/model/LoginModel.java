@@ -21,7 +21,7 @@ public class LoginModel {
 	private int id;
 	
 	@Basic(fetch=FetchType.EAGER, optional=false)
-	private static String login;
+	private String login;
 	@Basic(fetch=FetchType.LAZY, optional=false)
 	private String password;
 	@Enumerated(EnumType.STRING)
@@ -43,7 +43,7 @@ public class LoginModel {
 		this.typeAccount = typeAccount;
 	}
 
-	public static String getLogin() {
+	public String getLogin() {
 		return login;
 	}
 

@@ -32,13 +32,5 @@ public class LoginService {
 	public List<LoginModel> getAll() {
 		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(), LoginModel.class)).getResultList();
 	}
-	
-	
-	public List<String> getAllLogins() {
-		final CriteriaQuery<String> query = em.getCriteriaBuilder().createQuery(String.class);
-		final Root<LoginModel> from = query.from(LoginModel.class);
-		query.select(from.get(LoginModel.getLogin()));
-		return em.createQuery(query).getResultList();
-	}
 
 }

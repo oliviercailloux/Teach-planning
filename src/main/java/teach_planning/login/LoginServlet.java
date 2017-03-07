@@ -49,11 +49,6 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		/*ls.persist(new LoginModel("hello", "hello", TypeAccount.ADMINISTRATOR));
-		
-		ts.persist(new TeacherModel("teach", "teach", "teach@t.com"));
-		
-		tgs.persist(new TeachingModel("espagnol", 20, 10, 15, 0, 2));*/
 		
 		resp.setContentType("text/html");
 	    @SuppressWarnings("resource")
@@ -107,44 +102,42 @@ public class LoginServlet extends HttpServlet {
 		if(logout != null) {
 			 session.setAttribute("typeSession", null);
 		} else {
-		
-			if(isExistTeacherAccount(login, password)) {
-				// If teacher
-		        session.setAttribute("typeSession", "teacher");
-			} else if(isExistAdminAccount(login, password)) {
-				// If admin
-		        session.setAttribute("typeSession", "admin");
-			} else {
-				// If not exists
-				session.setAttribute("errorLogin", "Ce login n'existe pas ou votre mot de passe est incorrect !");
+			String typeAccount = isExistAccount(login, password);
+			
+			switch (typeAccount) {
+				case "NOT_EXIST":
+					session.setAttribute("errorLogin", "Le login" + login + "n'existe pas !");
+					break;
+				case "NOT_PASS":
+					session.setAttribute("errorLogin", "Votre mot de passe est incorrect !");
+					session.setAttribute("loginRemember", login);
+					break;
+				case "ADMINISTRATOR":
+					session.setAttribute("typeSession", "admin");
+					break;
+				case "TEACHER":
+					session.setAttribute("typeSession", "teacher");
+					break;
+				default:
+					session.setAttribute("errorLogin", "UNKNOWN ERROR");
+					break;
 			}
+			
 		}
 		
 		resp.sendRedirect("jsps/login.jsp");
 	}
 	
-	private boolean isExistAdminAccount(String login, String password) {
-		for(Login l : loginAdmin) {
-			if(l.getLogin().equals(login)) {
-				if(l.getPassword().equals(password)) {
-					return true;
+	private String isExistAccount(String login, String password) {
+		for(LoginModel lm : ls.getAll()) {
+			if(lm.getLogin().equals(login)) {
+				if(lm.getPassword().equals(password)) {
+					return lm.getTypeAccount().toString();
 				}
-				return false;
+				return "NOT_PASS";
 			}
-		}
-		return false;
-	}
-
-	private boolean isExistTeacherAccount(String login, String password) {
-		for(Login l : loginList) {
-			if(l.getLogin().equals(login)) {
-				if(l.getPassword().equals(password)) {
-					return true;
-				}
-				return false;
-			}
-		}
-		return false;
+	    }
+		return "NOT_EXIST";
 	}
 	
 }
