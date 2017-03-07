@@ -88,7 +88,7 @@ public class ServiceFileServlet extends HttpServlet {
 			pw.println("<div style='margin-left:55%;color:blue;'>TOTAL <span style='border:3px solid black; padding: 3px 200px 3px 20px;'>&nbsp;</span></div>");
 			
 			pw.println("<a href='javascript:window.print()'><h2>Imprimer la fiche service</h2></a>");
-			
+			pw.println("<a href='../teachPlanning/jsps/login.jsp'>Rendez-vous à l\'index!</a>");
 			pw.println("</body></html>");
 			
 		} catch(Exception e) {
