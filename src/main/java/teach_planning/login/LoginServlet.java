@@ -49,11 +49,11 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ls.persist(new LoginModel("hello", "hello", TypeAccount.ADMINISTRATOR));
+		/*ls.persist(new LoginModel("hello", "hello", TypeAccount.ADMINISTRATOR));
 		
 		ts.persist(new TeacherModel("teach", "teach", "teach@t.com"));
 		
-		tgs.persist(new TeachingModel("espagnol", 20, 10, 15, 0, 2));
+		tgs.persist(new TeachingModel("espagnol", 20, 10, 15, 0, 2));*/
 		
 		resp.setContentType("text/html");
 	    @SuppressWarnings("resource")
