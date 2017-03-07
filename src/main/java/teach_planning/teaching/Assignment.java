@@ -1,15 +1,16 @@
 package teach_planning.teaching;
 
+import teach_planning.model.TeachingModel;
 import teach_planning.teacher.Teacher;
 
 public class Assignment {
 
 	private Teacher teacher;
-	private Teaching teaching;
+	private TeachingModel teaching;
 	private String teachingType;
 	private String promotion;
 	
-	public Assignment(Teacher teacher, Teaching teaching, String teachingType, String promotion) {
+	public Assignment(Teacher teacher, TeachingModel teaching, String teachingType, String promotion) {
 		this.teacher = teacher;
 		this.teaching = teaching;
 		this.teachingType = teachingType;
@@ -24,11 +25,11 @@ public class Assignment {
 		this.teacher = teacher;
 	}
 
-	public Teaching getTeaching() {
+	public TeachingModel getTeaching() {
 		return teaching;
 	}
 
-	public void setTeaching(Teaching teaching) {
+	public void setTeaching(TeachingModel teaching) {
 		this.teaching = teaching;
 	}
 

@@ -90,9 +90,9 @@ public class InitServlet extends HttpServlet {
 
 		// Clean the teaching list when new call is done (avoid duplicate)
 		TeachingServlet.teachingList = new ArrayList<>();
-		TeachingServlet.teachingList.add(new Teaching("Java", 20, 10, 15, 0, 2));
-		TeachingServlet.teachingList.add(new Teaching("Communication", 10, 10, 0, 10, 1));
-		TeachingServlet.teachingList.add(new Teaching("Analyse de données", 30, 0, 0, 5, 4));
+		TeachingServlet.teachingList.add(new TeachingModel("Java", 20, 10, 15, 0, 2));
+		TeachingServlet.teachingList.add(new TeachingModel("Communication", 10, 10, 0, 10, 1));
+		TeachingServlet.teachingList.add(new TeachingModel("Analyse de données", 30, 0, 0, 5, 4));
 	}
 	
 }

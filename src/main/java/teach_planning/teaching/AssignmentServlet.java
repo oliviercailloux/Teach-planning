@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
+import teach_planning.model.TeachingModel;
 import teach_planning.teacher.Teacher;
 import teach_planning.teacher.TeacherServlet;
 
@@ -36,7 +37,7 @@ public class AssignmentServlet extends HttpServlet {
 		
 		// Setting Assignment parameters
 		Teacher teacher = TeacherServlet.teacherList.get(Integer.parseInt(req.getParameter("teacher")));
-		Teaching teaching = TeachingServlet.teachingList.get(Integer.parseInt(req.getParameter("teaching")));
+		TeachingModel teaching = TeachingServlet.teachingList.get(Integer.parseInt(req.getParameter("teaching")));
 		String teachingType = req.getParameter("teachingType");
 		String promotion = req.getParameter("className");
 		
