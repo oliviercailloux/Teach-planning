@@ -1,11 +1,14 @@
 package teach_planning;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import teach_planning.login.Login;
 import teach_planning.login.LoginAdmin;
@@ -15,14 +18,14 @@ import teach_planning.teacher.TeacherServlet;
 import teach_planning.teaching.Teaching;
 import teach_planning.teaching.TeachingServlet;
 
-@WebServlet(name="InitServlet", urlPatterns={"/initLists"})
+@WebServlet(name="InitServlet", loadOnStartup=1, urlPatterns={"/initLists"})
 public class InitServlet extends HttpServlet {
 
 	/**
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Override
 	public void init() throws ServletException {
 		// Clean the admin list when new call is done (avoid duplicate)
@@ -50,6 +53,12 @@ public class InitServlet extends HttpServlet {
 		TeachingServlet.teachingList.add(new Teaching("Java", 20, 10, 15, 0, 2));
 		TeachingServlet.teachingList.add(new Teaching("Communication", 10, 10, 0, 10, 1));
 		TeachingServlet.teachingList.add(new Teaching("Analyse de données", 30, 0, 0, 5, 4));
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		super.doGet(req, resp);
+		
 	}
 	
 }

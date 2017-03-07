@@ -13,6 +13,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import teach_planning.teaching.Teaching;
+
 @Entity
 public class TeacherModel {
 
@@ -22,10 +24,19 @@ public class TeacherModel {
 	
 	private String firstname, lastname, email;
 	
-	@OneToMany
-	private ArrayList<TeachingModel> teachings = new ArrayList<>();  
+	public TeacherModel() {
+		
+	}
+	
+	public TeacherModel(String firstname, String lastname, String email) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+	}
+	
+	private ArrayList<Teaching> teachings = new ArrayList<>();  
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
-	private HashMap<String, TeachingModel> preferences = new HashMap<>();
+	private HashMap<String, Teaching> preferences = new HashMap<>();
 	
 	public String getFirstname() {
 		return firstname;
@@ -51,11 +62,11 @@ public class TeacherModel {
 		this.email = email;
 	}
 	
-	public void addTeaching(TeachingModel t) {
+	public void addTeaching(Teaching t) {
 		this.teachings.add(t);
 	}
 	
-	public ArrayList<TeachingModel> getTeachings(){
+	public ArrayList<Teaching> getTeachings(){
 		return teachings;
 	}
 	
@@ -67,19 +78,19 @@ public class TeacherModel {
 	
 	public void printPreferences (PrintWriter pw){
 		pw.println("La liste de mes préferences :<br/>");
-		for(Entry<String, TeachingModel> entry : preferences.entrySet()) {
+		for(Entry<String, Teaching> entry : preferences.entrySet()) {
 		    String key = entry.getKey();
-		    TeachingModel value = entry.getValue();
+		    Teaching value = entry.getValue();
 		    pw.println("La matière "+value.getName()+" est le "+key+"<br />");
 		}
 	    pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 	}
 	
-	public HashMap<String, TeachingModel> getPreferences() {
+	public HashMap<String, Teaching> getPreferences() {
 		return preferences;
 	}
 
-	public void addPreference(String choix, TeachingModel preference) {
+	public void addPreference(String choix, Teaching preference) {
 		this.preferences.put(choix, preference);
 	}
 	

@@ -1,11 +1,13 @@
 package teach_planning.login;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
+
+import teach_planning.model.LoginModel;
+import teach_planning.model.TeacherModel;
+import teach_planning.model.TeachingModel;
+import teach_planning.model.TypeAccount;
+import teach_planning.service.LoginService;
+import teach_planning.service.TeacherService;
+import teach_planning.service.TeachingService;
 
 @WebServlet(name="LoginServlet", urlPatterns={"/connect", "/disconnect"})
 public class LoginServlet extends HttpServlet {
@@ -27,6 +37,58 @@ public class LoginServlet extends HttpServlet {
 	
 	// public static because no DB
 	public static List<Login> loginAdmin = new ArrayList<>();
+	
+	@Inject
+	public LoginService ls;
+	
+	@Inject
+	public TeacherService ts;
+	
+	@Inject
+	public TeachingService tgs;
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		ls.persist(new LoginModel("hello", "hello", TypeAccount.ADMINISTRATOR));
+		
+		ts.persist(new TeacherModel("teach", "teach", "teach@t.com"));
+		
+		tgs.persist(new TeachingModel("espagnol", 20, 10, 15, 0, 2));
+		
+		resp.setContentType("text/html");
+	    @SuppressWarnings("resource")
+		PrintWriter out = resp.getWriter();
+	    
+	    out.println("debut");
+	   /* for(String s : ls.getAllLogins()) {
+	    	out.println(s);
+	    }*/
+	    for(LoginModel lm : ls.getAll()) {
+	    	out.println(lm.getLogin());
+	    	out.println(lm.getPassword());
+	    	out.println(lm.getTypeAccount());
+	    }
+	    out.println("fin");
+	    
+	    out.println("debut");
+	    for(TeacherModel tm : ts.getAll()) {
+	    	out.println(tm.getFirstname());
+	    	out.println(tm.getLastname());
+	    	out.println(tm.getEmail());
+	    }
+	    out.println("fin");
+	    
+	    out.println("debut");
+	    for(TeachingModel tgm : tgs.getAll()) {
+	    	out.println(tgm.getName());
+	    	out.println(tgm.getNbCM());
+	    	out.println(tgm.getNbCMTD());
+	    	out.println(tgm.getNbGrp());
+	    	out.println(tgm.getNbTD());
+	    	out.println(tgm.getNbTP());
+	    }
+	    out.println("fin");
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

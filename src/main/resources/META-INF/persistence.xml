@@ -12,16 +12,4 @@
 			<property name="eclipselink.logging.parameters" value="true" />
 		</properties>
 	</persistence-unit>
-	<persistence-unit name="teach_planning-JUnit-Test" transaction-type="RESOURCE_LOCAL">
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:" />
-			<property name="javax.persistence.schema-generation.database.action"
-				value="drop-and-create" />
-			<property name="eclipselink.logging.level" value="FINE" />
-			<property name="eclipselink.logging.logger" value="JavaLogger" />
-			<property name="eclipselink.logging.level.sql" value="FINE" />
-			<property name="eclipselink.logging.parameters" value="true" />
-		</properties>
-	</persistence-unit>
 </persistence>

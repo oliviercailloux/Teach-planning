@@ -17,9 +17,6 @@ public class TeachingModel {
 	
 	private String name, typeMatiere, diplome;
 	private double nbCM, nbTD, nbTP, nbCMTD, nbGrp;
-
-	@OneToMany
-	private ArrayList<TeachingModel> teachings;  
 	
 	public TeachingModel() {
 		

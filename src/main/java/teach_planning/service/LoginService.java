@@ -12,7 +12,6 @@ import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import teach_planning.model.LoginModel;
-import teach_planning.model.TeacherModel;
 import teach_planning.utils.QueryHelper;
 
 @ApplicationScoped
@@ -34,7 +33,7 @@ public class LoginService {
 		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(), LoginModel.class)).getResultList();
 	}
 	
-	@Transactional
+	
 	public List<String> getAllLogins() {
 		final CriteriaQuery<String> query = em.getCriteriaBuilder().createQuery(String.class);
 		final Root<LoginModel> from = query.from(LoginModel.class);
