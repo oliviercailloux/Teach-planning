@@ -18,7 +18,7 @@
 			<a href="jsps/EmptyServiceFile.jsp">Imprimer une fiche de service</a><br/>
 			<a href="jsps/summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
 			<a href="jsps/researchTeaching.jsp">Rechercher les informations sur un enseignement</a><br/>
-			<a href="teacherHours">Renseigner les heures d'un enseignant</a><br/>
+			<a href="jsps/nbHours.jsp">Renseigner les heures d'un enseignant</a><br/>
 			
 			<form method="POST" name="logoutForm" action="disconnect" style="position:absolute;top:0px;right:0px;">
 				<input type="hidden" id="logout" name="logout" value="logout" />
