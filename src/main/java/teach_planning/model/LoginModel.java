@@ -27,6 +27,10 @@ public class LoginModel {
 	@Enumerated(EnumType.STRING)
 	private TypeAccount typeAccount;
 	
+	public LoginModel() {
+		
+	}
+	
 	public LoginModel(String login, String password) {
 		this.login = login;
 		this.password = password;

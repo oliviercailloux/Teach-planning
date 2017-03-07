@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
  * Un enseignant peut enseigner plusieurs matiere
  *
  */
-@Entity
 public class TeacherTeaching {
 	 @Id
 	 @ManyToOne(fetch=FetchType.LAZY)

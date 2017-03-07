@@ -22,7 +22,7 @@ public class TeacherModel {
 	
 	private String firstname, lastname, email;
 	
-	@OneToMany(mappedBy="teacher")
+	@OneToMany
 	private ArrayList<TeachingModel> teachings = new ArrayList<>();  
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
 	private HashMap<String, TeachingModel> preferences = new HashMap<>();

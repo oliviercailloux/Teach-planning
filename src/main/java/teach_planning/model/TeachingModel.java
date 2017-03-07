@@ -2,11 +2,13 @@ package teach_planning.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class TeachingModel {
 
 	@Id
@@ -16,8 +18,12 @@ public class TeachingModel {
 	private String name, typeMatiere, diplome;
 	private double nbCM, nbTD, nbTP, nbCMTD, nbGrp;
 
-	@OneToMany(mappedBy="teacher")
+	@OneToMany
 	private ArrayList<TeachingModel> teachings;  
+	
+	public TeachingModel() {
+		
+	}
 	
 	public TeachingModel(String name,int nbCM,int nbTD,int nbTP,int nbCMTD,int nbGrp){
 		this.name = name;
