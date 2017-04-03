@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,9 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
+import teach_planning.model.TeacherModel;
 import teach_planning.model.TeachingModel;
-import teach_planning.teacher.Teacher;
-import teach_planning.teacher.TeacherServlet;
+import teach_planning.service.TeacherService;
+import teach_planning.service.TeachingService;
 
 @WebServlet(name="AssignmentServlet", urlPatterns={"/assignment"})
 public class AssignmentServlet extends HttpServlet {
@@ -24,9 +28,16 @@ public class AssignmentServlet extends HttpServlet {
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	// public static because no DB
 	public static List<Assignment> listAssignation = new ArrayList<>();
+
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Inject
+	private TeacherService teacherS;
+	
+	@Inject
+	private TeachingService teachingS;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,8 +47,8 @@ public class AssignmentServlet extends HttpServlet {
 		resp.setLocale(Locale.FRENCH);
 		
 		// Setting Assignment parameters
-		Teacher teacher = TeacherServlet.teacherList.get(Integer.parseInt(req.getParameter("teacher")));
-		TeachingModel teaching = TeachingServlet.teachingList.get(Integer.parseInt(req.getParameter("teaching")));
+		TeacherModel teacher = teacherS.getAll().get(Integer.parseInt(req.getParameter("teacher")));
+		TeachingModel teaching = teachingS.getAll().get(Integer.parseInt(req.getParameter("teaching")));
 		String teachingType = req.getParameter("teachingType");
 		String promotion = req.getParameter("className");
 		

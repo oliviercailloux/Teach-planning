@@ -6,7 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import java.util.logging.Logger;
 
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,14 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
+import teach_planning.model.TeacherModel;
 import teach_planning.teaching.Teaching;
 
 @WebServlet(name="PreferenceServlet", urlPatterns={"/addPref"})
 public class PreferenceServlet extends HttpServlet {
 
 private static final long serialVersionUID = 1L;
-	@Inject
-	private PrintChoiceInterface print;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,7 +28,7 @@ private static final long serialVersionUID = 1L;
 		resp.setContentType(MediaType.TEXT_HTML);
 		resp.setLocale(Locale.FRENCH);
 		
-		Teacher teacher = new Teacher("Toto", "Titi", "Tata");
+		TeacherModel teacher = new TeacherModel("Toto", "Titi", "Tata");
 		
 		String matiere = "M";
 		String choix = "choix";
@@ -53,7 +51,7 @@ private static final long serialVersionUID = 1L;
 		}
 		
 		try(PrintWriter pw=resp.getWriter()) {
-			print.printPreferences(pw, teacher);
+			teacher.printPreferences(pw);
 		} catch(Exception e) {
 			Logger logger = Logger.getLogger(getClass().getName());
 			logger.severe("Impossible to get writer from response in PreferenceServlet \n "

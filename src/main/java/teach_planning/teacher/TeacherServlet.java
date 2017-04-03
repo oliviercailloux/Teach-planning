@@ -3,11 +3,13 @@ package teach_planning.teacher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
 import teach_planning.login.Login;
-import teach_planning.login.LoginServlet;
+import teach_planning.model.LoginModel;
+import teach_planning.model.TeacherModel;
+import teach_planning.service.LoginService;
+import teach_planning.service.TeacherService;
 
 @WebServlet(name="TeacherServlet", urlPatterns={"/addNewTeacher"})
 public class TeacherServlet extends HttpServlet {
@@ -25,10 +30,16 @@ public class TeacherServlet extends HttpServlet {
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
+
+	@PersistenceContext
+	private EntityManager em;
 	
-	// public because no DB
-	public static List<Teacher> teacherList = new ArrayList<>();
-	
+	@Inject
+	public LoginService ls;
+
+	@Inject
+	private TeacherService teacherS;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Settings
@@ -41,13 +52,15 @@ public class TeacherServlet extends HttpServlet {
 		String teacherLastname = req.getParameter("teacherLastname");
 		String teacherEmail = req.getParameter("teacherEmail");
 		
-		// Creating a new teacher and stocking it on the list
-		Teacher newTeacher = new Teacher(teacherFirstname,teacherLastname,teacherEmail);
-		teacherList.add(newTeacher);
+		TeacherModel newTeacher = new TeacherModel();
+		newTeacher.setFirstname(teacherFirstname);
+		newTeacher.setLastname(teacherLastname);
+		newTeacher.setEmail(teacherEmail);
+		teacherS.persist(newTeacher);
 		
 		// Creating an account for the new teacher and stocking it on the list
-		Login newLogin = new Login(teacherEmail, "default");
-		LoginServlet.loginList.add(newLogin);
+		LoginModel newLogin = new LoginModel(teacherEmail, "default");
+		ls.persist(newLogin);
 		 
 		try(PrintWriter pw=resp.getWriter()) {
 			// Recapitulation of the new teacher added
@@ -60,7 +73,7 @@ public class TeacherServlet extends HttpServlet {
 			
 			// Recapitulation of all teachers stocked on the teaching list
 			pw.println("<h1>Liste des enseignants</h1>");
-			for(Teacher t : teacherList) {
+			for(TeacherModel t : teacherS.getAll()) {
 				pw.println(t.toString() + "<br/>");
 			}	
 		} catch(Exception e) {

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 
+import teach_planning.service.TeachingService;
+
 @WebServlet(name="ResearchTeachingServlet", urlPatterns={"/searchTeaching"})
 public class ResearchTeachingServlet extends HttpServlet {
 
@@ -19,6 +22,9 @@ public class ResearchTeachingServlet extends HttpServlet {
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private TeachingService teachingS;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +41,7 @@ public class ResearchTeachingServlet extends HttpServlet {
 		//if index exists on list
 		if(req.getParameter("teaching") != null && req.getParameter("teaching")!= "") {
 			int index = Integer.parseInt(req.getParameter("teaching"));
-			if(index < TeachingServlet.teachingList.size()) {
+			if(index < teachingS.getAll().size()) {
 				session.setAttribute("indexTeaching", index);
 			}
 		}

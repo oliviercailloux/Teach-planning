@@ -1,12 +1,16 @@
 package teach_planning.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class TeachingModel {
@@ -14,6 +18,9 @@ public class TeachingModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
+	
+	@ManyToMany(mappedBy="teachings")
+	private List<TeacherModel> teachers = new ArrayList<>();
 	
 	private String name, typeMatiere, diplome;
 	private double nbCM, nbTD, nbTP, nbCMTD, nbGrp;
@@ -44,60 +51,84 @@ public class TeachingModel {
 		this.nbCMTD = nbH;
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
-	public double getNbCM() {
-		return nbCM;
-	}
-	
-	public double getNbTD() {
-		return nbTD;
-	}
-	
-	public double getNbTP() {
-		return nbTP;
-	}
-	
-	public double getNbCMTD() {
-		return nbCMTD;
-	}
-	
-	public double getNbGrp() {
-		return nbGrp;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public void setNbCM(int nbCM) {
-		this.nbCM = nbCM;
-	}
-	
-	public void setNbTD(int nbTD) {
-		this.nbTD = nbTD;
-	}
-	
-	public void setNbTP(int nbTP) {
-		this.nbTP = nbTP;
-	}
-	
-	public void setNbCMTD(int nbCMTD) {
-		this.nbCMTD = nbCMTD;
-	}
-	
-	public void setNbGrp(int nbGrp) {
-		this.nbGrp = nbGrp;
-	}
-	
 	public String detailTeaching() {
 		String mat = "<tr><td>" + this.name + "</td><td>" + 
 	this.typeMatiere + "</td><td>" + this.diplome + "</td><td>" + this.nbCM + "</td><td>" + this.nbTD + "</td></tr>";
 		return mat;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public List<TeacherModel> getTeachers() {
+		return teachers;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getTypeMatiere() {
+		return typeMatiere;
+	}
+
+	public void setTypeMatiere(String typeMatiere) {
+		this.typeMatiere = typeMatiere;
+	}
+
+	public String getDiplome() {
+		return diplome;
+	}
+
+	public void setDiplome(String diplome) {
+		this.diplome = diplome;
+	}
+
+	public double getNbCM() {
+		return nbCM;
+	}
+
+	public void setNbCM(double nbCM) {
+		this.nbCM = nbCM;
+	}
+
+	public double getNbTD() {
+		return nbTD;
+	}
+
+	public void setNbTD(double nbTD) {
+		this.nbTD = nbTD;
+	}
+
+	public double getNbTP() {
+		return nbTP;
+	}
+
+	public void setNbTP(double nbTP) {
+		this.nbTP = nbTP;
+	}
+
+	public double getNbCMTD() {
+		return nbCMTD;
+	}
+
+	public void setNbCMTD(double nbCMTD) {
+		this.nbCMTD = nbCMTD;
+	}
+
+	public double getNbGrp() {
+		return nbGrp;
+	}
+
+	public void setNbGrp(double nbGrp) {
+		this.nbGrp = nbGrp;
+	}
+
 	@Override
 	public String toString() {
 		return(this.getName() + " est composée de " + getNbGrp() + " groupes et est décomposée comme suit : <br />" + 

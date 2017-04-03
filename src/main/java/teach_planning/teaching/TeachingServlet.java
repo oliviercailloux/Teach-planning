@@ -3,8 +3,6 @@ package teach_planning.teaching;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.logging.Logger;
 
@@ -28,18 +26,12 @@ public class TeachingServlet extends HttpServlet {
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@PersistenceContext
 	private EntityManager em;
-
+	
 	@Inject
 	private TeachingService teachingS;
-
-
-
-	
-	// public because no DB
-	public static List<TeachingModel> teachingList = new ArrayList<>();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,14 +49,9 @@ public class TeachingServlet extends HttpServlet {
 		int cmtd = Integer.parseInt(req.getParameter("CMTD"));
 		int grp = Integer.parseInt(req.getParameter("Grp"));
 		
+		// Creating a new teaching and stocking it on the list
 		TeachingModel newTeaching = new TeachingModel(teachingName, cm, td, tp, cmtd, grp);
-
-		//teachingList.add(newTeaching);
-
 		teachingS.persist(newTeaching);
-
-		teachingList = teachingS.getAll();
-
 		 
 		try(PrintWriter pw=resp.getWriter()) {
 		
@@ -78,7 +65,7 @@ public class TeachingServlet extends HttpServlet {
 			
 			// Recapitulation of all teaching stocked on the teaching list
 			pw.println("<h1>Liste des enseignements</h1>");
-			for(TeachingModel t : teachingList) {
+			for(TeachingModel t : teachingS.getAll()) {
 				pw.println(t.toString() + "<br/>");
 			}	
 		} catch(Exception e) {

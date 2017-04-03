@@ -13,11 +13,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="LOGIN")
-@SequenceGenerator(name="LOGIN_SEQUENCE", sequenceName="LOGIN_SEQ")
 public class LoginModel {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="LOGIN_SEQUENCE")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	
 	@Basic(fetch=FetchType.EAGER, optional=false)

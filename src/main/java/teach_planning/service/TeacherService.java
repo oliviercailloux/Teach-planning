@@ -27,6 +27,11 @@ public class TeacherService {
 	public List<TeacherModel> getAll() {
 		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(),TeacherModel.class)).getResultList();
 	}
+
+	@Transactional
+	public List<TeacherModel> getTeachings() {
+		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(),TeacherModel.class)).getResultList();
+	}
 	
 	@Transactional
 	public void persist(TeacherModel teacher) {
