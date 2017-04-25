@@ -32,12 +32,6 @@ public class LoginServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	// public static because no DB
-	public static List<Login> loginList = new ArrayList<>();
-	
-	// public static because no DB
-	public static List<Login> loginAdmin = new ArrayList<>();
-	
 	@Inject
 	public LoginService ls;
 	
@@ -46,44 +40,6 @@ public class LoginServlet extends HttpServlet {
 	
 	@Inject
 	public TeachingService tgs;
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		resp.setContentType("text/html");
-	    @SuppressWarnings("resource")
-		PrintWriter out = resp.getWriter();
-	    
-	    out.println("debut");
-	   /* for(String s : ls.getAllLogins()) {
-	    	out.println(s);
-	    }*/
-	    for(LoginModel lm : ls.getAll()) {
-	    	out.println(lm.getLogin());
-	    	out.println(lm.getPassword());
-	    	out.println(lm.getTypeAccount());
-	    }
-	    out.println("fin");
-	    
-	    out.println("debut");
-	    for(TeacherModel tm : ts.getAll()) {
-	    	out.println(tm.getFirstname());
-	    	out.println(tm.getLastname());
-	    	out.println(tm.getEmail());
-	    }
-	    out.println("fin");
-	    
-	    out.println("debut");
-	    for(TeachingModel tgm : tgs.getAll()) {
-	    	out.println(tgm.getName());
-	    	out.println(tgm.getNbCM());
-	    	out.println(tgm.getNbCMTD());
-	    	out.println(tgm.getNbGrp());
-	    	out.println(tgm.getNbTD());
-	    	out.println(tgm.getNbTP());
-	    }
-	    out.println("fin");
-	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -106,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 			
 			switch (typeAccount) {
 				case "NOT_EXIST":
-					session.setAttribute("errorLogin", "Le login" + login + "n'existe pas !");
+					session.setAttribute("errorLogin", "Le login '" + login + "' n'existe pas !");
 					break;
 				case "NOT_PASS":
 					session.setAttribute("errorLogin", "Votre mot de passe est incorrect !");

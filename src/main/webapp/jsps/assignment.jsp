@@ -2,7 +2,6 @@
 <html>
 
 	<head>
-		<%@ page import="teach_planning.teacher.Teacher"%>
 		<%@ page import="teach_planning.teacher.TeacherServlet"%>
 		<%@ page import="teach_planning.teaching.Teaching"%>
 		<%@ page import="teach_planning.teaching.TeachingServlet"%>
@@ -34,11 +33,6 @@
 							<label for="teacher">Enseignant : <span style="color: red">*</span></label>
 						</td>
 						<td>
-							<select name="teacher" id="teacher" required>
-								<% for (int i=0; i<TeacherServlet.teacherList.size(); i++) { %>
-									<option value="<% out.print(i); %>"><% out.print(TeacherServlet.teacherList.get(i).getLastname() + " " + TeacherServlet.teacherList.get(i).getFirstname()); %></option>
-								<% } %>
-							</select>
 						</td>
 					</tr>
 					<tr>
@@ -46,11 +40,6 @@
 							<label for="teaching">Matière : <span style="color: red">*</span></label>
 						</td>
 						<td>
-							<select name="teaching" id="teaching" required>
-								<% for (int j=0; j<TeachingServlet.teachingList.size(); j++) { %>
-									<option value="<% out.print(j); %>"><% out.print(TeachingServlet.teachingList.get(j).getName()); %></option>
-								<% } %>
-							</select>
 						</td>
 					</tr>
 					<tr>

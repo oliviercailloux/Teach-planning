@@ -21,17 +21,11 @@
 		
 			<form method='GET' name='searchTeaching' action='../searchTeaching'>
 				<label for="teaching">Matière : <span style="color: red">*</span></label>
-				<select name="teaching" id="teaching" required>
-				<% for (int j=0; j<TeachingServlet.teachingList.size(); j++) { %>
-					<option value="<% out.print(j); %>"><% out.print(TeachingServlet.teachingList.get(j).getName()); %></option>
-				<% } %>
-				</select>
+
 				<input type="submit" value="Rechercher" />
 			</form>
 			
-			<% if(session.getAttribute("indexTeaching") != null && session.getAttribute("indexTeaching") != "") { %>
-				<p><% out.print(TeachingServlet.teachingList.get((Integer) session.getAttribute("indexTeaching")).toString()); %></p>
-			<% } %>
+
 			
 			<a href="../index.jsp">Rendez-vous à l'index!</a>
 		
