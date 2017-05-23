@@ -14,7 +14,7 @@
 				<a href="jsps/assignment.jsp">Affecter un enseignant à une matière</a><br/>
 			<% } %>
 			
-			<a href="jsps/prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
+			<a href="jsps/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
 			<a href="jsps/EmptyServiceFile.jsp">Imprimer une fiche de service</a><br/>
 			<a href="jsps/summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
 			<a href="jsps/researchTeaching.jsp">Rechercher les informations sur un enseignement</a><br/>

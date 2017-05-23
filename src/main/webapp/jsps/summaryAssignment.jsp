@@ -2,8 +2,8 @@
 <html>
 
 	<head>
-		<%@ page import="teach_planning.teaching.AssignmentServlet" %>
-		<%@ page import="teach_planning.teaching.Assignment" %>
+		<%@ page import="io.github.oliviercailloux.teach_planning.teaching.AssignmentServlet" %>
+		<%@ page import="io.github.oliviercailloux.teach_planning.model.Assignment" %>
 	
 		<meta charset="UTF-8">
 		<title>Teach Planning app - Summary of assignments</title>

@@ -28,7 +28,7 @@
 			<a href="../index.jsp">Rendez-vous à l'index!</a><br/><br/>
 			<a href="addTeacher.jsp">Ajouter un nouvel enseignant</a><br/>
 			<a href="addTeaching.jsp">Ajouter un nouvel enseignement</a><br/>
-			<a href="prefView/prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
+			<a href="prefForm.jsp">Ajouter les préférences d'un enseignant</a><br/>
 			<a href="../teacherHours">Renseigner les heures d'un enseignant</a><br/>
 			<a href="assignment.jsp">Affecter un enseignant à une matière</a><br/>
 			<a href="summaryAssignment.jsp">Récapitulatif des affectations</a><br/>
