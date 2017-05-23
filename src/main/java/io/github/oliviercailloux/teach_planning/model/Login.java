@@ -2,6 +2,8 @@ package io.github.oliviercailloux.teach_planning.model;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.logging.Logger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
@@ -15,7 +17,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @Entity
@@ -80,10 +81,11 @@ public class Login implements Serializable {
 	
 	public void submitLoginPassword() {
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("connect");
+			FacesContext.getCurrentInstance().getExternalContext().redirect("connect" + "?login=" + login + "&password=" + password);
 		} catch (IOException e) {
 			throw new IllegalStateException(e);
-		}
+		}	
+		
 	}
 
 }

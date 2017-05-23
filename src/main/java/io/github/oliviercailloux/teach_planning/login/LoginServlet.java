@@ -35,33 +35,48 @@ public class LoginServlet extends HttpServlet {
 	@Inject
 	public TeachingService tgs;
 	
-	private ServletOutputStream out;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		out = resp.getOutputStream();
-		out.println("test");
-		if(req.getAttributeNames() != null)
-			out.println(req.getAttributeNames().toString());
-		else
-			out.println("null");
-		
-		out.println("1");
-		
-		Enumeration<String> attributesNames = req.getAttributeNames();
-		while(attributesNames.hasMoreElements()) {
-		  String headerName = attributesNames.nextElement();
-		  out.println("Attribute Name - " + headerName + ", Value - " + req.getHeader(headerName));
+		// Settings
+		resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+		resp.setContentType(MediaType.TEXT_HTML);
+		resp.setLocale(Locale.FRENCH);
+
+		// Getting form parameters
+		String login = req.getParameter("login");
+		String password = req.getParameter("password");
+		String logout = req.getParameter("logout");
+
+		if(logout != null) {
+			//session.setAttribute("typeSession", null);
+		} else if(login != null && password != null) {
+			String typeAccount = isExistAccount(login, password);
+
+			switch (typeAccount) {
+			case "NOT_EXIST":
+				//session.setAttribute("errorLogin", "Le login '" + login + "' n'existe pas !");
+				resp.sendRedirect("connectionFailure.xhtml");
+				break;
+			case "NOT_PASS":
+				//session.setAttribute("errorLogin", "Votre mot de passe est incorrect !");
+				//session.setAttribute("loginRemember", login);
+				resp.sendRedirect("connectionFailure.xhtml");
+				break;
+			case "ADMINISTRATOR":
+				//session.setAttribute("typeSession", "admin");
+				resp.sendRedirect("connectionSuccessful.xhtml");
+				break;
+			case "TEACHER":
+				//session.setAttribute("typeSession", "teacher");
+				resp.sendRedirect("connectionSuccessful.xhtml");
+				break;
+			default:
+				//session.setAttribute("errorLogin", "UNKNOWN ERROR");
+				resp.sendRedirect("connectionFailure.xhtml");
+				break;
+			}
+
 		}
-		
-		out.println("2");
-		Enumeration<String> headerNames = req.getHeaderNames();
-		while(headerNames.hasMoreElements()) {
-		  String headerName = headerNames.nextElement();
-		  out.println("Header Name - " + headerName + ", Value - " + req.getHeader(headerName));
-		}
-		
-	
 	}
 	
 	@Override
