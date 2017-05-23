@@ -22,8 +22,9 @@ public class Teaching {
 	@ManyToMany(mappedBy="teachings")
 	private List<Teacher> teachers = new ArrayList<>();
 	
-	private String name, typeMatiere, diplome;
-	private double nbCM, nbTD, nbTP, nbCMTD, nbGrp;
+	private String name, teachingType, degree;
+	private double nbCM, nbTD, nbTP, nbCMTD;
+	private int nbGrp;
 	
 	public Teaching() {
 		
@@ -38,23 +39,31 @@ public class Teaching {
 		this.nbGrp = nbGrp;
 	}
 
-	public Teaching(String name, String typeMatiere, String diplome, double nbCM, double nbTD) {
+	public Teaching(String name, String teachingType, String degree, double nbCM, double nbTD) {
 		this.name = name;
-		this.typeMatiere = typeMatiere;
-		this.diplome = diplome;
+		this.teachingType = teachingType;
+		this.degree = degree;
 		this.nbCM = nbCM;
 		this.nbTD = nbTD; 
 	}
 	
-	public Teaching(String nom, int nbH){
-		this.name = nom;
+	/**
+	 * @TODO
+	 * CORRIGER LA SERVLET PREFERENCESERVLET DE TEACHER QUI EST POURRIE
+	 */
+	public Teaching(String name, int nbH){
+		this.name = name;
 		this.nbCMTD = nbH;
 	}
 	
+	
+	/**
+	 * @TODO
+	 * CORRIGER LA SERVLET SHOWCHARGETEACHERSERVLET DE TEACHER QUI EST POURRIE
+	 */
 	public String detailTeaching() {
-		String mat = "<tr><td>" + this.name + "</td><td>" + 
-	this.typeMatiere + "</td><td>" + this.diplome + "</td><td>" + this.nbCM + "</td><td>" + this.nbTD + "</td></tr>";
-		return mat;
+		return "<tr><td>" + this.name + "</td><td>" + 
+		this.teachingType + "</td><td>" + this.degree + "</td><td>" + this.nbCM + "</td><td>" + this.nbTD + "</td></tr>";
 	}
 	
 	public int getId() {
@@ -72,21 +81,21 @@ public class Teaching {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getTypeMatiere() {
-		return typeMatiere;
+	
+	public String getTeachingType() {
+		return teachingType;
 	}
 
-	public void setTypeMatiere(String typeMatiere) {
-		this.typeMatiere = typeMatiere;
+	public void setTeachingType(String teachingType) {
+		this.teachingType = teachingType;
 	}
 
-	public String getDiplome() {
-		return diplome;
+	public String getDegree() {
+		return degree;
 	}
 
-	public void setDiplome(String diplome) {
-		this.diplome = diplome;
+	public void setDegree(String degree) {
+		this.degree = degree;
 	}
 
 	public double getNbCM() {
@@ -125,7 +134,7 @@ public class Teaching {
 		return nbGrp;
 	}
 
-	public void setNbGrp(double nbGrp) {
+	public void setNbGrp(int nbGrp) {
 		this.nbGrp = nbGrp;
 	}
 

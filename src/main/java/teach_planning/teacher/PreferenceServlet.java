@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import teach_planning.model.Teaching;
 public class PreferenceServlet extends HttpServlet {
 
 private static final long serialVersionUID = 1L;
+private ServletOutputStream out;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,29 +32,30 @@ private static final long serialVersionUID = 1L;
 		
 		Teacher teacher = new Teacher("Toto", "Titi", "Tata");
 		
-		String matiere = "M";
-		String choix = "choix";
-		String heure = "H";
+		String teaching = "M";
+		String choice = "choix";
+		String hour = "H";
 		
 		for(int i = 1; i<39; i++){
-			choix= choix+i;
+			choice= choice+i;
 			
-			if(!req.getParameter(choix).equals("choix0")){
-				matiere = matiere+i;
-				heure = heure+i;
-				int h = Integer.parseInt(req.getParameter(heure));
+			if(!req.getParameter(choice).equals("choix0")){
+				teaching = teaching+i;
+				hour = hour+i;
+				int h = Integer.parseInt(req.getParameter(hour));
 				
-				Teaching teaching = new Teaching(req.getParameter(matiere), h);
-				teacher.addPreference(req.getParameter(choix), teaching);
+				Teaching t = new Teaching(req.getParameter(teaching), h);
+				teacher.addPreference(req.getParameter(choice), t);
 			}
-			choix = "choix";
-			heure = "H";
-			matiere = "M";
+			choice = "choix";
+			hour = "H";
+			teaching = "M";
 		}
-		
 		try(PrintWriter pw=resp.getWriter()) {
 			teacher.printPreferences(pw);
 		} catch(Exception e) {
+			out = resp.getOutputStream();
+			out.println("ERROR :"  + e);
 			Logger logger = Logger.getLogger(getClass().getName());
 			logger.severe("Impossible to get writer from response in PreferenceServlet \n "
 					+ "The error is : " + e);

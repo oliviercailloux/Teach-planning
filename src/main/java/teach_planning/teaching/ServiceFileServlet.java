@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ public class ServiceFileServlet extends HttpServlet {
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
+	private ServletOutputStream out;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,7 +36,7 @@ public class ServiceFileServlet extends HttpServlet {
 		String teacherName = req.getParameter("teacherName");
 		String teacherFirstName = req.getParameter("teacherFirstname");
 		String status = req.getParameter("status");
-		String discipline = req.getParameter("teachingSub");
+		String teaching = req.getParameter("teachingSub");
 		String email = req.getParameter("mail");
 		
 		//Displaying service file
@@ -52,7 +54,7 @@ public class ServiceFileServlet extends HttpServlet {
 					+ "</tr>"
 					+"<tr height='20' ><td></td></td><td></td></tr>"
 					+"<tr>"
-					+ "<td>STATUT <span style='border:3px solid black; padding: 3px 5px 3px 5px;' >"+ status.toUpperCase().toString() + "</span></td><td>DISCIPLINE <span style='border:3px solid black;padding: 3px 5px 3px 5px;' >"+ discipline.toUpperCase().toString() +"</span></td>"
+					+ "<td>STATUT <span style='border:3px solid black; padding: 3px 5px 3px 5px;' >"+ status.toUpperCase().toString() + "</span></td><td>DISCIPLINE <span style='border:3px solid black;padding: 3px 5px 3px 5px;' >"+ teaching.toUpperCase().toString() +"</span></td>"
 					+"<td></td>"		
 					+"</tr>"
 					+"<tr height='20'><td></td></td><td></td></tr>"
@@ -92,6 +94,7 @@ public class ServiceFileServlet extends HttpServlet {
 			pw.println("</body></html>");
 			
 		} catch(Exception e) {
+			out.println("ERROR : " + e);
 			Logger logger = Logger.getLogger(getClass().getName());
 			logger.severe("Impossible to get writer from response in ServiceFileServlet \n "
 					+ "The error is : " + e);

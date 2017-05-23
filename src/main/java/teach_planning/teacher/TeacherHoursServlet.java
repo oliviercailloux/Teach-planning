@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import javax.ws.rs.core.MediaType;
 @WebServlet(name="TeacherHoursServlet", urlPatterns={"/teacherHours"})
 public class TeacherHoursServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ServletOutputStream out;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,6 +45,7 @@ public class TeacherHoursServlet extends HttpServlet {
 			}
 			pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 		} catch(Exception e) {
+			out.println("ERROR : " + e);
 			Logger logger = Logger.getLogger(getClass().getName());
 			logger.severe("Impossible to get writer from response in TeacherHoursServlet \n "
 					+ "The error is : " + e);

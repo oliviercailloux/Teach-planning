@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,8 @@ public class TeacherServlet extends HttpServlet {
 	 * DEFAULT
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private ServletOutputStream out;
+	
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -76,6 +78,7 @@ public class TeacherServlet extends HttpServlet {
 				pw.println(t.toString() + "<br/>");
 			}	
 		} catch(Exception e) {
+			out.println("ERROR : " + e);
 			Logger logger = Logger.getLogger(getClass().getName());
 			logger.severe("Impossible to get writer from response in TeacherServlet \n "
 					+ "The error is : " + e);

@@ -2,12 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>teach_planning</groupId>
-	<artifactId>teachPlanning</artifactId>
+	<groupId>io.github.oliviercailloux</groupId>
+	<artifactId>teach_planning</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>teachPlanning Maven Webapp</name>
-	<url>http://localhost:8080/teachPlanning</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

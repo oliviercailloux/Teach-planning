@@ -63,8 +63,8 @@ public class Teacher {
 	    pw.println("<a href=\"index.jsp\"> Retour à l'accueil </a>");
 	}
 
-	public void addPreference(String choix, Teaching preference) {
-		this.preferences.put(choix, preference);
+	public void addPreference(String choice, Teaching preference) {
+		this.preferences.put(choice, preference);
 	}
 	
 	public int getId(){

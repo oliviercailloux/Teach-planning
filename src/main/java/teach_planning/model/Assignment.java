@@ -1,4 +1,4 @@
-package teach_planning.teaching;
+package teach_planning.model;
 
 import teach_planning.model.Teacher;
 import teach_planning.model.Teaching;
@@ -10,8 +10,8 @@ public class Assignment {
 	private String teachingType;
 	private String promotion;
 	
-	public Assignment(Teacher teacher2, Teaching teaching, String teachingType, String promotion) {
-		this.teacher = teacher2;
+	public Assignment(Teacher teacher, Teaching teaching, String teachingType, String promotion) {
+		this.teacher = teacher;
 		this.teaching = teaching;
 		this.teachingType = teachingType;
 		this.promotion = promotion;

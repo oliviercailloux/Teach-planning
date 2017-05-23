@@ -15,7 +15,6 @@ import teach_planning.model.TypeAccount;
 import teach_planning.service.LoginService;
 import teach_planning.service.TeacherService;
 import teach_planning.service.TeachingService;
-import teach_planning.teaching.Teaching;
 
 @WebServlet(name="InitServlet", loadOnStartup=1, urlPatterns={"/initLists"})
 public class InitServlet extends HttpServlet {

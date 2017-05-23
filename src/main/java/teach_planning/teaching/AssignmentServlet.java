@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
+import teach_planning.model.Assignment;
 import teach_planning.model.Teacher;
 import teach_planning.model.Teaching;
 import teach_planning.service.TeacherService;
