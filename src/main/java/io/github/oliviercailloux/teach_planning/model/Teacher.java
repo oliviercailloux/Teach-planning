@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Teacher {
 	
 	private String firstname, lastname, email;
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
-	private HashMap<String, Teaching> preferences = new HashMap<>();
+	private Map<String, Teaching> preferences;
 	
 	public Teacher() {
 	}
@@ -41,6 +42,7 @@ public class Teacher {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
+		preferences = new HashMap<>();
 	}
 	
 	@Override
@@ -67,7 +69,7 @@ public class Teacher {
 		return id;
 	}
 	
-	public HashMap<String, Teaching> getPreferences() {
+	public Map<String, Teaching> getPreferences() {
 		return preferences;
 	}
 
