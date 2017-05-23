@@ -2,10 +2,12 @@ package io.github.oliviercailloux.teach_planning.login;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Enumeration;
 import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,12 +30,39 @@ public class LoginServlet extends HttpServlet {
 	
 	@Inject
 	public LoginService ls;
-	
 	@Inject
 	public TeacherService ts;
-	
 	@Inject
 	public TeachingService tgs;
+	
+	private ServletOutputStream out;
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		out = resp.getOutputStream();
+		out.println("test");
+		if(req.getAttributeNames() != null)
+			out.println(req.getAttributeNames().toString());
+		else
+			out.println("null");
+		
+		out.println("1");
+		
+		Enumeration<String> attributesNames = req.getAttributeNames();
+		while(attributesNames.hasMoreElements()) {
+		  String headerName = attributesNames.nextElement();
+		  out.println("Attribute Name - " + headerName + ", Value - " + req.getHeader(headerName));
+		}
+		
+		out.println("2");
+		Enumeration<String> headerNames = req.getHeaderNames();
+		while(headerNames.hasMoreElements()) {
+		  String headerName = headerNames.nextElement();
+		  out.println("Header Name - " + headerName + ", Value - " + req.getHeader(headerName));
+		}
+		
+	
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

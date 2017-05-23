@@ -1,5 +1,10 @@
 package io.github.oliviercailloux.teach_planning.model;
 
+import java.io.IOException;
+import java.io.Serializable;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,10 +15,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.servlet.http.HttpServletRequest;
 
+@ManagedBean
 @Entity
 @Table(name="LOGIN")
-public class Login {
+public class Login implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -69,6 +76,14 @@ public class Login {
 	@Override
 	public String toString() {
 		return "Je suis l'utilisateur " + this.getLogin();
+	}
+	
+	public void submitLoginPassword() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("connect");
+		} catch (IOException e) {
+			throw new IllegalStateException(e);
+		}
 	}
 
 }

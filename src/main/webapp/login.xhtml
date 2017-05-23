@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <title>Teach Planning app - Page de connexion</title>
+    </h:head>
+
+    <h:body>
+        <h1>Connectez-vous !</h1>
+        
+        <i>NB : L'email sert de login.
+           De plus, le mot de passe est "default" à la 1ère connexion. Il doit être modifié.</i>
+        <br/><br/><br/>
+        
+        <h:form>
+        	<table>
+        		<tr>
+        			<td><h:outputText value="Login" /><span style="color:red">*</span></td>
+        			<td><h:inputText id="login" name="login" value="#{login.login}" required="true"/></td>
+        		</tr>
+        		<tr>
+        			<td><h:outputText value="Password" /><span style="color:red">*</span></td>
+        			<td><h:inputSecret id="password" name="password" value="#{login.password}" required="true"/></td>
+        		</tr>
+			</table>
+			<h:commandButton action="#{login.submitLoginPassword}" value="Connexion"></h:commandButton>
+        </h:form>
+    </h:body>
+
+</html>
