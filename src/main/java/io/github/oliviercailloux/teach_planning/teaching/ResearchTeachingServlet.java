@@ -1,4 +1,4 @@
-package teach_planning.teaching;
+package io.github.oliviercailloux.teach_planning.teaching;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.service.TeachingService;
+import io.github.oliviercailloux.teach_planning.service.TeachingService;
 
 @WebServlet(name="ResearchTeachingServlet", urlPatterns={"/searchTeaching"})
 public class ResearchTeachingServlet extends HttpServlet {

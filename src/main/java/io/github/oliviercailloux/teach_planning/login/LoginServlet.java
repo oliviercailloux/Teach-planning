@@ -1,10 +1,7 @@
-package teach_planning.login;
+package io.github.oliviercailloux.teach_planning.login;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -16,13 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.Login;
-import teach_planning.model.Teacher;
-import teach_planning.model.Teaching;
-import teach_planning.model.TypeAccount;
-import teach_planning.service.LoginService;
-import teach_planning.service.TeacherService;
-import teach_planning.service.TeachingService;
+import io.github.oliviercailloux.teach_planning.model.Login;
+import io.github.oliviercailloux.teach_planning.service.LoginService;
+import io.github.oliviercailloux.teach_planning.service.TeacherService;
+import io.github.oliviercailloux.teach_planning.service.TeachingService;
 
 @WebServlet(name="LoginServlet", urlPatterns={"/connect", "/disconnect"})
 public class LoginServlet extends HttpServlet {

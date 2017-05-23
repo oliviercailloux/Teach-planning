@@ -1,7 +1,4 @@
-package teach_planning.model;
-
-import teach_planning.model.Teacher;
-import teach_planning.model.Teaching;
+package io.github.oliviercailloux.teach_planning.model;
 
 public class Assignment {
 

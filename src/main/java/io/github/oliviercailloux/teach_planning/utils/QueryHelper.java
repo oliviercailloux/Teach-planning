@@ -1,4 +1,4 @@
-package teach_planning.utils;
+package io.github.oliviercailloux.teach_planning.utils;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.criteria.CriteriaBuilder;

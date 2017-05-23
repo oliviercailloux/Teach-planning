@@ -1,4 +1,4 @@
-package teach_planning.teacher;
+package io.github.oliviercailloux.teach_planning.teacher;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.Teacher;
-import teach_planning.model.Teaching;
-import teach_planning.service.TeacherService;
+import io.github.oliviercailloux.teach_planning.model.Teacher;
+import io.github.oliviercailloux.teach_planning.model.Teaching;
+import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
 @WebServlet(name="ShowChargeTeacherServlet", urlPatterns={"/chargeTeacher"})
 public class ShowChargeTeacherServlet extends HttpServlet {

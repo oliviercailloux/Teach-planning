@@ -1,4 +1,4 @@
-package teach_planning.model;
+package io.github.oliviercailloux.teach_planning.model;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,10 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-
-import teach_planning.model.Teaching;
 
 @Entity 
 public class Teacher {

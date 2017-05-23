@@ -1,4 +1,4 @@
-package teach_planning.teaching;
+package io.github.oliviercailloux.teach_planning.teaching;
 
 import java.io.IOException;
 import java.io.PrintWriter;

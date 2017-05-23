@@ -1,4 +1,4 @@
-package teach_planning;
+package io.github.oliviercailloux.teach_planning;
 
 
 import javax.inject.Inject;
@@ -8,13 +8,13 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-import teach_planning.model.Login;
-import teach_planning.model.Teacher;
-import teach_planning.model.Teaching;
-import teach_planning.model.TypeAccount;
-import teach_planning.service.LoginService;
-import teach_planning.service.TeacherService;
-import teach_planning.service.TeachingService;
+import io.github.oliviercailloux.teach_planning.model.Login;
+import io.github.oliviercailloux.teach_planning.model.Teacher;
+import io.github.oliviercailloux.teach_planning.model.Teaching;
+import io.github.oliviercailloux.teach_planning.model.TypeAccount;
+import io.github.oliviercailloux.teach_planning.service.LoginService;
+import io.github.oliviercailloux.teach_planning.service.TeacherService;
+import io.github.oliviercailloux.teach_planning.service.TeachingService;
 
 @WebServlet(name="InitServlet", loadOnStartup=1, urlPatterns={"/initLists"})
 public class InitServlet extends HttpServlet {

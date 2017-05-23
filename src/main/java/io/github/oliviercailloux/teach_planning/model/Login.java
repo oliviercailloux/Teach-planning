@@ -1,4 +1,4 @@
-package teach_planning.model;
+package io.github.oliviercailloux.teach_planning.model;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;

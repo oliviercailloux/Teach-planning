@@ -1,10 +1,9 @@
-package teach_planning.teacher;
+package io.github.oliviercailloux.teach_planning.teacher;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -18,10 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.Login;
-import teach_planning.model.Teacher;
-import teach_planning.service.LoginService;
-import teach_planning.service.TeacherService;
+import io.github.oliviercailloux.teach_planning.model.Login;
+import io.github.oliviercailloux.teach_planning.model.Teacher;
+import io.github.oliviercailloux.teach_planning.service.LoginService;
+import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
 @WebServlet(name="TeacherServlet", urlPatterns={"/addNewTeacher"})
 public class TeacherServlet extends HttpServlet {
