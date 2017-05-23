@@ -13,23 +13,23 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class TeachingModel {
+public class Teaching {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	
 	@ManyToMany(mappedBy="teachings")
-	private List<TeacherModel> teachers = new ArrayList<>();
+	private List<Teacher> teachers = new ArrayList<>();
 	
 	private String name, typeMatiere, diplome;
 	private double nbCM, nbTD, nbTP, nbCMTD, nbGrp;
 	
-	public TeachingModel() {
+	public Teaching() {
 		
 	}
 	
-	public TeachingModel(String name,int nbCM,int nbTD,int nbTP,int nbCMTD,int nbGrp){
+	public Teaching(String name,int nbCM,int nbTD,int nbTP,int nbCMTD,int nbGrp){
 		this.name = name;
 		this.nbCM = nbCM;
 		this.nbTD = nbTD;
@@ -38,7 +38,7 @@ public class TeachingModel {
 		this.nbGrp = nbGrp;
 	}
 
-	public TeachingModel(String name, String typeMatiere, String diplome, double nbCM, double nbTD) {
+	public Teaching(String name, String typeMatiere, String diplome, double nbCM, double nbTD) {
 		this.name = name;
 		this.typeMatiere = typeMatiere;
 		this.diplome = diplome;
@@ -46,7 +46,7 @@ public class TeachingModel {
 		this.nbTD = nbTD; 
 	}
 	
-	public TeachingModel(String nom, int nbH){
+	public Teaching(String nom, int nbH){
 		this.name = nom;
 		this.nbCMTD = nbH;
 	}
@@ -61,7 +61,7 @@ public class TeachingModel {
 		return id;
 	}
 
-	public List<TeacherModel> getTeachers() {
+	public List<Teacher> getTeachers() {
 		return teachers;
 	}
 

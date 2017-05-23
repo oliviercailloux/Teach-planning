@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.TeachingModel;
+import teach_planning.model.Teaching;
 import teach_planning.service.TeachingService;
 
 @WebServlet(name="TeachingServlet", urlPatterns={"/addNewTeaching"})
@@ -50,7 +50,7 @@ public class TeachingServlet extends HttpServlet {
 		int grp = Integer.parseInt(req.getParameter("Grp"));
 		
 		// Creating a new teaching and stocking it on the list
-		TeachingModel newTeaching = new TeachingModel(teachingName, cm, td, tp, cmtd, grp);
+		Teaching newTeaching = new Teaching(teachingName, cm, td, tp, cmtd, grp);
 		teachingS.persist(newTeaching);
 		 
 		try(PrintWriter pw=resp.getWriter()) {
@@ -65,7 +65,7 @@ public class TeachingServlet extends HttpServlet {
 			
 			// Recapitulation of all teaching stocked on the teaching list
 			pw.println("<h1>Liste des enseignements</h1>");
-			for(TeachingModel t : teachingS.getAll()) {
+			for(Teaching t : teachingS.getAll()) {
 				pw.println(t.toString() + "<br/>");
 			}	
 		} catch(Exception e) {

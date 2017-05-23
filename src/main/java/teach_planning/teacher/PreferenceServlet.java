@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.TeacherModel;
-import teach_planning.teaching.Teaching;
+import teach_planning.model.Teacher;
+import teach_planning.model.Teaching;
 
 @WebServlet(name="PreferenceServlet", urlPatterns={"/addPref"})
 public class PreferenceServlet extends HttpServlet {
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 1L;
 		resp.setContentType(MediaType.TEXT_HTML);
 		resp.setLocale(Locale.FRENCH);
 		
-		TeacherModel teacher = new TeacherModel("Toto", "Titi", "Tata");
+		Teacher teacher = new Teacher("Toto", "Titi", "Tata");
 		
 		String matiere = "M";
 		String choix = "choix";

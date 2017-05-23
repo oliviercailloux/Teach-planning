@@ -17,10 +17,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-import teach_planning.teaching.Teaching;
+import teach_planning.model.Teaching;
 
 @Entity 
-public class TeacherModel {
+public class Teacher {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -32,16 +32,16 @@ public class TeacherModel {
 	referencedColumnName = "id"), 
 	inverseJoinColumns = @JoinColumn(name = "teaching_id", 
 	referencedColumnName = "id"))
-	private List<TeachingModel> teachings = new ArrayList<>();
+	private List<Teaching> teachings = new ArrayList<>();
 	
 	private String firstname, lastname, email;
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
 	private HashMap<String, Teaching> preferences = new HashMap<>();
 	
-	public TeacherModel() {
+	public Teacher() {
 	}
 	
-	public TeacherModel(String firstname, String lastname, String email) {
+	public Teacher(String firstname, String lastname, String email) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
@@ -99,7 +99,7 @@ public class TeacherModel {
 		this.email = email;
 	}
 	
-	public List<TeachingModel> getTeachings(){
+	public List<Teaching> getTeachings(){
 		return teachings;
 	}
 	

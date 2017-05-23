@@ -11,7 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import teach_planning.model.TeachingModel;
+import teach_planning.model.Teaching;
 import teach_planning.utils.QueryHelper;
 
 @ApplicationScoped
@@ -24,12 +24,12 @@ public class TeachingService {
 	private EntityManager em;
 	
 	@Transactional
-	public List<TeachingModel> getAll() {
-		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(),TeachingModel.class)).getResultList();
+	public List<Teaching> getAll() {
+		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(),Teaching.class)).getResultList();
 	}
 	
 	@Transactional
-	public void persist(TeachingModel teacher) {
+	public void persist(Teaching teacher) {
 		em.persist(teacher);
 	}
 	

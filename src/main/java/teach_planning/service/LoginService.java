@@ -11,7 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import teach_planning.model.LoginModel;
+import teach_planning.model.Login;
 import teach_planning.utils.QueryHelper;
 
 @ApplicationScoped
@@ -24,13 +24,13 @@ public class LoginService {
 	private EntityManager em;
 	
 	@Transactional
-	public void persist(LoginModel loginModel) {
+	public void persist(Login loginModel) {
 		em.persist(loginModel);
 	}
 	
 	@Transactional
-	public List<LoginModel> getAll() {
-		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(), LoginModel.class)).getResultList();
+	public List<Login> getAll() {
+		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(), Login.class)).getResultList();
 	}
 
 }

@@ -1,35 +1,35 @@
 package teach_planning.teaching;
 
-import teach_planning.model.TeacherModel;
-import teach_planning.model.TeachingModel;
+import teach_planning.model.Teacher;
+import teach_planning.model.Teaching;
 
 public class Assignment {
 
-	private TeacherModel teacher;
-	private TeachingModel teaching;
+	private Teacher teacher;
+	private Teaching teaching;
 	private String teachingType;
 	private String promotion;
 	
-	public Assignment(TeacherModel teacher2, TeachingModel teaching, String teachingType, String promotion) {
+	public Assignment(Teacher teacher2, Teaching teaching, String teachingType, String promotion) {
 		this.teacher = teacher2;
 		this.teaching = teaching;
 		this.teachingType = teachingType;
 		this.promotion = promotion;
 	}
 
-	public TeacherModel getTeacher() {
+	public Teacher getTeacher() {
 		return teacher;
 	}
 
-	public void setTeacher(TeacherModel teacher) {
+	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
 
-	public TeachingModel getTeaching() {
+	public Teaching getTeaching() {
 		return teaching;
 	}
 
-	public void setTeaching(TeachingModel teaching) {
+	public void setTeaching(Teaching teaching) {
 		this.teaching = teaching;
 	}
 

@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.LoginModel;
-import teach_planning.model.TeacherModel;
-import teach_planning.model.TeachingModel;
+import teach_planning.model.Login;
+import teach_planning.model.Teacher;
+import teach_planning.model.Teaching;
 import teach_planning.model.TypeAccount;
 import teach_planning.service.LoginService;
 import teach_planning.service.TeacherService;
@@ -85,7 +85,7 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	private String isExistAccount(String login, String password) {
-		for(LoginModel lm : ls.getAll()) {
+		for(Login lm : ls.getAll()) {
 			if(lm.getLogin().equals(login)) {
 				if(lm.getPassword().equals(password)) {
 					return lm.getTypeAccount().toString();

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="LOGIN")
-public class LoginModel {
+public class Login {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -26,17 +26,17 @@ public class LoginModel {
 	@Enumerated(EnumType.STRING)
 	private TypeAccount typeAccount;
 	
-	public LoginModel() {
+	public Login() {
 		
 	}
 	
-	public LoginModel(String login, String password) {
+	public Login(String login, String password) {
 		this.login = login;
 		this.password = password;
 		this.typeAccount = TypeAccount.TEACHER;
 	}
 	
-	public LoginModel(String login, String password, TypeAccount typeAccount) {
+	public Login(String login, String password, TypeAccount typeAccount) {
 		this.login = login;
 		this.password = password;
 		this.typeAccount = typeAccount;

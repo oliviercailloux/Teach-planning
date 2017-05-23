@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.TeacherModel;
-import teach_planning.model.TeachingModel;
+import teach_planning.model.Teacher;
+import teach_planning.model.Teaching;
 import teach_planning.service.TeacherService;
 
 @WebServlet(name="ShowChargeTeacherServlet", urlPatterns={"/chargeTeacher"})
@@ -39,7 +39,7 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 		out = response.getOutputStream();
 		try{
 			int id = Integer.parseInt(request.getParameter("id"));
-			TeacherModel teacher = em.find(TeacherModel.class, id) ;
+			Teacher teacher = em.find(Teacher.class, id) ;
 			if (teacher != null) {
 				printCharge(teacher);
 			} else {
@@ -58,7 +58,7 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 				+ "		<p>ERREUR : L'enseignant est inconnu. </p>"
 				+ "		<p> Essayer la liste suivante </p>"
 				+ "		<ul>");
-		for(TeacherModel t : teacherS.getAll()){
+		for(Teacher t : teacherS.getAll()){
 			out.println("<li>"+t.getFirstname()+" "+t.getLastname()+"</li>");
 		}
 		out.println(
@@ -67,7 +67,7 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 				+ "</html>");		
 	}
 	
-	private void printCharge(TeacherModel teacher) throws IOException{
+	private void printCharge(Teacher teacher) throws IOException{
 		String toDisplay = "<html>"
 				+ "<head><style>"
 				+ "table {"
@@ -88,7 +88,7 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(toDisplay);
 
-		for(TeachingModel teaching : teacher.getTeachings()) {
+		for(Teaching teaching : teacher.getTeachings()) {
 			sb.append(teaching.detailTeaching());
 		}
 	
@@ -108,7 +108,7 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 				+ "	<body>"
 				+ "<h1> Pour visualiser la charge d'un enseignant cliquer sur son lien :</h1>"
 				+ "		<ul>");
-		for(TeacherModel t : teacherS.getAll()){
+		for(Teacher t : teacherS.getAll()){
 			out.println("<li><a href =\"chargeTeacher?id="+t.getId()+"\">"+t.getFirstname()+" "+t.getLastname()+"</a></li>");
 		}
 		out.println(

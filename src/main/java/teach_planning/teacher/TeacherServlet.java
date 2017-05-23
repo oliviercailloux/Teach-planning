@@ -17,9 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.login.Login;
-import teach_planning.model.LoginModel;
-import teach_planning.model.TeacherModel;
+import teach_planning.model.Login;
+import teach_planning.model.Teacher;
 import teach_planning.service.LoginService;
 import teach_planning.service.TeacherService;
 
@@ -52,14 +51,14 @@ public class TeacherServlet extends HttpServlet {
 		String teacherLastname = req.getParameter("teacherLastname");
 		String teacherEmail = req.getParameter("teacherEmail");
 		
-		TeacherModel newTeacher = new TeacherModel();
+		Teacher newTeacher = new Teacher();
 		newTeacher.setFirstname(teacherFirstname);
 		newTeacher.setLastname(teacherLastname);
 		newTeacher.setEmail(teacherEmail);
 		teacherS.persist(newTeacher);
 		
 		// Creating an account for the new teacher and stocking it on the list
-		LoginModel newLogin = new LoginModel(teacherEmail, "default");
+		Login newLogin = new Login(teacherEmail, "default");
 		ls.persist(newLogin);
 		 
 		try(PrintWriter pw=resp.getWriter()) {
@@ -73,7 +72,7 @@ public class TeacherServlet extends HttpServlet {
 			
 			// Recapitulation of all teachers stocked on the teaching list
 			pw.println("<h1>Liste des enseignants</h1>");
-			for(TeacherModel t : teacherS.getAll()) {
+			for(Teacher t : teacherS.getAll()) {
 				pw.println(t.toString() + "<br/>");
 			}	
 		} catch(Exception e) {

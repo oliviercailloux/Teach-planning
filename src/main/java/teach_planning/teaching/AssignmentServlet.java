@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import teach_planning.model.TeacherModel;
-import teach_planning.model.TeachingModel;
+import teach_planning.model.Teacher;
+import teach_planning.model.Teaching;
 import teach_planning.service.TeacherService;
 import teach_planning.service.TeachingService;
 
@@ -47,8 +47,8 @@ public class AssignmentServlet extends HttpServlet {
 		resp.setLocale(Locale.FRENCH);
 		
 		// Setting Assignment parameters
-		TeacherModel teacher = teacherS.getAll().get(Integer.parseInt(req.getParameter("teacher")));
-		TeachingModel teaching = teachingS.getAll().get(Integer.parseInt(req.getParameter("teaching")));
+		Teacher teacher = teacherS.getAll().get(Integer.parseInt(req.getParameter("teacher")));
+		Teaching teaching = teachingS.getAll().get(Integer.parseInt(req.getParameter("teaching")));
 		String teachingType = req.getParameter("teachingType");
 		String promotion = req.getParameter("className");
 		
