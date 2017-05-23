@@ -7,29 +7,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import io.github.oliviercailloux.teach_planning.service.AssignmentService;
 
 @Entity 
 public class Teacher {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-		
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "teacher_teaching", 
-	joinColumns = @JoinColumn(name = "teacher_id", 
-	referencedColumnName = "id"), 
-	inverseJoinColumns = @JoinColumn(name = "teaching_id", 
-	referencedColumnName = "id"))
-	private List<Teaching> teachings = new ArrayList<>();
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+	private List<Assignment> teachings;
 	
 	private String firstname, lastname, email;
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
@@ -43,6 +39,7 @@ public class Teacher {
 		this.lastname = lastname;
 		this.email = email;
 		preferences = new HashMap<>();
+		teachings = new ArrayList<>();
 	}
 	
 	@Override
@@ -97,8 +94,21 @@ public class Teacher {
 		this.email = email;
 	}
 	
-	public List<Teaching> getTeachings(){
+	public List<Assignment> getTeachings(){
 		return teachings;
+	}
+	
+	public Assignment addAssignment(Teaching teaching) {
+		Assignment association = new Assignment();
+		association.setTeaching(teaching);
+		association.setTeacher(this);
+		association.setTeachingId(teaching.getId());
+		association.setTeacherId(this.getId());
+
+		this.teachings.add(association);
+		// Also add the association object to the employee.
+		teaching.getTeachers().add(association);
+		return association;
 	}
 	
 }

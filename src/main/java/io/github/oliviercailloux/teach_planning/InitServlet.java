@@ -12,6 +12,7 @@ import io.github.oliviercailloux.teach_planning.model.Login;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
 import io.github.oliviercailloux.teach_planning.model.Teaching;
 import io.github.oliviercailloux.teach_planning.model.TypeAccount;
+import io.github.oliviercailloux.teach_planning.service.AssignmentService;
 import io.github.oliviercailloux.teach_planning.service.LoginService;
 import io.github.oliviercailloux.teach_planning.service.TeacherService;
 import io.github.oliviercailloux.teach_planning.service.TeachingService;
@@ -30,6 +31,8 @@ public class InitServlet extends HttpServlet {
 	public TeacherService ts;
 	@Inject
 	public TeachingService tgs;
+	@Inject
+	public AssignmentService as;
 	
 	@Override
 	public void init() throws ServletException {
@@ -47,31 +50,31 @@ public class InitServlet extends HttpServlet {
 		
 		//Create the persistent teachers
 		Teacher alex = new Teacher("Alexandre", "AFGOUSTIDIS", "alexandre.afgoustidis@test.com");
+		ts.persist(alex);
 		Teacher steph = new Teacher("Stephane", "AIRIAU", "stephane.airiau@test.com");
+		ts.persist(steph);
 		Teacher hassan = new Teacher("Hassan", "AISSI", "hassan.aissi@test.com");
+		ts.persist(hassan);
 		
 		//Create the persistent teachings
-		tgs.persist(new Teaching("Java", 20, 10, 15, 0, 2));
-		tgs.persist(new Teaching("Communication", 10, 10, 0, 10, 1));
-		tgs.persist(new Teaching("Analyse de données", 30, 0, 0, 5, 4));
-		Teaching java = new Teaching("Java Objet", "CM","L3 INFO", 18,27);
-		alex.getTeachings().add(java);
-		java.getTeachers().add(alex);
-		ts.persist(alex);
-		Teaching alg = new Teaching("Algebre lineaire 2", "CM", "D.E.1", 19.5 ,29.25);
-		steph.getTeachings().add(alg);
-		alg.getTeachers().add(steph);
-		Teaching projet= new Teaching("Projet Java", "CM","L3 INFO", 1.50,2.25);
-		steph.getTeachings().add(projet);
-		projet.getTeachers().add(steph);
-		Teaching ia = new Teaching("Intelligence artificielle et raisonnement", "CM","M1 INFO", 18,27);
-		steph.getTeachings().add(ia);
-		ia.getTeachers().add(steph);
-		ts.persist(steph);
-		Teaching dec = new Teaching("Décision et analyse multicritere", "CM","M1 INFO", 18,27);
-		hassan.getTeachings().add(dec);
-		dec.getTeachers().add(hassan);
-		ts.persist(hassan);
+		tgs.persist(new Teaching("Java", "CM", "D.E.1",20, 10, 15, 0, 2));
+		tgs.persist(new Teaching("Communication", "CM", "D.E.1",10, 10, 0, 10, 1));
+		tgs.persist(new Teaching("Analyse de données", "CM", "D.E.1",30, 0, 0, 5, 4));
+		Teaching java = new Teaching("Java Objet", "CM","L3 INFO", 18,27,0,0,0);
+		tgs.persist(java);
+		as.persist(alex.addAssignment(java));
+		Teaching alg = new Teaching("Algebre lineaire 2", "CM", "D.E.1", 19.5 ,29.25,0,0,0);
+		tgs.persist(alg);
+		as.persist(steph.addAssignment(alg));
+		Teaching projet = new Teaching("Projet Java", "CM","L3 INFO", 1.50,2.25,0,0,0);
+		tgs.persist(projet);
+		as.persist(steph.addAssignment(projet));
+		Teaching ia = new Teaching("Intelligence artificielle et raisonnement", "CM","M1 INFO", 18,27,0,0,0);
+		tgs.persist(ia);
+		as.persist(steph.addAssignment(ia));
+		Teaching dec = new Teaching("Décision et analyse multicritere", "CM","M1 INFO", 18,27,0,0,0);
+		tgs.persist(dec);
+		as.persist(hassan.addAssignment(dec));
 	}
 	
 }

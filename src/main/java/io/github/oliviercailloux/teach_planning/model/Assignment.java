@@ -1,17 +1,41 @@
 package io.github.oliviercailloux.teach_planning.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
+@IdClass(AssignmentId.class)
 public class Assignment {
 
+	@Id
+	private int teacherId;
+	@Id
+	private int teachingId;
+
+	@ManyToOne
+	@PrimaryKeyJoinColumn(name="teacherId", referencedColumnName="id")
 	private Teacher teacher;
+	@ManyToOne
+	@PrimaryKeyJoinColumn(name="teachingId", referencedColumnName="id")
 	private Teaching teaching;
-	private String teachingType;
-	private String promotion;
-	
-	public Assignment(Teacher teacher, Teaching teaching, String teachingType, String promotion) {
-		this.teacher = teacher;
-		this.teaching = teaching;
-		this.teachingType = teachingType;
-		this.promotion = promotion;
+
+	public int getTeacherId() {
+		return teacherId;
+	}
+
+	public void setTeacherId(int teacherId) {
+		this.teacherId = teacherId;
+	}
+
+	public int getTeachingId() {
+		return teachingId;
+	}
+
+	public void setTeachingId(int teachingId) {
+		this.teachingId = teachingId;
 	}
 
 	public Teacher getTeacher() {
@@ -30,25 +54,9 @@ public class Assignment {
 		this.teaching = teaching;
 	}
 
-	public String getTeachingType() {
-		return teachingType;
-	}
-
-	public void setTeachingType(String teachingType) {
-		this.teachingType = teachingType;
-	}
-	
-	public String getPromotion() {
-		return promotion;
-	}
-
-	public void setPromotion(String promotion) {
-		this.promotion = promotion;
-	}
-
 	@Override
 	public String toString() {
 		return "Assignment [nomEnseignant=" + this.teacher.getLastname() + ", prenomEnseignant=" + this.teacher.getFirstname() + ", matière="
-				+ this.teaching.getName() + ", typeEnseignement=" + this.teachingType + ", promotion=" + this.promotion + "]"+"\n";
+				+ this.teaching.getName()+"]"+"\n";
 	}
 }

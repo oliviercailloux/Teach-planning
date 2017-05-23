@@ -24,6 +24,19 @@
 						<td><input type="text" id="teachingName" name="teachingName" required /></td>
 					</tr>
 					<tr>
+						<td>
+							<label for="teachingType">Type enseignement : <span style="color: red">*</span></label>
+						</td>
+						<td>
+							<select name="teachingType" id="teachingType" required>
+								<option value="CM">CM</option>
+								<option value="TD">TD</option>
+								<option value="TP">TP</option>
+								<option value="CMTD">CMTD</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td><label for="CM">Nombre d'heures de cours magistraux (CM) :</label></td>
 						<td><input type="number" min="0" value="0" id="CM" name="CM" /></td>
 					</tr>

@@ -8,9 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Teaching {
@@ -18,9 +16,9 @@ public class Teaching {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	
-	@ManyToMany(mappedBy="teachings")
-	private List<Teacher> teachers = new ArrayList<>();
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teaching")
+	private List<Assignment> teachers = new ArrayList<>();
 	
 	private String name, teachingType, degree;
 	private double nbCM, nbTD, nbTP, nbCMTD;
@@ -30,21 +28,15 @@ public class Teaching {
 		
 	}
 	
-	public Teaching(String name,int nbCM,int nbTD,int nbTP,int nbCMTD,int nbGrp){
-		this.name = name;
-		this.nbCM = nbCM;
-		this.nbTD = nbTD;
-		this.nbTP = nbTP;
-		this.nbCMTD = nbCMTD;
-		this.nbGrp = nbGrp;
-	}
-
-	public Teaching(String name, String teachingType, String degree, double nbCM, double nbTD) {
+	public Teaching(String name, String teachingType, String degree, double nbCM, double nbTD, double nbTP,double nbCMTD,int nbGrp) {
 		this.name = name;
 		this.teachingType = teachingType;
 		this.degree = degree;
 		this.nbCM = nbCM;
 		this.nbTD = nbTD; 
+		this.nbTP = nbTP;
+		this.nbCMTD = nbCMTD;
+		this.nbGrp = nbGrp;
 	}
 	
 	/**
@@ -70,7 +62,7 @@ public class Teaching {
 		return id;
 	}
 
-	public List<Teacher> getTeachers() {
+	public List<Assignment> getTeachers() {
 		return teachers;
 	}
 

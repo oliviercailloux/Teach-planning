@@ -46,14 +46,24 @@ public class TeachingServlet extends HttpServlet {
 		// Getting form parameters
 		// NB : the parseInt not throwing exception because number format already checked on form
 		String teachingName = req.getParameter("teachingName");
+		String teachingType = req.getParameter("teachingType");
 		int cm = Integer.parseInt(req.getParameter("CM"));
 		int tp = Integer.parseInt(req.getParameter("TP"));
 		int td = Integer.parseInt(req.getParameter("TD"));
 		int cmtd = Integer.parseInt(req.getParameter("CMTD"));
 		int grp = Integer.parseInt(req.getParameter("Grp"));
+
+		String degree = "";
+		if((cm != 0 && (tp != 0 || td !=0)) || cmtd != 0){
+			degree = "CMTD";
+		}else if(cm == 0 && (tp != 0 || td !=0) && cmtd == 0){
+			degree = "TD";
+		}else{
+			degree = "CM";
+		}
 		
 		// Creating a new teaching and stocking it on the list
-		Teaching newTeaching = new Teaching(teachingName, cm, td, tp, cmtd, grp);
+		Teaching newTeaching = new Teaching(teachingName,teachingType, degree, cm, td, tp, cmtd, grp);
 		teachingS.persist(newTeaching);
 		 
 		try(PrintWriter pw=resp.getWriter()) {

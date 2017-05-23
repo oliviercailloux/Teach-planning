@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
+import io.github.oliviercailloux.teach_planning.model.Assignment;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
 import io.github.oliviercailloux.teach_planning.model.Teaching;
 import io.github.oliviercailloux.teach_planning.service.TeacherService;
@@ -88,8 +89,8 @@ public class ShowChargeTeacherServlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(toDisplay);
 
-		for(Teaching teaching : teacher.getTeachings()) {
-			sb.append(teaching.detailTeaching());
+		for(Assignment teaching : teacher.getTeachings()) {
+			sb.append(teaching.getTeaching().detailTeaching());
 		}
 	
 		sb.append("</table>");
