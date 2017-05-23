@@ -20,7 +20,7 @@
 			<a href="jsps/researchTeaching.jsp">Rechercher les informations sur un enseignement</a><br/>
 			<a href="jsps/nbHours.jsp">Renseigner les heures d'un enseignant</a><br/>
 			
-			<form method="POST" name="logoutForm" action="disconnect" style="position:absolute;top:0px;right:0px;">
+			<form method="GET" name="logoutForm" action="disconnect?logout=1" style="position:absolute;top:0px;right:0px;">
 				<input type="hidden" id="logout" name="logout" value="logout" />
 				<input type="submit" value="Se déconnecter" />
 			</form>
@@ -28,7 +28,7 @@
 		<%		
 			} else {
 		%>
-			<a href="jsps/login.jsp">Connectez-vous pour accéder à cette page!</a>
+			<a href="xhtml/login.xhtml">Connectez-vous pour accéder à cette page!</a>
 		<%		
 			}
 		%>

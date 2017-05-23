@@ -81,7 +81,7 @@ public class Login implements Serializable {
 	
 	public void submitLoginPassword() {
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("connect" + "?login=" + login + "&password=" + password);
+			FacesContext.getCurrentInstance().getExternalContext().redirect("../connect" + "?login=" + login + "&password=" + password);
 		} catch (IOException e) {
 			throw new IllegalStateException(e);
 		}	
