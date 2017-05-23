@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
 
     <h:head>
         <title>Teach Planning app</title>
@@ -15,7 +16,11 @@
           <p> Nom :*<h:inputText value="#{teacherBean.lastName}"/> </p>
           <p> Email :*<h:inputText value="#{teacherBean.email}"/> </p>
            
-           <h:commandButton value="Ajouter un enseignant" action="teachconfirmation" />
+           <h:commandButton value="Ajouter un enseignant" action="addNewTeacher">
+		 	<f:param name = "teacherFirstname" value = "#{teacherBean.firstName}" />
+	 		<f:param name = "teacherLastname" value = "#{teacherBean.lastName}" />
+	 		<f:param name = "teacherEmail" value = "#{teacherBean.email}" />	
+	 	   </h:commandButton>
         </h:form>
 
     </h:body>
