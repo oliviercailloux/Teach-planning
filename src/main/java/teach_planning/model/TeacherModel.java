@@ -1,11 +1,14 @@
 package teach_planning.model;
 
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
-
+import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +19,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Transient;
 
+import teach_planning.service.LoginService;
+import teach_planning.service.TeacherService;
 import teach_planning.teaching.Teaching;
+
 
 @Entity 
 public class TeacherModel {
@@ -35,6 +42,7 @@ public class TeacherModel {
 	private List<TeachingModel> teachings = new ArrayList<>();
 	
 	private String firstname, lastname, email;
+	
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
 	private HashMap<String, Teaching> preferences = new HashMap<>();
 	

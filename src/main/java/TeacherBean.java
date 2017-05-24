@@ -1,25 +1,28 @@
-import java.io.Serializable;
+
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+
+import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import teach_planning.model.LoginModel;
 import teach_planning.model.TeacherModel;
+
 import teach_planning.service.LoginService;
 import teach_planning.service.TeacherService;
 
-@Named
+
 @RequestScoped
+@Named
 public class TeacherBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String email;
     
     @Inject
@@ -29,19 +32,19 @@ public class TeacherBean implements Serializable {
     private LoginService ls;
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public void setFirstName(String fn) {
-        this.firstName = fn;
+        this.firstname = fn;
     }
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
     public void setLastName( String ln) {
-        this.lastName = ln;
+        this.lastname = ln;
     }
     
     public String getEmail() {
@@ -51,16 +54,17 @@ public class TeacherBean implements Serializable {
     public void setEmail( String m) {
         this.email = m;
     }
-    
+	
     public String saveTeacher() {
-
-    	TeacherModel addedTeacher = new TeacherModel(firstName,lastName,email);
+    	
+    	TeacherModel addedTeacher = new TeacherModel(firstname,lastname,email);
     	teacherS.persist(addedTeacher);
     	
 		LoginModel newLogin = new LoginModel(email, "default");
 		ls.persist(newLogin);
     	
     	return "teachconfirmation.xhtml?faces-redirect=false";
-    }
+    }    
+
 }
 
