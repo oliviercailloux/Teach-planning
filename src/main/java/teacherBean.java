@@ -1,15 +1,32 @@
 import java.io.Serializable;
+import java.util.Map;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+
+import teach_planning.model.LoginModel;
+import teach_planning.model.TeacherModel;
+import teach_planning.service.LoginService;
+import teach_planning.service.TeacherService;
 
 
 @ManagedBean
 @RequestScoped
 public class teacherBean implements Serializable {
-    private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = 1L;
+	
     private String firstName;
     private String lastName;
     private String email;
+    
+    @Inject
+    private TeacherService teacherS;
+    
+    @Inject
+    private LoginService ls;
 
     public String getFirstName() {
         return firstName;
@@ -33,6 +50,17 @@ public class teacherBean implements Serializable {
 
     public void setEmail( String m) {
         this.email = m;
+    }
+    
+    public String saveTeacher() {
+
+    	TeacherModel addedTeacher = new TeacherModel(firstName,lastName,email);
+    	teacherS.persist(addedTeacher);
+    	
+		LoginModel newLogin = new LoginModel(email, "default");
+		ls.persist(newLogin);
+    	
+    	return "teachconfirmation.xhtml?faces-redirect=true";
     }
 }
 

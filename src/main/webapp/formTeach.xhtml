@@ -16,11 +16,7 @@
           <p> Nom :*<h:inputText value="#{teacherBean.lastName}"/> </p>
           <p> Email :*<h:inputText value="#{teacherBean.email}"/> </p>
            
-           <h:commandButton value="Ajouter un enseignant" action="addNewTeacher">
-		 	<f:param name = "teacherFirstname" value = "#{teacherBean.firstName}" />
-	 		<f:param name = "teacherLastname" value = "#{teacherBean.lastName}" />
-	 		<f:param name = "teacherEmail" value = "#{teacherBean.email}" />	
-	 	   </h:commandButton>
+           <h:commandButton value="Ajouter un enseignant" action="#{teacherBean.saveTeacher}" />
         </h:form>
 
     </h:body>
