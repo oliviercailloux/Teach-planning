@@ -14,12 +14,12 @@ import teach_planning.model.TeacherModel;
 @WebServlet(name="ServiceFileJSFServlet")
 public class FicheServiceJSFServlet extends HttpServlet {
 	
-	TeacherRequest tr;
+	//TeacherRequest tr;
 	TeacherModel teacher;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		tr.init();
-		teacher = tr.getTeacher();
+		//tr.init();
+		//teacher = tr.getTeacher();
 		request.getRequestDispatcher("../ServiFicheJSF.xhtml");
 		
 		
