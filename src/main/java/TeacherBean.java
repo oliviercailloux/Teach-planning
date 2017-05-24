@@ -5,16 +5,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import teach_planning.model.LoginModel;
 import teach_planning.model.TeacherModel;
 import teach_planning.service.LoginService;
 import teach_planning.service.TeacherService;
 
-
-@ManagedBean
+@Named
 @RequestScoped
-public class teacherBean implements Serializable {
+public class TeacherBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -60,7 +60,7 @@ public class teacherBean implements Serializable {
 		LoginModel newLogin = new LoginModel(email, "default");
 		ls.persist(newLogin);
     	
-    	return "teachconfirmation.xhtml?faces-redirect=true";
+    	return "teachconfirmation.xhtml?faces-redirect=false";
     }
 }
 
