@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<%@ page import="io.github.oliviercailloux.teach_planning.teacher.TeacherServlet"%>
+		<%@ page import="io.github.oliviercailloux.teach_planning.teacher.servlet.TeacherServlet"%>
 		<%@ page import="io.github.oliviercailloux.teach_planning.model.Teaching"%>
 		<%@ page import="io.github.oliviercailloux.teach_planning.teaching.TeachingServlet"%>
 		
