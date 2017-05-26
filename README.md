@@ -30,3 +30,11 @@
 14.Le système doit garder la trace des opérations d’une année précédente. (Les matières et préférences peuvent changer d’une année à l’autre.)
 
 15.Lors de l’affectation par l’administration des enseignants aux matières, le système aide en mettant en exergue les enseignants dont la charge n’est pas encore complète.
+
+# Recommandation du prof pour la dernière séance : 
+
+1. Trouver une technologie qui permet de faire la récupération des parametres dans les servlets
+2. JTA = @Transactional
+3. Remplacer @ManagedBean par @Named qui est plus récent et qui fonctionne avec EL
+4. Faire les fonctionnalités N°3 et N°6 => Utiliser Appache ODF Toolkit 
+5. Pour l'affectation des profs : Page avec les préférences des profs et la liste des matières où il n'y pas de profs affecté. 

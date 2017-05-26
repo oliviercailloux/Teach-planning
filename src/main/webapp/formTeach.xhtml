@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <title>Teach Planning app</title>
+    </h:head>
+    <h:body>
+         <h:commandButton value="Se déconnecter" action="#" style="align:right;" />  
+        <h1>Teach Planning app</h1>
+        <h2>Ajouter un enseignant :</h2>
+		<p><i>NB : L'email de l'enseignant lui servira de login. De plus, le mot de passe est "default". Il devra être modifié à la 1ère connexion.</i></p>
+        <h:form>
+          <p> Prénom :*<h:inputText value="#{teacherBean.firstname}"/> </p>
+          <p> Nom :*<h:inputText value="#{teacherBean.lastname}"/> </p>
+          <p> Email :*<h:inputText value="#{teacherBean.email}"/> </p>
+           
+           <h:commandButton value="Ajouter un enseignant" action="#{teacherBean.saveTeacher}" />
+        </h:form>
+
+    </h:body>
+</html>

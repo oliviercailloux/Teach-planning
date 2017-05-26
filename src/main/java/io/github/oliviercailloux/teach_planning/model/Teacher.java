@@ -1,21 +1,42 @@
 package io.github.oliviercailloux.teach_planning.model;
 
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+<<<<<<< HEAD:src/main/java/io/github/oliviercailloux/teach_planning/model/Teacher.java
 
 import javax.inject.Inject;
+=======
+import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+>>>>>>> remotes/origin/Issue17_Mathilde_Sandratra:src/main/java/teach_planning/model/TeacherModel.java
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD:src/main/java/io/github/oliviercailloux/teach_planning/model/Teacher.java
 import javax.persistence.OneToMany;
 
 import io.github.oliviercailloux.teach_planning.service.AssignmentService;
+=======
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Transient;
+
+import teach_planning.service.LoginService;
+import teach_planning.service.TeacherService;
+import teach_planning.teaching.Teaching;
+>>>>>>> remotes/origin/Issue17_Mathilde_Sandratra:src/main/java/teach_planning/model/TeacherModel.java
+
 
 @Entity 
 public class Teacher {
@@ -28,6 +49,7 @@ public class Teacher {
 	private List<Assignment> teachings;
 	
 	private String firstname, lastname, email;
+	
 	// pour le show charge teacher ... à refaire quand ce ne sera plus du code en dur
 	private Map<String, Teaching> preferences;
 	
