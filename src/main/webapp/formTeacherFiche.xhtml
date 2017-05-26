@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+		
+        <title>Imprimer une fiche</title>
+
+    </h:head>
+
+    <h:body>
+		<h1>Imprimer une fiche pour un enseignant</h1>
+        <h:form>
+        	<h:inputText value="#{teacherRequest.nom}" />
+        	<h:inputText value="#{teacherRequest.prenom}" />
+        	<h:commandButton value="Chercher" action="teacherRequest.saveTeacher" />
+        </h:form>
+        
+
+    </h:body>
+
+</html>
