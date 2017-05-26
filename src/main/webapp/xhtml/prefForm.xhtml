@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+ 	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Teach Planning app</title>
+</h:head>
+<h:body>
+	<h1>Teach Planning app</h1>
+	<h2>Ajouter une préférence :</h2>
+	<h:form>
+		<p>
+			Enseignant :
+			<h:selectOneMenu value="#{preferenceBean.teacher}">
+				<f:selectItems value="#{preferenceBean.teachers}" var="teacher" itemValue="#{teacher.id}" />
+			</h:selectOneMenu>
+		</p>
+		<p>
+			Matière :
+			<h:selectOneMenu value="#{preferenceBean.teaching}">
+				<f:selectItems value="#{preferenceBean.teachings}"  var="teaching" itemValue="#{teaching.id}" />
+			</h:selectOneMenu>
+		</p>
+		<p>
+			Choix :
+			<h:selectOneMenu value="#{preferenceBean.choice}">
+				<f:selectItem itemValue="A" itemLabel="Choix A" />
+				<f:selectItem itemValue="B" itemLabel="Choix B" />
+				<f:selectItem itemValue="C" itemLabel="Choix C" />
+			</h:selectOneMenu>
+		</p>
+		<p>
+			Nombre d'heures enseignées :
+			<h:inputText value="#{preferenceBean.hour}" />
+		</p>
+
+		<h:commandButton value="Ajouter une préference" action="#{preferenceBean.savePreference}" />
+	</h:form>
+
+</h:body>
+</html>
