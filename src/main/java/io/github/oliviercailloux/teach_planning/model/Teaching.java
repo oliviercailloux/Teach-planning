@@ -19,6 +19,8 @@ public class Teaching {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teaching")
 	private List<Assignment> teachers = new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "teaching")
+	private List<Preference> teachersPref = new ArrayList<>();
 	
 	private String name, teachingType, degree;
 	private double nbCM, nbTD, nbTP, nbCMTD;
@@ -38,16 +40,6 @@ public class Teaching {
 		this.nbCMTD = nbCMTD;
 		this.nbGrp = nbGrp;
 	}
-	
-	/**
-	 * @TODO
-	 * CORRIGER LA SERVLET PREFERENCESERVLET DE TEACHER QUI EST POURRIE
-	 */
-	public Teaching(String name, int nbH){
-		this.name = name;
-		this.nbCMTD = nbH;
-	}
-	
 	
 	/**
 	 * @TODO
@@ -129,14 +121,22 @@ public class Teaching {
 	public void setNbGrp(int nbGrp) {
 		this.nbGrp = nbGrp;
 	}
+	
+	public List<Preference> getTeachersPref() {
+		return teachersPref;
+	}
+
+	public void setTeachersPref(List<Preference> teachersPref) {
+		this.teachersPref = teachersPref;
+	}
+
+	public void setTeachers(List<Assignment> teachers) {
+		this.teachers = teachers;
+	}
 
 	@Override
 	public String toString() {
-		return(this.getName() + " est composée de " + getNbGrp() + " groupes et est décomposée comme suit : <br />" + 
-				getNbCM() + " heures de cours magistraux <br />" +
-				getNbTD() + " heures de cours de travaux dirigés <br />" +
-				getNbTP() + " heures de cours de travaux pratiques <br />" +
-				getNbCMTD() + " heures de cours mix CM/TD <br />");
+		return(getName() +" - "+getDegree());
 	}
 	
 }

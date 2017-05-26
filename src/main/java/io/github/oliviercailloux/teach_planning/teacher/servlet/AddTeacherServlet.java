@@ -19,15 +19,13 @@ import javax.ws.rs.core.MediaType;
 
 import io.github.oliviercailloux.teach_planning.model.Login;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
+import io.github.oliviercailloux.teach_planning.model.TypeAccount;
 import io.github.oliviercailloux.teach_planning.service.LoginService;
 import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
 @WebServlet(name="TeacherServlet", urlPatterns={"/addNewTeacher"})
-public class TeacherServlet extends HttpServlet {
+public class AddTeacherServlet extends HttpServlet {
 	
-	/**
-	 * DEFAULT
-	 */
 	private static final long serialVersionUID = 1L;
 	private ServletOutputStream out;
 	
@@ -59,7 +57,7 @@ public class TeacherServlet extends HttpServlet {
 		teacherS.persist(newTeacher);
 		
 		// Creating an account for the new teacher and stocking it on the list
-		Login newLogin = new Login(teacherEmail, "default");
+		Login newLogin = new Login(teacherEmail, "default", TypeAccount.TEACHER);
 		ls.persist(newLogin);
 		 
 		try(PrintWriter pw=resp.getWriter()) {

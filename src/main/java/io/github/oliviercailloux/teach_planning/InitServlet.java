@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
+import io.github.oliviercailloux.teach_planning.model.Assignment;
 import io.github.oliviercailloux.teach_planning.model.Login;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
 import io.github.oliviercailloux.teach_planning.model.Teaching;
@@ -22,9 +23,6 @@ public class InitServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	@PersistenceContext
-	private EntityManager em;
-	
 	@Inject
 	public LoginService ls;
 	@Inject
@@ -62,19 +60,21 @@ public class InitServlet extends HttpServlet {
 		tgs.persist(new Teaching("Analyse de données", "CM", "D.E.1",30, 0, 0, 5, 4));
 		Teaching java = new Teaching("Java Objet", "CM","L3 INFO", 18,27,0,0,0);
 		tgs.persist(java);
-		as.persist(alex.addAssignment(java));
 		Teaching alg = new Teaching("Algebre lineaire 2", "CM", "D.E.1", 19.5 ,29.25,0,0,0);
 		tgs.persist(alg);
-		as.persist(steph.addAssignment(alg));
 		Teaching projet = new Teaching("Projet Java", "CM","L3 INFO", 1.50,2.25,0,0,0);
 		tgs.persist(projet);
-		as.persist(steph.addAssignment(projet));
 		Teaching ia = new Teaching("Intelligence artificielle et raisonnement", "CM","M1 INFO", 18,27,0,0,0);
 		tgs.persist(ia);
-		as.persist(steph.addAssignment(ia));
 		Teaching dec = new Teaching("Décision et analyse multicritere", "CM","M1 INFO", 18,27,0,0,0);
 		tgs.persist(dec);
-		as.persist(hassan.addAssignment(dec));
+		
+		//Create the persistent assignments
+		as.persist(new Assignment(alex, java));
+		as.persist(new Assignment(steph,alg));
+		as.persist(new Assignment(steph,projet));
+		as.persist(new Assignment(steph,ia));
+		as.persist(new Assignment(hassan,dec));
 	}
 	
 }

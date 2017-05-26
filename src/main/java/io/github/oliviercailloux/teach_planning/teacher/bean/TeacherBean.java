@@ -8,6 +8,7 @@ import javax.inject.Named;
 
 import io.github.oliviercailloux.teach_planning.model.Login;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
+import io.github.oliviercailloux.teach_planning.model.TypeAccount;
 import io.github.oliviercailloux.teach_planning.service.LoginService;
 import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
@@ -57,7 +58,7 @@ public class TeacherBean implements Serializable {
     	Teacher addedTeacher = new Teacher(firstname,lastname,email);
     	teacherS.persist(addedTeacher);
     	
-		Login newLogin = new Login(email, "default");
+		Login newLogin = new Login(email, "default", TypeAccount.TEACHER);
 		ls.persist(newLogin);
     	
     	return "xhtml/teachconfirmation.xhtml?faces-redirect=false";

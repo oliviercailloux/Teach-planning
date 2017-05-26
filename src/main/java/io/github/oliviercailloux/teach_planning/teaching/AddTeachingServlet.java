@@ -21,11 +21,8 @@ import io.github.oliviercailloux.teach_planning.model.Teaching;
 import io.github.oliviercailloux.teach_planning.service.TeachingService;
 
 @WebServlet(name="TeachingServlet", urlPatterns={"/addNewTeaching"})
-public class TeachingServlet extends HttpServlet {
+public class AddTeachingServlet extends HttpServlet {
 	
-	/**
-	 * DEFAULT
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private ServletOutputStream out;

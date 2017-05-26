@@ -17,7 +17,6 @@ import javax.ws.rs.core.MediaType;
 
 import io.github.oliviercailloux.teach_planning.model.Assignment;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
-import io.github.oliviercailloux.teach_planning.model.Teaching;
 import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
 @WebServlet(name="ShowChargeTeacherServlet", urlPatterns={"/chargeTeacher"})

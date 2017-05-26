@@ -17,6 +17,7 @@ public class FicheServiceJSFServlet extends HttpServlet {
 	//TeacherRequest tr;
 	Teacher teacher;
 	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//tr.init();
 		//teacher = tr.getTeacher();

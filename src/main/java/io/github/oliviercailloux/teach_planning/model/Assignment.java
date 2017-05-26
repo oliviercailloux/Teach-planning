@@ -21,6 +21,16 @@ public class Assignment {
 	@ManyToOne
 	@PrimaryKeyJoinColumn(name="teachingId", referencedColumnName="id")
 	private Teaching teaching;
+	
+	public Assignment() {
+	}
+	
+	public Assignment(Teacher teacher, Teaching teaching) {
+		this.teacherId = teacher.getId();
+		this.teachingId = teaching.getId();
+		teacher.getTeachings().add(this);
+		teaching.getTeachers().add(this);
+	}
 
 	public int getTeacherId() {
 		return teacherId;
