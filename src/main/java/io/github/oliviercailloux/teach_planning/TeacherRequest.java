@@ -1,14 +1,13 @@
-package teach_planning;
+package io.github.oliviercailloux.teach_planning;
 
 import java.io.Serializable;
 
-import javax.annotation.ManagedBean;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import teach_planning.model.TeacherModel;
-import teach_planning.service.TeacherService;
+import io.github.oliviercailloux.teach_planning.model.Teacher;
+import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
 @Named
 @RequestScoped
@@ -46,25 +45,25 @@ public class TeacherRequest implements Serializable {
 		this.teacherS = teacherS;
 	}
 
-	public void setTeacher(TeacherModel teacher) {
+	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
 
-	private TeacherModel teacher;
+	private Teacher teacher;
 	
 	public void init(){
-		for(TeacherModel t : teacherS.getAll()) {
+		for(Teacher t : teacherS.getAll()) {
 			if((t.getFirstname()==this.prenom)&&(t.getLastname()==this.nom))
 				this.teacher = t;
 		}
 	}
 	
-	public TeacherModel getTeacher(){
+	public Teacher getTeacher(){
 		return teacher;
 	}
 	
 	public String saveTeacher(){
 		init();
-		return "serviceFilePre.xhtml?faces-redirect=true";
+		return "xhtml/serviceFilePre.xhtml?faces-redirect=true";
 	}
 }

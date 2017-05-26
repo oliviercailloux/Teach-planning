@@ -30,15 +30,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% for(Assignment assignment: AssignmentServlet.listAssignation) { %>
+					<% //for(Assignment assignment: AssignmentServlet.listAssignation) { %>
 						<tr>
-							<td><%out.print(assignment.getTeacher().getLastname());%></td>
-							<td><%out.print(assignment.getTeacher().getFirstname());%></td>
-							<td><%out.print(assignment.getTeaching().getName());%></td>
-							<td><%out.print(assignment.getTeachingType());%></td>
-							<td><%out.print(assignment.getPromotion());%></td>
+							<td><%//out.print(assignment.getTeacher().getLastname());%></td>
+							<td><%//out.print(assignment.getTeacher().getFirstname());%></td>
+							<td><%//out.print(assignment.getTeaching().getName());%></td>
+							<td><%//out.print(assignment.getTeachingType());%></td>
+							<td><%//out.print(assignment.getPromotion());%></td>
 						</tr>
-					<% } %>
+					<% //} %>
 				</tbody>	
 			</table>
 			

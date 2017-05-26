@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.teach_planning.teacher;
+package io.github.oliviercailloux.teach_planning.teacher.servlet;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

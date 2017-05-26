@@ -1,4 +1,4 @@
-package teach_planning.teacher;
+package io.github.oliviercailloux.teach_planning.teacher.servlet;
 
 import java.io.IOException;
 
@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import teach_planning.model.TeacherModel;
+import io.github.oliviercailloux.teach_planning.model.Teacher;
 
 
 @WebServlet(name="ServiceFileJSFServlet")
 public class FicheServiceJSFServlet extends HttpServlet {
 	
 	//TeacherRequest tr;
-	TeacherModel teacher;
+	Teacher teacher;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//tr.init();

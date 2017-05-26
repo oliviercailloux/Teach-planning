@@ -1,18 +1,15 @@
-
-import java.util.Map;
-
-import javax.faces.context.FacesContext;
-import javax.inject.Inject;
+package io.github.oliviercailloux.teach_planning.teacher.bean;
 
 import java.io.Serializable;
+
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
-import teach_planning.model.LoginModel;
-import teach_planning.model.TeacherModel;
-
-import teach_planning.service.LoginService;
-import teach_planning.service.TeacherService;
+import io.github.oliviercailloux.teach_planning.model.Login;
+import io.github.oliviercailloux.teach_planning.model.Teacher;
+import io.github.oliviercailloux.teach_planning.service.LoginService;
+import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
 
 @RequestScoped
@@ -57,13 +54,13 @@ public class TeacherBean implements Serializable {
 	
     public String saveTeacher() {
     	
-    	TeacherModel addedTeacher = new TeacherModel(firstname,lastname,email);
+    	Teacher addedTeacher = new Teacher(firstname,lastname,email);
     	teacherS.persist(addedTeacher);
     	
-		LoginModel newLogin = new LoginModel(email, "default");
+		Login newLogin = new Login(email, "default");
 		ls.persist(newLogin);
     	
-    	return "teachconfirmation.xhtml?faces-redirect=false";
+    	return "xhtml/teachconfirmation.xhtml?faces-redirect=false";
     }    
 
 }
