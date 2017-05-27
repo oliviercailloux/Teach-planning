@@ -56,10 +56,10 @@ public class LoginServlet extends HttpServlet {
 		}else{
 			switch (typeAccount) {
 			case "NOT_EXIST":
-				resp.sendRedirect("xhtml/connectionFailure.xhtml");
+				resp.sendRedirect("xhtml/login/connectionFailure.xhtml");
 				break;
 			case "NOT_PASS":
-				resp.sendRedirect("xhtml/connectionFailure.xhtml");
+				resp.sendRedirect("xhtml/login/connectionFailure.xhtml");
 				break;
 			case "ADMINISTRATOR":
 				session.setAttribute("typeSession", "admin");
@@ -70,7 +70,7 @@ public class LoginServlet extends HttpServlet {
 				resp.sendRedirect("index.jsp");
 				break;
 			default:
-				resp.sendRedirect("xhtml/connectionFailure.xhtml");
+				resp.sendRedirect("xhtml/login/connectionFailure.xhtml");
 				break;
 			}
 		}

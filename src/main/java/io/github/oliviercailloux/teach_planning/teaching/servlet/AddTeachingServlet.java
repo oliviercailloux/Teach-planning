@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.teach_planning.teaching;
+package io.github.oliviercailloux.teach_planning.teaching.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;

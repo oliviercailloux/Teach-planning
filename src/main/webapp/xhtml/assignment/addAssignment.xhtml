@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+ 	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Teach Planning app</title>
+</h:head>
+<h:body>
+	<h1>Teach Planning app</h1>
+	<h2>Ajouter une affetation :</h2>
+	<h:form>
+		<p>
+			Enseignant :
+			<h:selectOneMenu value="#{assignmentBean.teacherId}">
+				<f:selectItems value="#{assignmentBean.teachers}" var="teacher" itemValue="#{teacher.id}" />
+			</h:selectOneMenu>
+		</p>
+		<p>
+			Matière :
+			<h:selectOneMenu value="#{assignmentBean.teachingId}">
+				<f:selectItems value="#{assignmentBean.teachings}"  var="teaching" itemValue="#{teaching.id}" />
+			</h:selectOneMenu>
+		</p>
+		<h:commandButton value="Ajouter une préference" action="#{assignmentBean.addAssignment}" />
+	</h:form>
+
+</h:body>
+</html>

@@ -59,11 +59,11 @@ private static final long serialVersionUID = 1L;
 		try{
 			ps.persist(new Preference(teacher, teaching, choice, hour));
 			// Redirects to success page
-			resp.sendRedirect("xhtml/preferenceConfirmation.xhtml");
+			resp.sendRedirect("xhtml/preference/preferenceConfirmation.xhtml");
 		}catch(EntityExistsException e){
 			e.printStackTrace();
 			// Redirects to failure page
-			resp.sendRedirect("xhtml/preferenceFailure.xhtml");
+			resp.sendRedirect("xhtml/preference/preferenceFailure.xhtml");
 		}
 	}
 	

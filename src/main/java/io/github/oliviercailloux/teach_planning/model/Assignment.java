@@ -26,8 +26,8 @@ public class Assignment {
 	}
 	
 	public Assignment(Teacher teacher, Teaching teaching) {
-		this.teacherId = teacher.getId();
-		this.teachingId = teaching.getId();
+		teacherId = teacher.getId();
+		teachingId = teaching.getId();
 		teacher.getTeachings().add(this);
 		teaching.getTeachers().add(this);
 	}
@@ -66,7 +66,7 @@ public class Assignment {
 
 	@Override
 	public String toString() {
-		return "Assignment [nomEnseignant=" + this.teacher.getLastname() + ", prenomEnseignant=" + this.teacher.getFirstname() + ", matière="
-				+ this.teaching.getName()+"]"+"\n";
+		return "Assignment [nomEnseignant=" + teacher.getLastname() + ", prenomEnseignant=" + teacher.getFirstname() + ", matière="
+				+ teaching.getName()+"]"+"\n";
 	}
 }

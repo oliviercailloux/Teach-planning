@@ -61,7 +61,7 @@ public class TeacherBean implements Serializable {
 		Login newLogin = new Login(email, "default", TypeAccount.TEACHER);
 		ls.persist(newLogin);
     	
-    	return "xhtml/teachconfirmation.xhtml?faces-redirect=false";
+    	return "xhtml/addTeacher/teachconfirmation.xhtml?faces-redirect=false";
     }    
 
 }

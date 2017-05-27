@@ -64,6 +64,6 @@ public class TeacherRequest implements Serializable {
 	
 	public String saveTeacher(){
 		init();
-		return "xhtml/serviceFilePre.xhtml?faces-redirect=true";
+		return "xhtml/printTeacher/serviceFilePre.xhtml?faces-redirect=true";
 	}
 }
