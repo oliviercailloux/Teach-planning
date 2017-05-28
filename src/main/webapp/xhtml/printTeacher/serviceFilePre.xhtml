@@ -9,8 +9,90 @@
     </h:head>
 
     <h:body>
-		<h1>Imprimer une fiche pour un enseignant</h1>
-       
+		<h1>Fiche de service pour l'enseignant : #{teacherRequest.prenom} #{teacherRequest.nom}</h1>
+       	
+       	<table style='border-color:white; margin-left:7%;padding-left: 3%;'>
+					<tr>
+					<td>CIV</td><td>NOM</td><td>PRENOM</td>
+					</tr>
+					<tr>
+					<td><div style='border: 3px solid black; padding: 3px 5px 3px 5px; margin-right:30%;'></div></td>
+					<td><div width='800' style='border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;'>#{teacherRequest.nom}</div></td>
+					<td><div width='800' style='border:3px solid black;  padding: 3px 200px 3px 5px;'>#{teacherRequest.prenom} </div></td>
+					</tr>
+					<tr height='20' ><td></td><td></td><td></td></tr>
+					<tr>
+					<td>STATUT <span style='border:3px solid black; padding: 3px 5px 3px 5px;' > </span></td><td>DISCIPLINE <span style='border:3px solid black;padding: 3px 5px 3px 5px;' > </span></td>
+					<td></td>		
+					</tr>
+					<tr height='20'><td></td><td></td><td></td></tr>
+					<tr>
+					<td>EMAIL <span style='border:3px solid black; padding: 3px 20px 3px 20px;' > #{teacherRequest.email} </span></td> <td></td> <td></td>
+					</tr>
+					<tr height='20'><td></td><td></td><td></td></tr>
+					<tr>
+					<td>PORTABLE</td><td>FIXE</td><td>POSTE</td>
+					</tr>
+					<td><div width='800' height='80' style='border:3px solid black; padding: 3px 5px 3px 5px;'><h:outputText value=" " /></div></td>
+	
+					<td><div width='800' style='color:white; border:3px solid black;  padding: 3px 200px 3px 5px; margin-right:30%;'><h:outputText value=" " /></div></td>
+					<td><div width='800' height='80' style='border:3px solid black;  padding: 3px 5px 3px 5px;'><h:outputText value=" " /></div></td>
+						
+					<tr height='30'><td></td><td></td><td></td></tr>
+		</table>
+					
+		<table style='width:40px; border-collapse:collapse; border: 1px solid black; margin-left:8%;margin-bottom:50px;'>
+			<tr>
+				<th  style='border: 1px solid black;text-align:center;padding: 3px 3px 3px 5px;' height='50' >ANNEE</th>
+				<th style='border: 1px solid black;text-align:center;padding: 3px 3px 3px 5px;'  height='50'>ENSEIGNEMENTS</th>
+				<th style='border: 1px solid black;text-align:center;padding: 3px 3px 3px 5px;'  height='50'> TYPE</th>
+				<th style='border: 1px solid black;text-align:center;padding: 3px 3px 3px 5px;'  height='50'> Nbr H</th>
+			</tr>
+			<tr> 
+				<td style='border: 1px solid black;' ></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;' ></td> 
+			</tr>
+			<tr> 
+				<td style='border: 1px solid black;' ></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;' ></td> 
+			</tr>
+			<tr> 
+				<td style='border: 1px solid black;' ></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;' ></td> 
+			</tr>
+			<tr> 
+				<td style='border: 1px solid black;' ></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;' ></td> 
+			</tr>
+			<tr> 
+				<td style='border: 1px solid black;' ></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;' ></td> 
+			</tr>
+			<tr> 
+				<td style='border: 1px solid black;' ></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;' ></td> 
+			</tr>
+			<tr> 
+				<td style='border: 1px solid black;' ></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;'></td> 
+				<td style='border: 1px solid black;' ></td> 
+			</tr>
+		</table>
+		<div style='margin-left:55%;color:blue;'>TOTAL <span style='border:3px solid black; padding: 3px 200px 3px 20px;'></span></div>																		
+		<h2><a href='javascript:window.print()'>Imprimer la fiche service</a></h2>
 
     </h:body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
 		
@@ -10,9 +10,14 @@
     <h:body>
 		<h1>Imprimer une fiche pour un enseignant</h1>
         <h:form>
-        	<h:inputText value="#{teacherRequest.nom}" />
-        	<h:inputText value="#{teacherRequest.prenom}" />
-        	<h:commandButton value="Chercher" action="teacherRequest.saveTeacher" />
+ 			<p>
+			Enseignant :
+			<h:selectOneMenu value="#{teacherRequest.teacher1}">
+				<f:selectItems value="#{teacherRequest.teachers}" var="teacher" itemValue="#{teacher.id}" />
+			</h:selectOneMenu>
+			</p>
+ 			
+        	<h:commandButton value="Chercher" action="#{teacherRequest.saveTeacher}" />
         </h:form>
         
 
