@@ -42,5 +42,15 @@ public class LoginService {
 	    }
 		return "Le login : '" + login + "', n'existe pas !";
 	}
+	
+	@Transactional
+	public String getTypeAccount(String login) {
+		for(Login lm : this.getAll()) {
+			if(lm.getLogin().equals(login)) {
+				return lm.getTypeAccount().toString();
+			}
+		}
+		return null;
+	}
 
 }

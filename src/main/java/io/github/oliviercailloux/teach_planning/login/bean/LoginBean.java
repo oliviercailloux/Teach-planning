@@ -41,6 +41,7 @@ public class LoginBean implements Serializable {
 		
 		if(result=="OK") {
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("userLogin",this.getLogin());
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("userAccount",ls.getTypeAccount(this.getLogin()));
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("errorLogin");
 		} else {
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("errorLogin",result);
@@ -51,6 +52,7 @@ public class LoginBean implements Serializable {
 	
 	public String disconnect() {
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("userLogin");
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("userAccount");
 		return "login.xhtml?faces-redirect=true";
 	}
 }
