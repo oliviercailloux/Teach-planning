@@ -1,10 +1,7 @@
 package io.github.oliviercailloux.teach_planning.model;
 
-import java.io.IOException;
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@ManagedBean
 @Entity
 @Table(name="LOGIN")
 public class Login implements Serializable {
@@ -68,15 +64,6 @@ public class Login implements Serializable {
 	@Override
 	public String toString() {
 		return "Je suis l'utilisateur " + this.getLogin();
-	}
-	
-	public void submitLoginPassword() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("../../connect" + "?login=" + login + "&password=" + password);
-		} catch (IOException e) {
-			throw new IllegalStateException(e);
-		}	
-		
 	}
 
 }

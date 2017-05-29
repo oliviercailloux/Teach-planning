@@ -3,7 +3,6 @@
 
 	<head>
 		<%@ page import="io.github.oliviercailloux.teach_planning.model.Teaching"%>
-		<%@ page import="io.github.oliviercailloux.teach_planning.teaching.AddTeachingServlet"%>
 		
 		<meta charset="UTF-8">
 		<title>Teach Planning app - Research a teaching</title>

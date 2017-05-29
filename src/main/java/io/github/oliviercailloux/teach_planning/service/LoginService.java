@@ -29,5 +29,18 @@ public class LoginService {
 	public List<Login> getAll() {
 		return em.createQuery(qh.selectAll(em.getCriteriaBuilder(), Login.class)).getResultList();
 	}
+	
+	@Transactional
+	public String isExistLoginPassword(String login, String password) {
+		for(Login lm : this.getAll()) {
+			if(lm.getLogin().equals(login)) {
+				if(lm.getPassword().equals(password)) {
+					return "OK";
+				}
+				return "NOK";
+			}
+	    }
+		return "NOK";
+	}
 
 }

@@ -1,4 +1,3 @@
-<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
 
@@ -17,14 +16,14 @@
         	<table>
         		<tr>
         			<td><h:outputText value="Login" /><span style="color:red">*</span></td>
-        			<td><h:inputText id="login" name="login" value="#{login.login}" required="true"/></td>
+        			<td><h:inputText id="login" name="login" value="#{loginBean.login}" required="true"/></td>
         		</tr>
         		<tr>
         			<td><h:outputText value="Password" /><span style="color:red">*</span></td>
-        			<td><h:inputSecret id="password" name="password" value="#{login.password}" required="true"/></td>
+        			<td><h:inputSecret id="password" name="password" value="#{loginBean.password}" required="true"/></td>
         		</tr>
 			</table>
-			<h:commandButton action="#{login.submitLoginPassword}" value="Connexion"></h:commandButton>
+			<h:commandButton action="#{loginBean.submitLoginPassword}" value="Connexion"></h:commandButton>
         </h:form>
     </h:body>
 
