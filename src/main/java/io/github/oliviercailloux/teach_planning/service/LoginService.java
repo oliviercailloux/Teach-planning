@@ -37,10 +37,10 @@ public class LoginService {
 				if(lm.getPassword().equals(password)) {
 					return "OK";
 				}
-				return "NOK";
+				return "Le mot de passe est incorrect pour le login : " + login;
 			}
 	    }
-		return "NOK";
+		return "Le login : '" + login + "', n'existe pas !";
 	}
 
 }

@@ -6,25 +6,52 @@
     </h:head>
 
     <h:body>
-        <h1>Connectez-vous !</h1>
+    	<h:panelGroup rendered="#{empty sessionScope.userLogin}">
+    
+	        <h1>Connectez-vous !</h1>
+	        
+	        <i>NB : L'email sert de login.
+	           De plus, le mot de passe est "default" à la 1ère connexion. Il doit être modifié.</i>
+	        <br/><br/><br/>
+	        
+	        <span style="color:red">
+	        	<h:outputText value="#{sessionScope.errorLogin}" />
+	        </span>
+	        
+	        <h:form>
+	        	<table>
+	        		<tr>
+	        			<td><h:outputText value="Login" /><span style="color:red">*</span></td>
+	        			<td><h:inputText id="login" name="login" value="#{loginBean.login}" required="true"/></td>
+	        		</tr>
+	        		<tr>
+	        			<td><h:outputText value="Password" /><span style="color:red">*</span></td>
+	        			<td><h:inputSecret id="password" name="password" value="#{loginBean.password}" required="true"/></td>
+	        		</tr>
+				</table>
+				<h:commandButton action="#{loginBean.submitLoginPassword}" value="Connexion"></h:commandButton>
+	        </h:form>
         
-        <i>NB : L'email sert de login.
-           De plus, le mot de passe est "default" à la 1ère connexion. Il doit être modifié.</i>
-        <br/><br/><br/>
+        </h:panelGroup>
         
-        <h:form>
-        	<table>
-        		<tr>
-        			<td><h:outputText value="Login" /><span style="color:red">*</span></td>
-        			<td><h:inputText id="login" name="login" value="#{loginBean.login}" required="true"/></td>
-        		</tr>
-        		<tr>
-        			<td><h:outputText value="Password" /><span style="color:red">*</span></td>
-        			<td><h:inputSecret id="password" name="password" value="#{loginBean.password}" required="true"/></td>
-        		</tr>
-			</table>
-			<h:commandButton action="#{loginBean.submitLoginPassword}" value="Connexion"></h:commandButton>
-        </h:form>
+        <h:panelGroup rendered="#{not empty sessionScope.userLogin}">
+        	<h1>Bienvenue sur Teach Planning app !</h1>
+        	
+        	<h:form style="position:absolute;top:0px;right:0px;">
+				<h:commandButton action="#{loginBean.disconnect}" value="Déconnexion"></h:commandButton>
+			</h:form>
+
+			<a href="../../jsps/addTeacher.jsp">Ajouter un enseignant</a><br/>
+			<a href="../../jsps/addTeaching.jsp">Ajouter un enseignement</a><br/>
+			<a href="../assignment/addAssignment.xhtml">Affecter un enseignant à une matière</a><br/>
+				
+			<a href="../preference/prefForm.xhtml">Ajouter les préférences d'un enseignant</a><br/>
+			<a href="../../jsps/EmptyServiceFile.jsp">Imprimer une fiche de service</a><br/>
+			<a href="../assignment/summaryAssignment.xhtml">Récapitulatif des affectations</a><br/>
+			<a href="../../jsps/researchTeaching.jsp">Rechercher les informations sur un enseignement</a><br/>
+			<a href="../../jsps/nbHours.jsp">Renseigner les heures d'un enseignant</a><br/>
+        </h:panelGroup>
+        
     </h:body>
 
 </html>

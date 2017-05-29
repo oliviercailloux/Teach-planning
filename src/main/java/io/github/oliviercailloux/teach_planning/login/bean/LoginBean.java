@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import io.github.oliviercailloux.teach_planning.model.Login;
@@ -37,9 +38,19 @@ public class LoginBean implements Serializable {
 
 	public String submitLoginPassword() {
 		String result = ls.isExistLoginPassword(this.getLogin(), this.getPassword());
-		if(result=="OK")
-			return "index.xhtml?faces-redirect=true";
-		return "login.xhtml?faces-redirect=true";
 		
+		if(result=="OK") {
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("userLogin",this.getLogin());
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("errorLogin");
+		} else {
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("errorLogin",result);
+		}
+		
+		return "login.xhtml?faces-redirect=true";
+	}
+	
+	public String disconnect() {
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("userLogin");
+		return "login.xhtml?faces-redirect=true";
 	}
 }
