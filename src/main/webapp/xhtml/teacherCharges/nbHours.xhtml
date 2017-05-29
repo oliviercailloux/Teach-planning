@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Teach Planning app</title>
+    </h:head>
+    <h:body>
+         <h:form style="position:absolute;top:0px;right:0px;">
+			<h:commandButton action="#{loginBean.disconnect}" value="Déconnexion"></h:commandButton>
+		 </h:form>  
+        <h1>Teach Planning app</h1>
+        <h2>Déclaration du nombre d'heures de cours</h2>
+		<h:form>
+			<p> Enseignant :
+				<h:selectOneMenu value="#{chargeBean.teacherId}">
+					<f:selectItems value="#{chargeBean.teachers}" var="teacher" itemValue="#{teacher.id}" />
+				</h:selectOneMenu>
+			</p>
+			<p> Nombre d'heures de cours disponible :
+				<h:inputText value="#{chargeBean.chargeTotale}"/>
+			</p>
+			<h:commandButton value="Enregistrer la charge" action="#{chargeBean.saveChargeTeacher}" />
+		</h:form>
+    </h:body>
+</html>
