@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Teach Planning app</title>
+    </h:head>
+    <h:body>
+    	 <a href="../login/login.xhtml">Retour à l'accueil</a>
+         <h:form style="position:absolute;top:0px;right:0px;">
+			<h:commandButton action="#{loginBean.disconnect}" value="Déconnexion"></h:commandButton>
+		 </h:form>  
+        <h1>Teach Planning app</h1>
+        <h2>Déclaration du nombre d'heures de cours</h2>
+
+		<p> La charge a bien été enregistrée !</p>
+		
+		<h2>Liste des charges enregistrées : </h2>
+
+		<h:dataTable value="#{chargeBean.allCharges}" var="chargeteacher">
+			<h:column>
+				<f:facet name="header">Enseignant</f:facet>
+				#{chargeteacher.teacherId} - #{chargeteacher.teacher}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nb d'heures disponibles</f:facet>
+				#{chargeteacher.chargeTotale}
+			</h:column>
+		</h:dataTable> 
+    </h:body>
+</html>

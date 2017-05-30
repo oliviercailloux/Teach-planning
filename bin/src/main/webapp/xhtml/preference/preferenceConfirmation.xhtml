@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <title>Teach Planning app</title>
+    </h:head>
+
+
+    <h:body>
+        <h1>Nouvelle préférence ajoutée ! </h1>
+        <a href="../../index.jsp">Retour à l'accueil</a>
+        <h:form>
+  		 <p>Professeur : #{preferenceBean.teacher}</p>
+         <p>Matière : #{preferenceBean.teaching}</p>
+         <p>Choix : #{preferenceBean.choice}</p>
+         <p>Nombre d'heures enseignées : #{preferenceBean.hour}</p>
+        </h:form> 
+        
+        
+    </h:body>
+</html>
