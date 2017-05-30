@@ -1,10 +1,12 @@
 package io.github.oliviercailloux.teach_planning.teacher.bean;
+import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 import io.github.oliviercailloux.teach_planning.model.Login;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
@@ -13,8 +15,8 @@ import io.github.oliviercailloux.teach_planning.service.LoginService;
 import io.github.oliviercailloux.teach_planning.service.TeacherService;
 
 
+@ManagedBean
 @RequestScoped
-@Named
 public class TeacherBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -22,6 +24,7 @@ public class TeacherBean implements Serializable {
     private String firstname;
     private String lastname;
     private String email;
+    private List<Teacher> teachings = new ArrayList<>();
     
     @Inject
     private TeacherService teacherS;
@@ -52,17 +55,26 @@ public class TeacherBean implements Serializable {
     public void setEmail( String m) {
         this.email = m;
     }
+    
+	public List<Teacher> getTeachings(){
+		return teachings;
+	}
+	
+	public void setTeachings(List<Teacher> list) {
+		this.teachings = list;
+	}
 	
     public String saveTeacher() {
     	
     	Teacher addedTeacher = new Teacher(firstname,lastname,email);
     	teacherS.persist(addedTeacher);
     	
-		Login newLogin = new Login(email, "default", TypeAccount.TEACHER);
+    	this.setTeachings(teacherS.getTeachings());
+    	
+		Login newLogin = new Login(email, "default",TypeAccount.TEACHER);
 		ls.persist(newLogin);
     	
-    	return "xhtml/addTeacher/teachconfirmation.xhtml?faces-redirect=false";
+    	return "teachconfirmation.xhtml?faces-redirect=false";
     }    
 
 }
-
