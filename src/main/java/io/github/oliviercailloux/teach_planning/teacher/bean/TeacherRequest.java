@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.teach_planning;
+package io.github.oliviercailloux.teach_planning.teacher.bean;
 
 import java.io.Serializable;
 import java.util.List;

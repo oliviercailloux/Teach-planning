@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Teach Planning app</title>
+    </h:head>
+    <h:body>
+            <h1>Teach Planning app</h1>
+        <h2>Ajouter un nouvel enseignement</h2>
+        			<h:form>
+        			<table>
+					<tr>
+						<td> Nom de l'enseignement :<h:inputText value="#{teachingBean.teachingName}"/></td>
+					</tr>
+					<tr>
+						<td> Nombre d'heures de cours magistraux (CM) <span style="color: red">*</span>:<h:inputText value="#{teachingBean.cm}"/></td>
+					</tr>
+					<tr>
+						<td> Nombre d'heures de travaux pratiques (TP) <span style="color: red">*</span>:<h:inputText value="#{teachingBean.tp}"/></td>
+					</tr>
+					<tr>
+						<td> Nombre d'heures de travaux dirigés (TD) <span style="color: red">*</span>:<h:inputText value="#{teachingBean.td}"/></td>
+					</tr>
+					<tr>
+						<td> Nombre d'heures de mix cours magistraux / travaux dirigés (CMTD) <span style="color: red">*</span>:<h:inputText value="#{teachingBean.cmtd}"/></td>
+					</tr>
+					<tr>
+						<td> Nombre de groupes <span style="color: red">*</span>:<h:inputText value="#{teachingBean.grp}"/></td>
+					</tr>
+
+					
+				</table>
+				<h:commandButton value="Ajouter un enseignement" action="#{teachingBean.saveTeaching}" />
+				
+				</h:form>
+       
+    </h:body>
+</html>
