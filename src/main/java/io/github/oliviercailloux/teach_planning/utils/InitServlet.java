@@ -1,20 +1,21 @@
-package io.github.oliviercailloux.teach_planning;
+package io.github.oliviercailloux.teach_planning.utils;
 
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 import io.github.oliviercailloux.teach_planning.model.Assignment;
+import io.github.oliviercailloux.teach_planning.model.Choice;
 import io.github.oliviercailloux.teach_planning.model.Login;
+import io.github.oliviercailloux.teach_planning.model.Preference;
 import io.github.oliviercailloux.teach_planning.model.Teacher;
 import io.github.oliviercailloux.teach_planning.model.Teaching;
 import io.github.oliviercailloux.teach_planning.model.TypeAccount;
 import io.github.oliviercailloux.teach_planning.service.AssignmentService;
 import io.github.oliviercailloux.teach_planning.service.LoginService;
+import io.github.oliviercailloux.teach_planning.service.PreferenceService;
 import io.github.oliviercailloux.teach_planning.service.TeacherService;
 import io.github.oliviercailloux.teach_planning.service.TeachingService;
 
@@ -31,6 +32,8 @@ public class InitServlet extends HttpServlet {
 	public TeachingService tgs;
 	@Inject
 	public AssignmentService as;
+	@Inject
+	private PreferenceService prefS;
 	
 	@Override
 	public void init() throws ServletException {
@@ -75,6 +78,13 @@ public class InitServlet extends HttpServlet {
 		as.persist(new Assignment(steph,projet));
 		as.persist(new Assignment(steph,ia));
 		as.persist(new Assignment(hassan,dec));
+		
+		//Create the persistent assignments
+		prefS.persist(new Preference(alex, java, Choice.A, 4));
+		prefS.persist(new Preference(steph,alg, Choice.A, 4));
+		prefS.persist(new Preference(steph,projet, Choice.B, 4));
+		prefS.persist(new Preference(steph,ia, Choice.C, 4));
+		prefS.persist(new Preference(hassan,dec, Choice.A, 4));
 	}
 	
 }

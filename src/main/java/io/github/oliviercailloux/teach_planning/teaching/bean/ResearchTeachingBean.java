@@ -34,6 +34,7 @@ public class ResearchTeachingBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private Teaching teaching;
 	
 	private String teachingName;
 	private double cm;
@@ -41,8 +42,6 @@ public class ResearchTeachingBean implements Serializable {
 	private double td;
 	private double cmtd;
 	private double grp;
-	
-	
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -88,9 +87,6 @@ public class ResearchTeachingBean implements Serializable {
 	public void setTp(double tp) {
 		this.tp = tp;
 	}
-		
-	private Teaching teaching;
-
 	
 	@PostConstruct
 	public void init(){

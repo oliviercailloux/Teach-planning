@@ -37,7 +37,7 @@ public class AssignmentBean  implements Serializable {
 	@Inject
 	private TeachingService tgS;
 	
-	private List<Assignment> assignments;
+	private List<Object[]> assignments;
 	private List<Teacher> teachers;
 	private List<Teaching> teachings;
 	
@@ -46,16 +46,16 @@ public class AssignmentBean  implements Serializable {
 
     @PostConstruct
     public void init() {
-    	assignments = aS.getAll();
+    	assignments = aS.getAllAssignment();
 		teachers = tS.getAll();
 		teachings = tgS.getAll();
 	}
 
-	public List<Assignment> getAssignments() {
+	public List<Object[]> getAssignments() {
 		return assignments;
 	}
 
-	public void setAssignments(List<Assignment> assignments) {
+	public void setAssignments(List<Object[]> assignments) {
 		this.assignments = assignments;
 	}
     

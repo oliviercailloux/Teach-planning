@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import io.github.oliviercailloux.teach_planning.model.Assignment;
@@ -24,6 +25,16 @@ public class AssignmentService {
 	public void persist(Assignment assignment) {
 		em.persist(assignment);
 	}
+	
+	@Transactional
+	public List<Object[]> getAllAssignment() {
+		Query query = em.createQuery(
+				"SELECT DISTINCT t.firstname, t.lastname, tg.name"
+				+ " FROM Teaching AS tg, Assignment AS a, Teacher AS t"
+				+ " WHERE tg.id = a.teachingId"
+				+ " AND  t.id = a.teacherId", Object[].class);
+		return query.getResultList();
+	} 
 	
 	@Transactional
 	public List<Assignment> getAll() {

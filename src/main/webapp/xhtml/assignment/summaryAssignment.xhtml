@@ -11,11 +11,11 @@
 		<h:dataTable value="#{assignmentBean.assignments}" var="assignment">
 			<h:column>
 				<f:facet name="header">Teacher</f:facet>
-				#{assignment.teacherId} - #{assignment.teacher}
+				#{assignment[0]} #{assignment[1]}
 			</h:column>
 			<h:column>
 				<f:facet name="header">Teaching</f:facet>
-				#{assignment.teachingId} - #{assignment.teaching}
+				#{assignment[2]}
 			</h:column>
 		</h:dataTable>
         <a href="../login/login.xhtml">Retour à l'accueil</a>

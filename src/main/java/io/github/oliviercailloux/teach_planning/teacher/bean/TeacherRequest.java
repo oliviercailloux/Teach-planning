@@ -92,31 +92,6 @@ public class TeacherRequest implements Serializable {
 	@PostConstruct
 	public void init(){
 		teachers = teacherS.getAll();
-		//this.email = teachers.get(1).getEmail();
-		int k = teachers.size();
-		/*
-		for(int i =0; i<k; i++){
-			teacher = teachers.get(i);
-			if((teacher.getFirstname().equalsIgnoreCase(prenom))||(teacher.getLastname().equalsIgnoreCase(nom))){
-				//this.teacher = t;
-				this.email = "a";
-				this.email = teacher.getEmail();
-				this.email = "b";
-			}
-			else
-				this.email = "NotFound";
-		}
-		*/
-		/*
-		for(Teacher t : teachers) {
-			if((t.getFirstname().equalsIgnoreCase(this.prenom))|(t.getLastname().equalsIgnoreCase(this.nom))){
-				this.teacher = t;
-				this.email = "a";
-			}	
-			
-		}
-		*/
-		
 	}
 	
 	public Teacher getTeacher(){
